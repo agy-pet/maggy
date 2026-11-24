@@ -1,0 +1,70 @@
+name: Build and deploy site
+
+# The landing page source lives in docs/ here; it is served from the org's root
+# site, https://agy-pet.github.io/, i.e. the agy-pet/agy-pet.github.io repo.
+# PAGES_DEPLOY_KEY is the private half of a write deploy key on that repo.
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "docs/**"
+      - "scripts/locales.json"
+      - "scripts/build_docs.py"
+      - "README.md"
+      - "VERSION"
+      - "install.sh"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-deploy
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Rebuild static locale pages and llms.txt
+        run: python3 scripts/build_docs.py
+
+      - name: Commit updated generated files
+        run: |
+          if git diff --quiet docs/; then
+            echo "Generated docs are already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git commit -m "docs: rebuild generated pages"
+          git push
+
+      - name: Check out the root site repo
+        uses: actions/checkout@v4
+        with:
+          repository: agy-pet/agy-pet.github.io
+          ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
+          path: site
+
+      - name: Deploy docs/ to https://agy-pet.github.io/
+        run: |
+          rsync -a --delete --exclude .git --exclude README.md docs/ site/
+          cd site
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Site already up to date."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "deploy: agy-pet/maggy@${GITHUB_SHA::7}"
+          git push

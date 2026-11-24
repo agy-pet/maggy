@@ -5,7 +5,7 @@
 #
 # Otherwise:
 #
-#   curl -fsSL https://raw.githubusercontent.com/agy-pet/maggy/master/install.sh | bash
+#   curl -fsSL https://agy-pet.github.io/install.sh | bash
 #
 # Extra args are passed to `maggy setup`, e.g. `| bash -s -- --theme xmas --no-mood`.
 #

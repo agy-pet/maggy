@@ -160,13 +160,27 @@ def fmt_time(now, iso, sec, style="datetime"):
     return f"{t_str} {DIM}({cd}){RESET}"
 
 
-def render_statusline(data, frame_idx=None, activity=None):
+def stats_segment(summary):
+    """`✓12 🔥5`: tasks finished today, and the daily streak once it's 2+ days."""
+    if not summary or not (summary.get("tasks") or summary.get("streak", 0) >= 2):
+        return ""
+    seg = f"{GREEN}✓{RESET}{WHITE}{summary.get('tasks', 0)}{RESET}"
+    if summary.get("streak", 0) >= 2:
+        seg += f" 🔥{ORANGE}{summary['streak']}{RESET}"
+    return seg
+
+
+def render_statusline(data, frame_idx=None, activity=None, summary=None):
     now = time.time()
     agent_state = data.get("agent_state") or "idle"
     term_width = int(data.get("terminal_width") or 120)
 
     if frame_idx is None:
         frame_idx, activity = tick(agent_state)
+        import stats
+        summary = stats.observe(data, now)
+        if summary:
+            activity["tasks_today"] = summary["tasks"]
 
     m = data.get("model") or {}
     model_name = sanitize_text(m.get("display_name") or m.get("id") or "Gemini")
@@ -339,6 +353,10 @@ def render_statusline(data, frame_idx=None, activity=None):
         segments.append(" ".join(ws))
     if "effort" not in hidden:
         segments.append(eff_sym)
+    if "stats" not in hidden and config.flag("stats", cfg):
+        seg = stats_segment(summary)
+        if seg:
+            segments.append(seg)
     line1 = SEP.join(segments)
     metrics = ([line1] if line1 else []) + rate_rows
     right_side = cfg["side"] == "right"

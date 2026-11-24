@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏</title>
+  <meta name="description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏。看 Maggy 在当前模型、上下文与配额进度条以及 Git 分支旁起舞。">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://agy-pet.github.io/zh-cn/">
+  <link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/">
+  <link rel="alternate" hreflang="en" href="https://agy-pet.github.io/">
+  <link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/">
+  <link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/">
+  <link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/">
+  <link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/">
+  <link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/">
+  <link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/">
+  <link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/">
+  <link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/">
+  <link rel="alternate" type="text/markdown" title="Maggy docs (Markdown)" href="https://agy-pet.github.io/index.md">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="https://agy-pet.github.io/llms.txt">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maggy">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:url" content="https://agy-pet.github.io/zh-cn/">
+  <meta property="og:title" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
+  <meta property="og:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，在当前模型、上下文与配额进度条、推理强度和 Git 分支旁起舞。">
+  <meta property="og:image" content="https://agy-pet.github.io/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline, with brew install agy-pet/tap/maggy">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
+  <meta name="twitter:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏。看 Maggy 在当前模型、上下文与配额进度条以及 Git 分支旁起舞。">
+  <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
+  <meta name="twitter:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline">
+  <link rel="icon" href="../favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Maggy",
+    "alternateName": "maggy",
+    "description": "专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，在当前模型、上下文与配额进度条、推理强度和 Git 分支旁起舞。",
+    "url": "https://agy-pet.github.io/zh-cn/",
+    "image": "https://agy-pet.github.io/social-preview.png",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Linux",
+    "softwareVersion": "0.8.3",
+    "codeRepository": "https://github.com/agy-pet/maggy",
+    "downloadUrl": "https://github.com/agy-pet/maggy/releases",
+    "installUrl": "https://agy-pet.github.io/#install",
+    "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
+    "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
+    "isAccessibleForFree": true,
+    "license": "https://opensource.org/licenses/MIT",
+    "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "inLanguage": "zh-CN"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../appearance.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var EEA_UK_CH = [
+        'AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR',
+        'GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MT',
+        'NL','NO','PL','PT','RO','SE','SI','SK'
+      ];
+      var gpc = Boolean(navigator.globalPrivacyControl);
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        region: EEA_UK_CH,
+        wait_for_update: 500
+      });
+      gtag('consent', 'default', {
+        analytics_storage: gpc ? 'denied' : 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      try {
+        var saved = localStorage.getItem('maggy.consent');
+        if (saved === 'granted' || saved === 'denied') {
+          gtag('consent', 'update', { analytics_storage: saved });
+        }
+      } catch (e) {}
+    })();
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X"></script>
+</head>
+<body data-locale="zh-cn" data-copy-idle="复制" data-copy-copied="已复制" data-copy-fallback="请手动复制">
+  <a class="skip" href="#main">跳至正文</a>
+
+  <header class="top">
+    <a class="wordmark" href="#" aria-label="Maggy 首页"><img class="wordmark-logo" src="../favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
+    <div class="top-right">
+      <nav aria-label="主导航">
+        <a href="#try">在线体验</a>
+        <a href="#themes">主题</a>
+        <a href="#install">安装</a>
+        <a href="#commands">命令</a>
+        <a href="https://github.com/agy-pet/maggy">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">让 Maggy 住进你的 <span class="nowrap">agy 状态栏</span></h1>
+        <p class="lede">专为 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的动态终端宠物与自定义状态栏。<code>agy</code> 干活时 Maggy 会跟着起舞，调用工具时欢快踏步，你离开一会儿她就打起瞌睡——紧挨着你的当前模型、上下文窗口、配额进度条、推理强度和 Git 分支。</p>
+        <div class="cmd-box">
+          <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
+          <button type="button" class="copy" data-copy="hero-cmd">复制</button>
+        </div>
+        <p class="hint">需要 macOS 或 Linux、Python 3 和支持真彩色的终端。<a href="#install">其他安装方式</a></p>
+      </div>
+
+      <figure class="stage">
+        <div id="maggy" class="sprite" role="img" aria-label="正在跳舞的 Maggy（带眼睛的 Antigravity 标志宠物）"></div>
+        <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
+        <div class="states" role="group" aria-label="agent_state">
+          <span class="states-label">agent_state</span>
+          <button type="button" data-mood="working" aria-pressed="true">working</button>
+          <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
+          <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
+          <button type="button" data-mood="reviewing" aria-pressed="false">reviewing</button>
+          <button type="button" data-mood="error" aria-pressed="false">error</button>
+          <button type="button" data-mood="done" aria-pressed="false">idle · 刚完成</button>
+          <button type="button" data-mood="idle" aria-pressed="false">idle</button>
+          <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 分钟</button>
+          <button type="button" data-mood="stretch" aria-pressed="false">idle · 连续工作 45 分钟</button>
+        </div>
+        <p class="note states-note">agy 只在状态变化时重绘状态栏，不会定时刷新。空闲时 Maggy 保持当前姿势，只有周围的小星星靠终端的闪烁属性一闪一闪。再点一次 <b>idle</b> 可模拟下一次重绘。</p>
+      </figure>
+    </section>
+
+    <section id="try" class="try" aria-labelledby="try-title">
+      <div class="section-head">
+        <h2 id="try-title">定制你的 agy 状态栏</h2>
+        <p>这就是 <code>agy</code> 显示在提示符下方的状态栏。Maggy 待在模型、上下文用量、彩色配额条、工作区和 Git 分支左侧——每一帧都严格等宽，右侧信息纹丝不动。调整下面的选项，即可实时看到对应的命令。</p>
+      </div>
+
+      <div class="terminal" aria-label="带有 Maggy 的 agy 状态栏预览">
+        <div class="term-bar"><span>agy</span><span class="dim-text">~/code/my-app</span>
+          <span class="term-bg" role="group" aria-label="终端背景">
+            <button type="button" data-term-bg="dark" aria-pressed="true">深色</button>
+            <button type="button" data-term-bg="light" aria-pressed="false">浅色</button>
+          </span>
+        </div>
+        <div class="term-prompt"><span class="caret">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
+        <div id="term-body" class="term-body"></div>
+      </div>
+
+      <div class="controls">
+        <div class="control">
+          <label for="pet-name">宠物名称</label>
+          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false">
+          <code id="cmd-name">maggy name --reset</code>
+        </div>
+        <div class="control">
+          <label for="opt-theme">主题</label>
+          <select id="opt-theme" name="theme">
+            <option value="auto">auto</option>
+            <option value="default">default</option>
+            <option value="xmas">xmas</option>
+            <option value="halloween">halloween</option>
+            <option value="cny">cny</option>
+          </select>
+          <code id="cmd-theme">maggy theme auto</code>
+        </div>
+        <div class="control">
+          <label class="switch"><input id="opt-mood" type="checkbox" checked><span>状态文案</span></label>
+          <code id="cmd-mood">maggy mood on</code>
+        </div>
+        <div class="control">
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span>空闲闪烁</span></label>
+          <code id="cmd-blink">maggy blink on</code>
+        </div>
+      </div>
+      <p class="note"><code>auto</code> 会按日期自动切换节日装扮（详见下方<a href="#themes">主题</a>）。空闲闪烁利用终端自带的 blink 属性，就算 agy 不再刷新，小星星也会继续闪烁。</p>
+    </section>
+
+    <section id="themes" class="themes" aria-labelledby="themes-title">
+      <div class="section-head">
+        <h2 id="themes-title">节日与自定义主题</h2>
+        <p>默认 <code>auto</code> 会在节日当天自动给 Maggy 换装，次日恢复原样。点击下方卡片可实时预览，用 <code>maggy theme &lt;name&gt;</code> 可随时锁定主题，也能放入 JSON 文件打造专属主题。</p>
+      </div>
+
+      <div class="theme-grid" role="group" aria-label="内置主题">
+        <button type="button" class="theme-card" data-theme-card="default" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="default" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">default</span>
+            <span class="theme-date">日常</span>
+          </div>
+          <p class="theme-desc">经典 Antigravity 标志配色与温暖金色星光。</p>
+          <code class="theme-cmd">maggy theme default</code>
+        </button>
+
+        <button type="button" class="theme-card" data-theme-card="xmas" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="xmas" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">xmas</span>
+            <span class="theme-date">12 月 25 日</span>
+          </div>
+          <p class="theme-desc">带绒球的圣诞帽、飘雪、拱门彩灯和一棵小圣诞树。</p>
+          <code class="theme-cmd">maggy theme xmas</code>
+        </button>
+
+        <button type="button" class="theme-card" data-theme-card="halloween" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="halloween" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">halloween</span>
+            <span class="theme-date">10 月 31 日</span>
+          </div>
+          <p class="theme-desc">紫色巫师帽、发光的双眼和烛光摇曳的南瓜灯。</p>
+          <code class="theme-cmd">maggy theme halloween</code>
+        </button>
+
+        <button type="button" class="theme-card" data-theme-card="cny" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="cny" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">cny</span>
+            <span class="theme-date">春节</span>
+          </div>
+          <p class="theme-desc">金色王冠、漫天彩纸和流苏摇曳的红灯笼。</p>
+          <code class="theme-cmd">maggy theme cny</code>
+        </button>
+      </div>
+
+      <div class="theme-custom">
+        <div class="theme-custom-copy">
+          <h3>打造你的专属主题</h3>
+          <p>将 JSON 文件放入 <code>~/.config/maggy/themes/</code>，文件名即为主题名（如 <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。可按区域或像素格自定义配色、替换星光字符，用 <code>prop</code> 在 Maggy 身旁画出自己的装饰（就像圣诞树或灯笼），或用 <code>base</code> 基于内置主题修改。设置 <code>dates</code> 即可让 <code>auto</code> 在指定日期自动切换，运行 <code>maggy theme list</code> 查看全部已安装主题。</p>
+        </div>
+        <div class="theme-json-wrap">
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span></div>
+          <pre class="theme-json"><code>{
+  "description": "St Patrick's Day",
+  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
+  "sparkles": { "✦": "☘", "·": "·" },
+  "sparkle_color": "#a3e635",
+  "prop": ["c c", "ccc", " s "],
+  "prop_cells": {
+    "c": { "bg": "#1f9d55" },
+    "s": { "fg": "#3f6212", "glyphs": ["│"] }
+  },
+  "dates": ["03-17"]
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="install" aria-labelledby="install-title">
+      <div class="section-head">
+        <h2 id="install-title">为 Antigravity CLI 安装 Maggy</h2>
+        <p><code>maggy setup</code> 会把 <code>~/.gemini/antigravity-cli/settings.json</code> 中的 <code>statusLine</code> 指向 Maggy。其他配置不受影响，原文件会自动备份为 <code>settings.json.bak</code>。</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="安装方式">
+        <button type="button" role="tab" id="tab-brew" aria-controls="pane-brew" aria-selected="true">Homebrew</button>
+        <button type="button" role="tab" id="tab-curl" aria-controls="pane-curl" aria-selected="false" tabindex="-1">curl</button>
+        <button type="button" role="tab" id="tab-git" aria-controls="pane-git" aria-selected="false" tabindex="-1">git</button>
+      </div>
+
+      <div id="pane-brew" class="pane" role="tabpanel" aria-labelledby="tab-brew">
+        <ol class="steps">
+          <li><span>通过 Homebrew 安装</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1">复制</button></div></li>
+          <li><span>接入 agy</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2">复制</button></div></li>
+          <li><span>重启 agy，或在 agy 中运行 <code>/statusline enable</code>。</span></li>
+        </ol>
+        <p class="note">升级只需运行 <code>brew upgrade maggy</code>，并自带 bash、zsh 和 fish 的命令补全。</p>
+      </div>
+
+      <div id="pane-curl" class="pane" role="tabpanel" aria-labelledby="tab-curl" hidden>
+        <ol class="steps">
+          <li><span>运行一键安装脚本：自动克隆到 <code>~/.maggy</code>、把 <code>maggy</code> 链接进 <code>~/.local/bin</code>，并完成 <code>maggy setup</code>。</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3">复制</button></div></li>
+          <li><span>重启 agy，或在 agy 中运行 <code>/statusline enable</code>。</span></li>
+        </ol>
+        <p class="note">可通过 <code>| bash -s -- --theme xmas --no-mood</code> 传入初始化参数，后续用 <code>maggy update</code> 更新。</p>
+      </div>
+
+      <div id="pane-git" class="pane" role="tabpanel" aria-labelledby="tab-git" hidden>
+        <ol class="steps">
+          <li><span>克隆仓库</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4">复制</button></div></li>
+          <li><span>接入 agy</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5">复制</button></div></li>
+          <li><span>重启 agy，或在 agy 中运行 <code>/statusline enable</code>。</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="commands" class="commands" aria-labelledby="commands-title">
+      <div class="section-head">
+        <h2 id="commands-title">CLI 命令</h2>
+        <p>所有功能都集成在一个命令里。运行 <code>maggy help</code> 查看完整列表。</p>
+      </div>
+      <dl class="cmd-list">
+        <div><dt><code>maggy status</code></dt><dd>查看 Maggy 的接入状态、当前主题与配置，并输出实时预览。</dd></div>
+        <div><dt><code>maggy preview idle</code></dt><dd>无需发起对话，直接在终端预览任意 <code>agent_state</code> 动画。</dd></div>
+        <div><dt><code>maggy statusline off</code></dt><dd>暂时隐藏状态栏但不删除配置，用 <code>statusline on</code> 即可恢复。</dd></div>
+        <div><dt><code>maggy pet off</code></dt><dd>隐藏宠物、只保留指标；<code>motion off</code> 可定格为静态姿势，<code>side right</code> 可移至右侧，均支持 <code>toggle</code> 切换。</dd></div>
+        <div><dt><code>maggy statusline hide git effort</code></dt><dd>按需隐藏状态栏模块：<code>model</code>、<code>context</code>、<code>quota</code>、<code>workspace</code>、<code>git</code>、<code>effort</code>。用 <code>maggy statusline show</code> 恢复。</dd></div>
+        <div><dt><code>maggy doctor</code></dt><dd>检测 Python 环境、真彩色支持、配置文件以及单帧渲染耗时。</dd></div>
+        <div><dt><code>maggy config</code></dt><dd>查看 <code>~/.config/maggy/config.json</code>，支持通过 <code>get</code>、<code>set</code> 或 <code>reset</code> 修改。</dd></div>
+        <div><dt><code>maggy uninstall --purge</code></dt><dd>移除 statusLine 配置项、配置文件与缓存，其余 agy 设置保持原样。</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>专为 <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> 状态栏打造，非 Google 官方项目。</p>
+    <div class="foot-end">
+      <p class="foot-links">
+        <a href="../privacy.html">隐私政策</a>
+        <a href="../terms.html">使用条款</a>
+        <button type="button" class="foot-btn" data-consent-open hidden>Cookie 设置</button>
+        <a href="https://github.com/agy-pet/maggy">GitHub 源码</a>
+        <a href="https://agy-pet.github.io/llms.txt" title="Docs for AI agents">llms.txt</a>
+      </p>
+      <label class="lang-picker">
+        <span class="sr-only">选择语言</span>
+        <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <select id="lang-select" aria-label="选择语言">
+          <option value="">English</option>
+          <option value="zh-cn" selected>简体中文</option>
+          <option value="zh-tw">繁體中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de">Deutsch</option>
+          <option value="pt">Português</option>
+        </select>
+      </label>
+      <div class="appearance" role="group" aria-label="外观">
+        <button type="button" data-appearance="light" aria-pressed="false" aria-label="浅色" title="浅色"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+        <button type="button" data-appearance="system" aria-pressed="true" aria-label="跟随系统" title="跟随系统"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+        <button type="button" data-appearance="dark" aria-pressed="false" aria-label="深色" title="深色"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="consent-banner" class="consent" role="dialog" aria-live="polite" aria-label="统计分析同意" hidden>
+    <p class="consent-text">
+      <span>本网站使用 Google Analytics Cookie 来了解整体访问情况。CLI 工具本身不发送任何遥测数据。</span>
+      <a href="../privacy.html">隐私政策</a>
+    </p>
+    <div class="consent-actions">
+      <button type="button" class="consent-btn" data-consent="denied">拒绝</button>
+      <button type="button" class="consent-btn consent-accept" data-consent="granted">接受</button>
+    </div>
+  </aside>
+
+  <script src="../consent.js" defer></script>
+  <script src="../maggy.js" defer></script>
+</body>
+</html>

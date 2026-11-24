@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Auto-rebuild static locale pages and sitemap.xml whenever docs sources change.
+set -euo pipefail
+
+STAGED="$(git diff --cached --name-only)"
+
+if printf '%s\n' "$STAGED" | grep -Eq '^(docs/index\.html|scripts/locales\.json|scripts/build_docs\.py|README\.md|VERSION|install\.sh)$'; then
+  echo "pre-commit: rebuilding localized docs..."
+  python3 scripts/build_docs.py
+  git add docs/index.html docs/*/index.html docs/sitemap.xml docs/llms.txt docs/llms-full.txt docs/index.md docs/install.sh
+fi

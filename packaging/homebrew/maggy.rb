@@ -3,9 +3,10 @@
 # scripts/release.sh fills in url/sha256 for each tagged version.
 class Maggy < Formula
   desc "Dancing Antigravity logo for the agy statusline"
-  homepage "https://agy-pet.github.io/maggy/"
-  url "https://github.com/agy-pet/maggy/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "cc6c2c7c99ff60757304275739caa1bfeb601167fb22af7bb0536193880384cf"
+  homepage "https://agy-pet.github.io/"
+  url "https://github.com/agy-pet/maggy/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "28c986e739bdf4414844460b55cc605711479beb3778ba87facd81c3a6958f8c"
+  license "MIT"
   head "https://github.com/agy-pet/maggy.git", branch: "master"
 
   depends_on "python@3.13"

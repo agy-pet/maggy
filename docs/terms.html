@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use — Maggy</title>
+  <meta name="description" content="Terms of Use for the Maggy website and Antigravity CLI (agy) statusline tool.">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://agy-pet.github.io/terms.html">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="512x512" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="appearance.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var EEA_UK_CH = [
+        'AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR',
+        'GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MT',
+        'NL','NO','PL','PT','RO','SE','SI','SK'
+      ];
+      var gpc = Boolean(navigator.globalPrivacyControl);
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        region: EEA_UK_CH,
+        wait_for_update: 500
+      });
+      gtag('consent', 'default', {
+        analytics_storage: gpc ? 'denied' : 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      try {
+        var saved = localStorage.getItem('maggy.consent');
+        if (saved === 'granted' || saved === 'denied') {
+          gtag('consent', 'update', { analytics_storage: saved });
+        }
+      } catch (e) {}
+    })();
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="wordmark" href="./" aria-label="Maggy home"><img class="wordmark-logo" src="favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
+    <div class="top-right">
+      <nav aria-label="Primary">
+        <a href="./">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html" aria-current="page">Terms</a>
+        <a href="https://github.com/agy-pet/maggy">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="legal">
+    <h1>Terms of Use</h1>
+    <p class="legal-updated">Last updated: November 25, 2026</p>
+
+    <section>
+      <h2>1. Acceptance of terms</h2>
+      <p>By accessing this website or installing and using the <code>maggy</code> software, you agree to these Terms of Use. If you do not agree, please do not use the website or software.</p>
+    </section>
+
+    <section>
+      <h2>2. Open-source software &amp; disclaimer</h2>
+      <p>Maggy is a free, open-source project published on <a href="https://github.com/agy-pet/maggy">GitHub</a>. The software and website are provided <strong>"as is"</strong>, without warranty of any kind, express or implied, including fitness for a particular purpose or non-infringement.</p>
+      <p>Running <code>maggy setup</code> modifies your local Antigravity CLI settings file (<code>~/.gemini/antigravity-cli/settings.json</code>) and saves a backup (<code>settings.json.bak</code>). You are responsible for reviewing and backing up your own configuration.</p>
+    </section>
+
+    <section>
+      <h2>3. Limitation of liability</h2>
+      <p>To the maximum extent permitted by law, the authors and contributors of Maggy are not liable for any direct, indirect, incidental, or consequential damages arising from your use of the website or the <code>maggy</code> software.</p>
+    </section>
+
+    <section>
+      <h2>4. Independent project &amp; trademarks</h2>
+      <p>Maggy is an independent, unofficial project and is not affiliated with, endorsed by, or sponsored by Google LLC. Antigravity, Gemini, and Google are trademarks of Google LLC.</p>
+    </section>
+
+    <section>
+      <h2>5. Privacy &amp; analytics</h2>
+      <p>Your use of this website is also governed by our <a href="privacy.html">Privacy Policy</a>, which explains how Google Analytics is used on this site and confirms that the CLI tool itself sends no telemetry.</p>
+    </section>
+
+    <section>
+      <h2>6. Changes &amp; contact</h2>
+      <p>We may update these Terms of Use from time to time. Continued use of the website or software after updates constitutes acceptance of the revised terms. For questions, open an issue on <a href="https://github.com/agy-pet/maggy/issues">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Made for <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> statuslines. Not affiliated with Google.</p>
+    <div class="foot-end">
+      <p class="foot-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <button type="button" class="foot-btn" data-consent-open hidden>Cookie settings</button>
+        <a href="https://github.com/agy-pet/maggy">Source on GitHub</a>
+      </p>
+      <div class="appearance" role="group" aria-label="Appearance">
+        <button type="button" data-appearance="light" aria-pressed="false" aria-label="Light" title="Light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+        <button type="button" data-appearance="system" aria-pressed="true" aria-label="System" title="System"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+        <button type="button" data-appearance="dark" aria-pressed="false" aria-label="Dark" title="Dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="consent-banner" class="consent" role="dialog" aria-live="polite" aria-label="Analytics consent" hidden>
+    <p class="consent-text">
+      <span>This site uses Google Analytics cookies to understand overall traffic. The CLI sends zero telemetry.</span>
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+    <div class="consent-actions">
+      <button type="button" class="consent-btn" data-consent="denied">Decline</button>
+      <button type="button" class="consent-btn consent-accept" data-consent="granted">Accept</button>
+    </div>
+  </aside>
+
+  <script src="consent.js" defer></script>
+</body>
+</html>

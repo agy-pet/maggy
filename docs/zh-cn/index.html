@@ -7,7 +7,7 @@
   <meta name="description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏。看 Maggy 在当前模型、上下文与配额进度条以及 Git 分支旁起舞。">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://agy-pet.github.io/zh-cn/">
   <link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/">
@@ -25,6 +25,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Maggy">
   <meta property="og:locale" content="zh_CN">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/zh-cn/">
   <meta property="og:title" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
   <meta property="og:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，在当前模型、上下文与配额进度条、推理强度和 Git 分支旁起舞。">
@@ -32,48 +40,110 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline, with brew install agy-pet/tap/maggy">
+  <meta property="og:image:alt" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
   <meta name="twitter:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏。看 Maggy 在当前模型、上下文与配额进度条以及 Git 分支旁起舞。">
   <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
-  <meta name="twitter:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline">
+  <meta name="twitter:image:alt" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Maggy",
-    "alternateName": "maggy",
-    "description": "专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，在当前模型、上下文与配额进度条、推理强度和 Git 分支旁起舞。",
-    "url": "https://agy-pet.github.io/zh-cn/",
-    "image": "https://agy-pet.github.io/social-preview.png",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "macOS, Linux",
-    "softwareVersion": "0.8.3",
-    "codeRepository": "https://github.com/agy-pet/maggy",
-    "downloadUrl": "https://github.com/agy-pet/maggy/releases",
-    "installUrl": "https://agy-pet.github.io/#install",
-    "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
-    "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
-    "isAccessibleForFree": true,
-    "license": "https://opensource.org/licenses/MIT",
-    "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "inLanguage": "zh-CN"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Maggy",
+        "url": "https://agy-pet.github.io/zh-cn/",
+        "inLanguage": "zh-CN"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maggy",
+        "alternateName": "maggy",
+        "description": "专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，在当前模型、上下文与配额进度条、推理强度和 Git 分支旁起舞。",
+        "url": "https://agy-pet.github.io/zh-cn/",
+        "inLanguage": "zh-CN",
+        "image": "https://agy-pet.github.io/social-preview.png",
+        "screenshot": "https://agy-pet.github.io/social-preview.png",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Linux",
+        "softwareVersion": "0.8.3",
+        "author": {
+          "@type": "Organization",
+          "name": "agy-pet",
+          "url": "https://github.com/agy-pet"
+        },
+        "codeRepository": "https://github.com/agy-pet/maggy",
+        "downloadUrl": "https://github.com/agy-pet/maggy/releases",
+        "installUrl": "https://agy-pet.github.io/zh-cn/#install",
+        "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
+        "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
+        "isAccessibleForFree": true,
+        "license": "https://opensource.org/licenses/MIT",
+        "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "zh-CN",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "如何在 Antigravity CLI (agy) 中显示上下文窗口和配额使用条？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "运行 brew install agy-pet/tap/maggy && maggy setup 安装并配置，然后重启 agy 或在会话中执行 /statusline enable。Maggy 会接入 ~/.gemini/antigravity-cli/settings.json 中的 statusLine，在吉祥物旁实时显示当前模型、上下文占比、彩色配额条、工作区、Git 分支和推理强度。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "运行 maggy setup 后为什么没有显示状态栏？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "请重启 agy，或在当前会话中输入 /statusline enable。如果仍未显示，可运行 maggy doctor 检查 Python 3、终端真彩色支持以及 ~/.gemini/antigravity-cli/settings.json 中的 statusLine 配置。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Maggy 会拖慢 agy 或收集遥测数据吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "不会。maggy CLI 完全在本地运行，仅依赖 Python 3 标准库，零遥测数据上报。agy 仅在状态变化时调用它（没有后台定时器），你也可以随时运行 maggy doctor 查看单帧渲染耗时。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "可以隐藏吉祥物或自定义显示哪些状态栏信息吗？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "可以。运行 maggy pet off 可只保留指标，maggy motion off 可固定静态姿势，maggy side right 可将 Maggy 移到右侧。使用 maggy statusline hide 隐藏指定项（model、context、quota、workspace、git、effort），用 maggy statusline show 恢复。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "支持哪些系统和终端？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maggy 支持 macOS 和 Linux（含 WSL），需安装 Python 3，并适配所有支持 24 位真彩色的终端，如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 及 VS Code 内置终端。"
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..100,600..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
-  <script src="../appearance.js"></script>
+  <script>!function(){try{var v=localStorage.getItem('maggy.appearance');if(v==='light'||v==='dark')document.documentElement.dataset.theme=v}catch(e){}}();</script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -113,7 +183,7 @@
   <a class="skip" href="#main">跳至正文</a>
 
   <header class="top">
-    <a class="wordmark" href="#" aria-label="Maggy 首页"><img class="wordmark-logo" src="../favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
+    <a class="wordmark" href="./" aria-label="Maggy 首页"><img class="wordmark-logo" src="../favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
     <div class="top-right">
       <nav aria-label="主导航">
         <a href="#try">在线体验</a>
@@ -128,7 +198,7 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">让 Maggy 住进你的 <span class="nowrap">agy 状态栏</span></h1>
+        <h1 id="hero-title">让 Maggy&nbsp;🌋 住进你的 <span class="nowrap">agy 状态栏</span></h1>
         <p class="lede">专为 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的动态终端宠物与自定义状态栏。<code>agy</code> 干活时 Maggy 会跟着起舞，调用工具时欢快踏步，你离开一会儿她就打起瞌睡——紧挨着你的当前模型、上下文窗口、配额进度条、推理强度和 Git 分支。</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
@@ -182,7 +252,7 @@
         <div class="control">
           <label for="opt-theme">主题</label>
           <select id="opt-theme" name="theme">
-            <option value="auto">auto</option>
+            <option value="auto" selected>auto</option>
             <option value="default">default</option>
             <option value="xmas">xmas</option>
             <option value="halloween">halloween</option>
@@ -256,8 +326,9 @@
           <p>将 JSON 文件放入 <code>~/.config/maggy/themes/</code>，文件名即为主题名（如 <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。可按区域或像素格自定义配色、替换星光字符，用 <code>prop</code> 在 Maggy 身旁画出自己的装饰（就像圣诞树或灯笼），或用 <code>base</code> 基于内置主题修改。设置 <code>dates</code> 即可让 <code>auto</code> 在指定日期自动切换，运行 <code>maggy theme list</code> 查看全部已安装主题。</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
           <pre class="theme-json"><code>{
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
   "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
   "sparkles": { "✦": "☘", "·": "·" },
@@ -327,33 +398,65 @@
         <div><dt><code>maggy uninstall --purge</code></dt><dd>移除 statusLine 配置项、配置文件与缓存，其余 agy 设置保持原样。</dd></div>
       </dl>
     </section>
+
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="section-head">
+        <h2 id="faq-title">常见问题</h2>
+        <p>关于 Antigravity CLI 状态栏工具 Maggy 的安装、自定义与故障排查。</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>如何在 Antigravity CLI (agy) 中显示上下文窗口和配额使用条？</summary>
+          <p>运行 <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> 安装并配置，然后重启 <code>agy</code> 或在会话中执行 <code>/statusline enable</code>。Maggy 会接入 <code>~/.gemini/antigravity-cli/settings.json</code> 中的 <code>statusLine</code>，在吉祥物旁实时显示当前模型、上下文占比、彩色配额条、工作区、Git 分支和推理强度。</p>
+        </details>
+        <details>
+          <summary>运行 maggy setup 后为什么没有显示状态栏？</summary>
+          <p>请重启 <code>agy</code>，或在当前会话中输入 <code>/statusline enable</code>。如果仍未显示，可运行 <code>maggy doctor</code> 检查 Python 3、终端真彩色支持以及 <code>~/.gemini/antigravity-cli/settings.json</code> 中的 <code>statusLine</code> 配置。</p>
+        </details>
+        <details>
+          <summary>Maggy 会拖慢 agy 或收集遥测数据吗？</summary>
+          <p>不会。<code>maggy</code> CLI 完全在本地运行，仅依赖 Python 3 标准库，零遥测数据上报。<code>agy</code> 仅在状态变化时调用它（没有后台定时器），你也可以随时运行 <code>maggy doctor</code> 查看单帧渲染耗时。</p>
+        </details>
+        <details>
+          <summary>可以隐藏吉祥物或自定义显示哪些状态栏信息吗？</summary>
+          <p>可以。运行 <code>maggy pet off</code> 可只保留指标，<code>maggy motion off</code> 可固定静态姿势，<code>maggy side right</code> 可将 Maggy 移到右侧。使用 <code>maggy statusline hide</code> 隐藏指定项（<code>model</code>、<code>context</code>、<code>quota</code>、<code>workspace</code>、<code>git</code>、<code>effort</code>），用 <code>maggy statusline show</code> 恢复。</p>
+        </details>
+        <details>
+          <summary>支持哪些系统和终端？</summary>
+          <p>Maggy 支持 macOS 和 Linux（含 WSL），需安装 Python 3，并适配所有支持 24 位真彩色的终端，如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 及 VS Code 内置终端。</p>
+        </details>
+      </div>
+    </section>
   </main>
 
   <footer class="foot">
-    <p>专为 <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> 状态栏打造，非 Google 官方项目。</p>
+    <p class="foot-note">专为 <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> 状态栏打造，非 Google 官方项目。</p>
     <div class="foot-end">
       <p class="foot-links">
         <a href="../privacy.html">隐私政策</a>
         <a href="../terms.html">使用条款</a>
         <button type="button" class="foot-btn" data-consent-open hidden>Cookie 设置</button>
+        <a href="https://github.com/agy-pet/maggy/issues/new">意见反馈</a>
         <a href="https://github.com/agy-pet/maggy">GitHub 源码</a>
-        <a href="https://agy-pet.github.io/llms.txt" title="Docs for AI agents">llms.txt</a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
       </p>
-      <label class="lang-picker">
-        <span class="sr-only">选择语言</span>
-        <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <select id="lang-select" aria-label="选择语言">
-          <option value="">English</option>
-          <option value="zh-cn" selected>简体中文</option>
-          <option value="zh-tw">繁體中文</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="pt">Português</option>
-        </select>
-      </label>
+      <details class="lang-picker">
+        <summary aria-label="选择语言">
+          <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="lang-current">简体中文</span>
+        </summary>
+        <ul class="lang-menu">
+          <li><a href="../" hreflang="en" lang="en">English</a></li>
+          <li><a href="../zh-cn/" hreflang="zh-CN" lang="zh-CN" aria-current="page">简体中文</a></li>
+          <li><a href="../zh-tw/" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../pt/" hreflang="pt" lang="pt">Português</a></li>
+        </ul>
+      </details>
       <div class="appearance" role="group" aria-label="外观">
         <button type="button" data-appearance="light" aria-pressed="false" aria-label="浅色" title="浅色"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
         <button type="button" data-appearance="system" aria-pressed="true" aria-label="跟随系统" title="跟随系统"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
@@ -373,6 +476,7 @@
     </div>
   </aside>
 
+  <script src="../appearance.js" defer></script>
   <script src="../consent.js" defer></script>
   <script src="../maggy.js" defer></script>
 </body>

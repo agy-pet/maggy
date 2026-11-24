@@ -7,7 +7,7 @@
   <meta name="description" content="Animated terminal pet &amp; custom statusline for Antigravity CLI (agy). Watch Maggy dance beside your live model, context &amp; quota usage bars, and git branch.">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://agy-pet.github.io/">
   <link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/">
@@ -25,6 +25,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Maggy">
   <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/">
   <meta property="og:title" content="Maggy — Terminal Pet &amp; Statusline for Antigravity CLI (agy)">
   <meta property="og:description" content="Animated terminal pet &amp; custom statusline for Antigravity CLI (agy) — a dancing mascot with live model, context &amp; quota usage bars, reasoning effort, and git branch.">
@@ -44,35 +52,98 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Maggy",
-    "alternateName": "maggy",
-    "description": "Animated terminal pet and custom statusline for Antigravity CLI (agy), showing a dancing Antigravity mascot alongside live model, context window percentage, quota usage bars, workspace, git branch, and reasoning effort.",
-    "url": "https://agy-pet.github.io/",
-    "image": "https://agy-pet.github.io/social-preview.png",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "macOS, Linux",
-    "softwareVersion": "0.8.3",
-    "codeRepository": "https://github.com/agy-pet/maggy",
-    "downloadUrl": "https://github.com/agy-pet/maggy/releases",
-    "installUrl": "https://agy-pet.github.io/#install",
-    "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
-    "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
-    "isAccessibleForFree": true,
-    "license": "https://opensource.org/licenses/MIT",
-    "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Maggy",
+        "url": "https://agy-pet.github.io/",
+        "inLanguage": "en"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maggy",
+        "alternateName": "maggy",
+        "description": "Animated terminal pet and custom statusline for Antigravity CLI (agy), showing a dancing Antigravity mascot alongside live model, context window percentage, quota usage bars, workspace, git branch, and reasoning effort.",
+        "url": "https://agy-pet.github.io/",
+        "inLanguage": "en",
+        "image": "https://agy-pet.github.io/social-preview.png",
+        "screenshot": "https://agy-pet.github.io/social-preview.png",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Linux",
+        "softwareVersion": "0.8.3",
+        "author": {
+          "@type": "Organization",
+          "name": "agy-pet",
+          "url": "https://github.com/agy-pet"
+        },
+        "codeRepository": "https://github.com/agy-pet/maggy",
+        "downloadUrl": "https://github.com/agy-pet/maggy/releases",
+        "installUrl": "https://agy-pet.github.io/#install",
+        "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
+        "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
+        "isAccessibleForFree": true,
+        "license": "https://opensource.org/licenses/MIT",
+        "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "en",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I show context window and quota usage in Antigravity CLI (agy)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Install Maggy with brew install agy-pet/tap/maggy && maggy setup and restart agy or run /statusline enable. Maggy hooks into statusLine in ~/.gemini/antigravity-cli/settings.json and displays your live model, context window %, color-coded quota bars, workspace, git branch, and reasoning effort alongside the mascot."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why isn't the statusline showing after maggy setup?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Restart agy or run /statusline enable inside an active session. If it still doesn't appear, run maggy doctor to verify Python 3, truecolor terminal support, and the statusLine entry in ~/.gemini/antigravity-cli/settings.json."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does Maggy slow down agy or send any telemetry?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The maggy CLI runs 100% locally using only the Python 3 standard library and sends zero telemetry. agy only invokes it when state changes (never on a background timer), and you can check render speed anytime with maggy doctor."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I hide the mascot or customize which statusline segments appear?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Run maggy pet off to keep only the metrics, maggy motion off for a still pose, or maggy side right to move Maggy to the right. Hide individual segments with maggy statusline hide (model, context, quota, workspace, git, effort) and restore them with maggy statusline show."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What platforms and terminals are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maggy works on macOS and Linux (including WSL) in any truecolor (24-bit) terminal such as Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, or VS Code's integrated terminal, and requires Python 3."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..100,600..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="appearance.js"></script>
+  <script>!function(){try{var v=localStorage.getItem('maggy.appearance');if(v==='light'||v==='dark')document.documentElement.dataset.theme=v}catch(e){}}();</script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -112,7 +183,7 @@
   <a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
 
   <header class="top">
-    <a class="wordmark" href="#" aria-label="Maggy home" data-i18n-attr="aria-label:a11y.home"><img class="wordmark-logo" src="favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
+    <a class="wordmark" href="./" aria-label="Maggy home" data-i18n-attr="aria-label:a11y.home"><img class="wordmark-logo" src="favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
     <div class="top-right">
       <nav aria-label="Primary" data-i18n-attr="aria-label:a11y.nav">
         <a href="#try" data-i18n="nav.try">Try it</a>
@@ -127,7 +198,7 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title" data-i18n-html="hero.title">Maggy lives in your agy statusline.</h1>
+        <h1 id="hero-title" data-i18n-html="hero.title">Maggy&nbsp;🌋 lives in your agy statusline.</h1>
         <p class="lede" data-i18n-html="hero.lede">An animated terminal pet and custom <strong>Antigravity CLI (<code>agy</code>)</strong> statusline. Maggy dances while <code>agy</code> works, stomps through tool calls, and dozes off when you step away — right beside your live model, context window, quota usage bars, reasoning effort, and git branch.</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
@@ -255,8 +326,9 @@
           <p data-i18n-html="themes.custom.desc">Drop a JSON file into <code>~/.config/maggy/themes/</code> and its filename becomes the theme name (e.g. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Recolor regions or cells, swap sparkles, draw your own <code>prop</code> beside Maggy (like the tree or lantern), or start from a built-in look with <code>base</code>. Set <code>dates</code> so <code>auto</code> activates it automatically, and run <code>maggy theme list</code> to see all installed themes.</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
           <pre class="theme-json"><code>{
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
   "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
   "sparkles": { "✦": "☘", "·": "·" },
@@ -326,33 +398,65 @@
         <div><dt><code>maggy uninstall --purge</code></dt><dd data-i18n="commands.uninstall">Removes the statusLine entry, config and cache. Your other agy settings stay.</dd></div>
       </dl>
     </section>
+
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="section-head">
+        <h2 id="faq-title" data-i18n="faq.title">Frequently asked questions</h2>
+        <p data-i18n="faq.desc">Common questions about installing, customizing, and troubleshooting the Maggy statusline for Antigravity CLI.</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary data-i18n="faq.q1">How do I show context window and quota usage in Antigravity CLI (agy)?</summary>
+          <p data-i18n-html="faq.a1">Install Maggy with <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> and restart <code>agy</code> or run <code>/statusline enable</code>. Maggy hooks into <code>statusLine</code> in <code>~/.gemini/antigravity-cli/settings.json</code> and displays your live model, context window %, color-coded quota bars, workspace, git branch, and reasoning effort alongside the mascot.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q2">Why isn't the statusline showing after maggy setup?</summary>
+          <p data-i18n-html="faq.a2">Restart <code>agy</code> or run <code>/statusline enable</code> inside an active session. If it still doesn't appear, run <code>maggy doctor</code> to verify Python 3, truecolor terminal support, and the <code>statusLine</code> entry in <code>~/.gemini/antigravity-cli/settings.json</code>.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q3">Does Maggy slow down agy or send any telemetry?</summary>
+          <p data-i18n-html="faq.a3">No. The <code>maggy</code> CLI runs 100% locally using only the Python 3 standard library and sends zero telemetry. <code>agy</code> only invokes it when state changes (never on a background timer), and you can check render speed anytime with <code>maggy doctor</code>.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q4">Can I hide the mascot or customize which statusline segments appear?</summary>
+          <p data-i18n-html="faq.a4">Yes. Run <code>maggy pet off</code> to keep only the metrics, <code>maggy motion off</code> for a still pose, or <code>maggy side right</code> to move Maggy to the right. Hide individual segments with <code>maggy statusline hide</code> (<code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>) and restore them with <code>maggy statusline show</code>.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q5">What platforms and terminals are supported?</summary>
+          <p data-i18n="faq.a5">Maggy works on macOS and Linux (including WSL) in any truecolor (24-bit) terminal such as Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, or VS Code's integrated terminal, and requires Python 3.</p>
+        </details>
+      </div>
+    </section>
   </main>
 
   <footer class="foot">
-    <p data-i18n-html="footer.madeFor">Made for <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> statuslines. Not affiliated with Google.</p>
+    <p class="foot-note" data-i18n-html="footer.madeFor">Made for <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> statuslines. Not affiliated with Google.</p>
     <div class="foot-end">
       <p class="foot-links">
         <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
         <a href="terms.html" data-i18n="footer.terms">Terms</a>
         <button type="button" class="foot-btn" data-consent-open data-i18n="footer.cookies" hidden>Cookie settings</button>
+        <a href="https://github.com/agy-pet/maggy/issues/new" data-i18n="footer.feedback">Feedback</a>
         <a href="https://github.com/agy-pet/maggy" data-i18n="footer.source">Source on GitHub</a>
-        <a href="https://agy-pet.github.io/llms.txt" title="Docs for AI agents">llms.txt</a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
       </p>
-      <label class="lang-picker">
-        <span class="sr-only" data-i18n="a11y.lang">Language</span>
-        <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <select id="lang-select" aria-label="Language" data-i18n-attr="aria-label:a11y.lang">
-          <option value="" selected>English</option>
-          <option value="zh-cn">简体中文</option>
-          <option value="zh-tw">繁體中文</option>
-          <option value="ja">日本語</option>
-          <option value="ko">한국어</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="pt">Português</option>
-        </select>
-      </label>
+      <details class="lang-picker">
+        <summary aria-label="Language" data-i18n-attr="aria-label:a11y.lang">
+          <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="lang-current">English</span>
+        </summary>
+        <ul class="lang-menu">
+          <li><a href="./" hreflang="en" lang="en" aria-current="page">English</a></li>
+          <li><a href="zh-cn/" hreflang="zh-CN" lang="zh-CN">简体中文</a></li>
+          <li><a href="zh-tw/" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+          <li><a href="ja/" hreflang="ja" lang="ja">日本語</a></li>
+          <li><a href="ko/" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="pt/" hreflang="pt" lang="pt">Português</a></li>
+        </ul>
+      </details>
       <div class="appearance" role="group" aria-label="Appearance" data-i18n-attr="aria-label:a11y.appearance">
         <button type="button" data-appearance="light" aria-pressed="false" aria-label="Light" title="Light" data-i18n-attr="aria-label:appearance.light,title:appearance.light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
         <button type="button" data-appearance="system" aria-pressed="true" aria-label="System" title="System" data-i18n-attr="aria-label:appearance.system,title:appearance.system"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
@@ -372,6 +476,7 @@
     </div>
   </aside>
 
+  <script src="appearance.js" defer></script>
   <script src="consent.js" defer></script>
   <script src="maggy.js" defer></script>
 </body>

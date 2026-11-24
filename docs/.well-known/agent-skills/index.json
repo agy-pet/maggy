@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "create-maggy-theme",
+      "type": "skill-md",
+      "description": "Create a custom Maggy theme (JSON file) that recolors the agy statusline mascot, swaps sparkles, adds a side prop and picks the dates it shows. Use when a user wants their own Maggy look, e.g. for a holiday or team colors.",
+      "url": "/.well-known/agent-skills/create-maggy-theme/SKILL.md",
+      "digest": "sha256:09cf3511f24ee137b07ab417f7ddeee3b4dffbbcd625ef64eebc97f9950776cb"
+    },
+    {
+      "name": "install-maggy",
+      "type": "skill-md",
+      "description": "Install, verify, update or remove Maggy, the animated terminal pet and statusline for Antigravity CLI (agy), on macOS or Linux. Use when a user asks to set up Maggy or a custom agy statusline.",
+      "url": "/.well-known/agent-skills/install-maggy/SKILL.md",
+      "digest": "sha256:9a09f85439932acc10d96063173bd6e5b6da422e3c4431fc46cf2f376ec8eb06"
+    }
+  ]
+}

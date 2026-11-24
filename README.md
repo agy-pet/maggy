@@ -1,5 +1,7 @@
 # maggy
 
+[![installs](https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&color=orange)](https://github.com/agy-pet/maggy/releases)
+
 Meet **Maggy** 🌋, a little magma pet who lives in your agy statusline.
 
 **[See her dance →](https://agy-pet.github.io/)**
@@ -222,6 +224,7 @@ Drop a JSON file into `~/.config/maggy/themes/` and its file name becomes the th
 
 ```json
 {
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
   "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
   "sparkles": { "✦": "☘", "·": "·" },
@@ -240,9 +243,19 @@ Drop a JSON file into `~/.config/maggy/themes/` and its file name becomes the th
 }
 ```
 
-Every key is optional.
+Every key is optional. The full rules are also a JSON Schema, [`theme.schema.json`](https://agy-pet.github.io/theme.schema.json): add the `"$schema"` line above and editors like VS Code autocomplete and check your file as you type (maggy itself ignores the line). To check a theme from the terminal, run `maggy theme list` (it names every skipped file and why), then look at it with `maggy preview working --theme paddy --once`.
 
-- `colors`: recolor the logo by region (`crown`, `arch`, `body`, `legs`, `feet`) or by single cell (`a`–`p`, see `LOGO_COLORS` in `mascot.py`). Use `"#rrggbb"` or `[r, g, b]`.
+The logo is a grid of cells `a`–`p`, two columns each, grouped into regions:
+
+```text
+    aabb        crown: a b
+  ccddeeff      arch:  c d e f
+  gghhiijj      body:  g h i j
+  kk    ll      legs:  k l
+mmnn    oopp    feet:  m n o p
+```
+
+- `colors`: recolor the logo by region (`crown`, `arch`, `body`, `legs`, `feet`) or by single cell (`a`–`p`, see the grid above). Use `"#rrggbb"` or `[r, g, b]`.
 - `sparkles`: swap the `✦` and `·` sparkles for other single-width characters.
 - `prop`: a small picture drawn beside the logo, like the Xmas tree or the lantern. It's up to 5 rows of up to 8 characters; a shorter prop stands on the bottom row. Every character except a space needs an entry in `prop_cells`, and each entry can have:
   - `bg`: fill the cell with a color

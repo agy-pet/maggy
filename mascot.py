@@ -362,6 +362,7 @@ def theme_config_path():
 #    "eye_color": "#ffffff", "dates": ["03-17"]}
 # Colors are "#rrggbb" or [r, g, b]. Color keys are logo regions (below) or
 # single cell letters a-p. Dates are "MM-DD" or "YYYY-MM-DD".
+# JSON Schema: docs/theme.schema.json (https://agy-pet.github.io/theme.schema.json).
 # Optional "prop" (up to 5 rows x 8 columns) with "prop_cells" draws a
 # decoration beside the logo, in the same format as the built-in props
 # (see PROP_GAP); glyphs and chase are lists. Optional "base" starts from a

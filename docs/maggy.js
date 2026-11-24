@@ -427,17 +427,14 @@
     setTimeout(() => (btn.textContent = copyIdle), 1600);
   }));
 
-  // Language switcher (navigates between static locale directories)
-  const langSelect = document.getElementById("lang-select");
-  if (langSelect) {
-    const currentSlug = document.body.dataset.locale || "";
-    langSelect.value = currentSlug;
-    langSelect.addEventListener("change", () => {
-      const target = langSelect.value;
-      if (target === currentSlug) return;
-      const prefix = currentSlug ? "../" : "./";
-      const dest = target ? `${prefix}${target}/` : prefix;
-      window.location.href = dest + window.location.hash;
+  // Language switcher menu (dismiss on outside click or Escape)
+  const langPicker = document.querySelector("details.lang-picker");
+  if (langPicker) {
+    document.addEventListener("click", (e) => {
+      if (langPicker.open && !langPicker.contains(e.target)) langPicker.open = false;
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && langPicker.open) langPicker.open = false;
     });
   }
 

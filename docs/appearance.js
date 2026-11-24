@@ -6,7 +6,7 @@
 
   const KEY = "maggy.appearance";
   const MODES = ["light", "system", "dark"];
-  const BG = { light: "#eeebf3", dark: "#141019" };
+  const BG = { light: "#ffffff", dark: "#141019" };
   const root = document.documentElement;
 
   const read = () => {

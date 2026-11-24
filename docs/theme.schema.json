@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agy-pet.github.io/theme.schema.json",
+  "title": "Maggy theme",
+  "description": "A custom Maggy theme: save as ~/.config/maggy/themes/<name>.json (name: letters, digits, - or _, max 24, not a built-in name). The file name is the theme name: `maggy theme <name>`. Every key is optional. Check it with `maggy theme list` (lists skipped files with the reason) and look at it with `maggy preview working --theme <name> --once`. Docs: https://agy-pet.github.io/llms-full.txt",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Optional; lets editors validate the file. Ignored by maggy."
+    },
+    "description": {
+      "type": "string",
+      "maxLength": 60,
+      "description": "Shown by `maggy theme list`. Longer text is cut to 60 characters."
+    },
+    "base": {
+      "enum": ["default", "xmas", "halloween", "cny"],
+      "default": "default",
+      "description": "Start from a built-in theme and change only what this file sets. `colors` and `sparkles` merge with the base's; other keys replace it. Use \"prop\": null to drop the base's prop."
+    },
+    "colors": {
+      "type": "object",
+      "description": "Recolor the logo. Keys are regions (crown, arch, body, legs, feet) or single cells a-p. The logo grid, two columns per cell:\n    aabb      <- crown: a b\n  ccddeeff    <- arch:  c d e f\n  gghhiijj    <- body:  g h i j\n  kk    ll    <- legs:  k l\nmmnn    oopp  <- feet:  m n o p",
+      "propertyNames": {
+        "enum": ["crown", "arch", "body", "legs", "feet",
+                 "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p"]
+      },
+      "additionalProperties": { "$ref": "#/$defs/color" }
+    },
+    "sparkles": {
+      "type": "object",
+      "description": "Swap the two sparkle glyphs around the logo.",
+      "properties": {
+        "✦": { "$ref": "#/$defs/glyph", "description": "Replaces the big sparkle ✦." },
+        "·": { "$ref": "#/$defs/glyph", "description": "Replaces the small sparkle ·." }
+      },
+      "additionalProperties": false
+    },
+    "sparkle_color": { "$ref": "#/$defs/color", "description": "Color of the sparkles." },
+    "eye_color": { "$ref": "#/$defs/color", "description": "Color of the eyes." },
+    "prop": {
+      "description": "A small picture drawn beside the logo (like the xmas tree or cny lantern): up to 5 rows of up to 8 characters. Shorter props stand on the bottom row. Every non-space character needs an entry in prop_cells. null or [] removes the base theme's prop.",
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "array",
+          "maxItems": 5,
+          "items": { "type": "string", "maxLength": 8 }
+        }
+      ]
+    },
+    "prop_cells": {
+      "type": "object",
+      "description": "What each prop character draws. Requires `prop`.",
+      "propertyNames": { "minLength": 1, "maxLength": 1 },
+      "additionalProperties": { "$ref": "#/$defs/propCell" }
+    },
+    "dates": {
+      "type": "array",
+      "description": "Days when theme `auto` shows this theme (local time). On those days it wins over a built-in seasonal theme.",
+      "items": {
+        "type": "string",
+        "pattern": "^(\\d{4}-)?\\d{1,2}-\\d{1,2}$",
+        "description": "\"MM-DD\" every year, or \"YYYY-MM-DD\" once."
+      },
+      "examples": [["03-17"], ["2027-02-06"]]
+    }
+  },
+  "dependentRequired": { "prop_cells": ["prop"] },
+  "$defs": {
+    "color": {
+      "description": "\"#rrggbb\" or [r, g, b] with 0-255 integers.",
+      "oneOf": [
+        { "type": "string", "pattern": "^\\s*#?[0-9a-fA-F]{6}\\s*$" },
+        {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": { "type": "integer", "minimum": 0, "maximum": 255 }
+        }
+      ]
+    },
+    "glyph": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1,
+      "description": "One printable, single-width character (no spaces, no wide CJK or emoji)."
+    },
+    "propCell": {
+      "type": "object",
+      "description": "One prop cell. Needs at least bg or glyphs.",
+      "properties": {
+        "bg": { "$ref": "#/$defs/color", "description": "Fill the cell with this color." },
+        "fg": { "$ref": "#/$defs/color", "description": "Glyph color." },
+        "glyphs": {
+          "description": "Glyph(s) drawn in the cell, cycled one per frame (max 8).",
+          "oneOf": [
+            { "$ref": "#/$defs/glyph" },
+            { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/glyph" } }
+          ]
+        },
+        "chase": {
+          "description": "Glyph colors that cycle along the prop each frame, like the tree's lights (use instead of fg; max 8).",
+          "oneOf": [
+            { "type": "string", "pattern": "^\\s*#?[0-9a-fA-F]{6}\\s*$" },
+            { "type": "array", "minItems": 1, "maxItems": 8, "items": { "$ref": "#/$defs/color" } }
+          ]
+        },
+        "blink": {
+          "enum": ["all", "alt"],
+          "description": "Twinkle while Maggy is idle: every cell (all) or every other cell (alt)."
+        }
+      },
+      "additionalProperties": false,
+      "anyOf": [{ "required": ["bg"] }, { "required": ["glyphs"] }]
+    }
+  }
+}

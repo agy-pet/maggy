@@ -16,12 +16,13 @@ Notes for agents:
 - Every `maggy` subcommand is non-interactive except `maggy preview` (animates until Ctrl+C; add `--once` to print one frame) and `maggy stats web` (opens a browser; add `--no-open`).
 - `maggy stats --json` prints machine-readable usage stats.
 - Settings live in `~/.config/maggy/config.json`; prefer `maggy config set KEY VALUE` over editing the file.
-- Custom themes are JSON files in `~/.config/maggy/themes/`; the schema is in the full docs below.
+- Custom themes are JSON files in `~/.config/maggy/themes/<name>.json`, validated by the JSON Schema at https://agy-pet.github.io/theme.schema.json. Check one with `maggy theme list` (skipped files show the reason) and `maggy preview working --theme <name> --once`, then enable it with `maggy theme <name>`.
 
 ## Docs
 
 - [Full documentation (Markdown)](https://agy-pet.github.io/llms-full.txt): install, every command, config keys, env vars, theme JSON schema, troubleshooting
 - [Landing page](https://agy-pet.github.io/): interactive demo of the statusline and themes
+- [Theme JSON Schema](https://agy-pet.github.io/theme.schema.json): every key a custom theme file can use, with descriptions
 - [README on GitHub](https://github.com/agy-pet/maggy#readme): same content as the full docs, rendered
 
 ## Source

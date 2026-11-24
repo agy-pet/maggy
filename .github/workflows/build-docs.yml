@@ -11,6 +11,7 @@ on:
       - "docs/**"
       - "scripts/locales.json"
       - "scripts/build_docs.py"
+      - "scripts/agent-skills/**"
       - "README.md"
       - "VERSION"
       - "install.sh"

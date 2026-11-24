@@ -7,7 +7,7 @@
   <meta name="description" content="Privacy Policy for the Maggy website and Antigravity CLI (agy) statusline tool.">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://agy-pet.github.io/privacy.html">
   <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -15,9 +15,9 @@
   <link rel="apple-touch-icon" sizes="512x512" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..100,600..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script src="appearance.js"></script>
+  <script>!function(){try{var v=localStorage.getItem('maggy.appearance');if(v==='light'||v==='dark')document.documentElement.dataset.theme=v}catch(e){}}();</script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -108,12 +108,13 @@
   </main>
 
   <footer class="foot">
-    <p>Made for <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> statuslines. Not affiliated with Google.</p>
+    <p class="foot-note">Made for <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> statuslines. Not affiliated with Google.</p>
     <div class="foot-end">
       <p class="foot-links">
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <button type="button" class="foot-btn" data-consent-open hidden>Cookie settings</button>
+        <a href="https://github.com/agy-pet/maggy/issues/new">Feedback</a>
         <a href="https://github.com/agy-pet/maggy">Source on GitHub</a>
       </p>
       <div class="appearance" role="group" aria-label="Appearance">
@@ -135,6 +136,7 @@
     </div>
   </aside>
 
+  <script src="appearance.js" defer></script>
   <script src="consent.js" defer></script>
 </body>
 </html>

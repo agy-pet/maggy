@@ -7,7 +7,7 @@
   <meta name="description" content="Antigravity CLI (agy) 向けのアニメーション付きターミナルペット＆カスタムステータスライン。使用中のモデル、コンテキストやクォータ残量バー、Git ブランチの横で Maggy が踊ります。">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://agy-pet.github.io/ja/">
   <link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/">
@@ -25,6 +25,14 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Maggy">
   <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/ja/">
   <meta property="og:title" content="Maggy — Antigravity CLI (agy) 向けターミナルペット＆ステータスライン">
   <meta property="og:description" content="Antigravity CLI (agy) 向けのアニメーション付きターミナルペット＆カスタムステータスライン。使用中のモデル、コンテキスト＆クォータ残量バー、推論レベル、Git ブランチのすぐ隣で踊るマスコット。">
@@ -32,48 +40,110 @@
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline, with brew install agy-pet/tap/maggy">
+  <meta property="og:image:alt" content="Maggy — Antigravity CLI (agy) 向けターミナルペット＆ステータスライン">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Maggy — Antigravity CLI (agy) 向けターミナルペット＆ステータスライン">
   <meta name="twitter:description" content="Antigravity CLI (agy) 向けのアニメーション付きターミナルペット＆カスタムステータスライン。使用中のモデル、コンテキストやクォータ残量バー、Git ブランチの横で Maggy が踊ります。">
   <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
-  <meta name="twitter:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline">
+  <meta name="twitter:image:alt" content="Maggy — Antigravity CLI (agy) 向けターミナルペット＆ステータスライン">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Maggy",
-    "alternateName": "maggy",
-    "description": "Antigravity CLI (agy) 向けのアニメーション付きターミナルペット＆カスタムステータスライン。使用中のモデル、コンテキスト＆クォータ残量バー、推論レベル、Git ブランチのすぐ隣で踊るマスコット。",
-    "url": "https://agy-pet.github.io/ja/",
-    "image": "https://agy-pet.github.io/social-preview.png",
-    "applicationCategory": "DeveloperApplication",
-    "operatingSystem": "macOS, Linux",
-    "softwareVersion": "0.8.3",
-    "codeRepository": "https://github.com/agy-pet/maggy",
-    "downloadUrl": "https://github.com/agy-pet/maggy/releases",
-    "installUrl": "https://agy-pet.github.io/#install",
-    "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
-    "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
-    "isAccessibleForFree": true,
-    "license": "https://opensource.org/licenses/MIT",
-    "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
-    "inLanguage": "ja"
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Maggy",
+        "url": "https://agy-pet.github.io/ja/",
+        "inLanguage": "ja"
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Maggy",
+        "alternateName": "maggy",
+        "description": "Antigravity CLI (agy) 向けのアニメーション付きターミナルペット＆カスタムステータスライン。使用中のモデル、コンテキスト＆クォータ残量バー、推論レベル、Git ブランチのすぐ隣で踊るマスコット。",
+        "url": "https://agy-pet.github.io/ja/",
+        "inLanguage": "ja",
+        "image": "https://agy-pet.github.io/social-preview.png",
+        "screenshot": "https://agy-pet.github.io/social-preview.png",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "macOS, Linux",
+        "softwareVersion": "0.8.3",
+        "author": {
+          "@type": "Organization",
+          "name": "agy-pet",
+          "url": "https://github.com/agy-pet"
+        },
+        "codeRepository": "https://github.com/agy-pet/maggy",
+        "downloadUrl": "https://github.com/agy-pet/maggy/releases",
+        "installUrl": "https://agy-pet.github.io/ja/#install",
+        "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
+        "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
+        "isAccessibleForFree": true,
+        "license": "https://opensource.org/licenses/MIT",
+        "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "inLanguage": "ja",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Antigravity CLI (agy) でコンテキスト使用率やクォータ残量バーを表示するには？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "brew install agy-pet/tap/maggy && maggy setup でインストール後、agy を再起動するか /statusline enable を実行してください。~/.gemini/antigravity-cli/settings.json の statusLine に登録され、マスコットの横にモデル、コンテキスト使用率、色分けされたクォータバー、ワークスペース、Git ブランチ、推論レベルが表示されます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "maggy setup 後にステータスラインが表示されない場合は？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "agy を再起動するか、セッション内で /statusline enable を実行してください。それでも表示されない場合は maggy doctor を実行し、Python 3・トゥルーカラー対応・~/.gemini/antigravity-cli/settings.json の statusLine 設定を確認してください。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Maggy は agy の動作を重くしたり、テレメトリを送信したりしますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "いいえ。maggy CLI は Python 3 標準ライブラリのみで完全ローカル動作し、テレメトリは一切送信しません。agy が状態変化時のみ呼び出す仕組み（バックグラウンドタイマーなし）で、描画速度はいつでも maggy doctor で計測できます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "マスコットを非表示にしたり、表示する項目をカスタマイズできますか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "はい。maggy pet off でメトリクスのみ表示、maggy motion off で静止表示、maggy side right で右側配置に変更できます。maggy statusline hide で個別項目（model・context・quota・workspace・git・effort）を隠し、maggy statusline show で戻せます。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "対応している OS とターミナルは？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit トゥルーカラー対応のターミナルで利用できます。"
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..100,600..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
-  <script src="../appearance.js"></script>
+  <script>!function(){try{var v=localStorage.getItem('maggy.appearance');if(v==='light'||v==='dark')document.documentElement.dataset.theme=v}catch(e){}}();</script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -113,7 +183,7 @@
   <a class="skip" href="#main">コンテンツへスキップ</a>
 
   <header class="top">
-    <a class="wordmark" href="#" aria-label="Maggy ホーム"><img class="wordmark-logo" src="../favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
+    <a class="wordmark" href="./" aria-label="Maggy ホーム"><img class="wordmark-logo" src="../favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
     <div class="top-right">
       <nav aria-label="メインナビゲーション">
         <a href="#try">試してみる</a>
@@ -128,7 +198,7 @@
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">agy <span class="nowrap">ステータスライン</span>に住む Maggy</h1>
+        <h1 id="hero-title">agy <span class="nowrap">ステータスライン</span>に住む Maggy&nbsp;🌋</h1>
         <p class="lede"><strong>Antigravity CLI（<code>agy</code>）</strong>向けのアニメーション付きターミナルペット＆カスタムステータスライン。<code>agy</code> が動いている間は楽しそうに踊り、ツール実行中は元気よく足踏みし、席を外すとうとうと居眠りします。使用中のモデル、コンテキスト使用率、クォータ残量バー、推論レベル、Git ブランチのすぐ隣でいつも一緒です。</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
@@ -182,7 +252,7 @@
         <div class="control">
           <label for="opt-theme">テーマ</label>
           <select id="opt-theme" name="theme">
-            <option value="auto">auto</option>
+            <option value="auto" selected>auto</option>
             <option value="default">default</option>
             <option value="xmas">xmas</option>
             <option value="halloween">halloween</option>
@@ -256,8 +326,9 @@
           <p><code>~/.config/maggy/themes/</code> に JSON ファイルを置くだけで、ファイル名がそのままテーマ名になります（例：<code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。パーツやセル単位で配色を変えたり、きらめき記号を差し替えたり、<code>prop</code> で Maggy の横にツリーや提灯のような飾りを描いたり、<code>base</code> で組み込みテーマをベースにしたりできます。<code>dates</code> を設定すれば <code>auto</code> で自動表示。<code>maggy theme list</code> で一覧を確認できます。</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
           <pre class="theme-json"><code>{
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
   "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
   "sparkles": { "✦": "☘", "·": "·" },
@@ -327,33 +398,65 @@
         <div><dt><code>maggy uninstall --purge</code></dt><dd>statusLine の設定・設定ファイル・キャッシュを削除します。他の agy 設定には触れません。</dd></div>
       </dl>
     </section>
+
+    <section id="faq" class="faq" aria-labelledby="faq-title">
+      <div class="section-head">
+        <h2 id="faq-title">よくある質問</h2>
+        <p>Antigravity CLI 向けステータスライン Maggy のインストール・カスタマイズ・トラブルシューティング。</p>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Antigravity CLI (agy) でコンテキスト使用率やクォータ残量バーを表示するには？</summary>
+          <p><code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> でインストール後、<code>agy</code> を再起動するか <code>/statusline enable</code> を実行してください。<code>~/.gemini/antigravity-cli/settings.json</code> の <code>statusLine</code> に登録され、マスコットの横にモデル、コンテキスト使用率、色分けされたクォータバー、ワークスペース、Git ブランチ、推論レベルが表示されます。</p>
+        </details>
+        <details>
+          <summary>maggy setup 後にステータスラインが表示されない場合は？</summary>
+          <p><code>agy</code> を再起動するか、セッション内で <code>/statusline enable</code> を実行してください。それでも表示されない場合は <code>maggy doctor</code> を実行し、Python 3・トゥルーカラー対応・<code>~/.gemini/antigravity-cli/settings.json</code> の <code>statusLine</code> 設定を確認してください。</p>
+        </details>
+        <details>
+          <summary>Maggy は agy の動作を重くしたり、テレメトリを送信したりしますか？</summary>
+          <p>いいえ。<code>maggy</code> CLI は Python 3 標準ライブラリのみで完全ローカル動作し、テレメトリは一切送信しません。<code>agy</code> が状態変化時のみ呼び出す仕組み（バックグラウンドタイマーなし）で、描画速度はいつでも <code>maggy doctor</code> で計測できます。</p>
+        </details>
+        <details>
+          <summary>マスコットを非表示にしたり、表示する項目をカスタマイズできますか？</summary>
+          <p>はい。<code>maggy pet off</code> でメトリクスのみ表示、<code>maggy motion off</code> で静止表示、<code>maggy side right</code> で右側配置に変更できます。<code>maggy statusline hide</code> で個別項目（<code>model</code>・<code>context</code>・<code>quota</code>・<code>workspace</code>・<code>git</code>・<code>effort</code>）を隠し、<code>maggy statusline show</code> で戻せます。</p>
+        </details>
+        <details>
+          <summary>対応している OS とターミナルは？</summary>
+          <p>Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit トゥルーカラー対応のターミナルで利用できます。</p>
+        </details>
+      </div>
+    </section>
   </main>
 
   <footer class="foot">
-    <p><a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> 向けの非公式ステータスラインです（Google とは一切関係ありません）。</p>
+    <p class="foot-note"><a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> 向けの非公式ステータスラインです（Google とは一切関係ありません）。</p>
     <div class="foot-end">
       <p class="foot-links">
         <a href="../privacy.html">プライバシー</a>
         <a href="../terms.html">利用規約</a>
         <button type="button" class="foot-btn" data-consent-open hidden>Cookie 設定</button>
+        <a href="https://github.com/agy-pet/maggy/issues/new">フィードバック</a>
         <a href="https://github.com/agy-pet/maggy">GitHub でソースを見る</a>
-        <a href="https://agy-pet.github.io/llms.txt" title="Docs for AI agents">llms.txt</a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
       </p>
-      <label class="lang-picker">
-        <span class="sr-only">言語を選択</span>
-        <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-        <select id="lang-select" aria-label="言語を選択">
-          <option value="">English</option>
-          <option value="zh-cn">简体中文</option>
-          <option value="zh-tw">繁體中文</option>
-          <option value="ja" selected>日本語</option>
-          <option value="ko">한국어</option>
-          <option value="es">Español</option>
-          <option value="fr">Français</option>
-          <option value="de">Deutsch</option>
-          <option value="pt">Português</option>
-        </select>
-      </label>
+      <details class="lang-picker">
+        <summary aria-label="言語を選択">
+          <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="lang-current">日本語</span>
+        </summary>
+        <ul class="lang-menu">
+          <li><a href="../" hreflang="en" lang="en">English</a></li>
+          <li><a href="../zh-cn/" hreflang="zh-CN" lang="zh-CN">简体中文</a></li>
+          <li><a href="../zh-tw/" hreflang="zh-TW" lang="zh-TW">繁體中文</a></li>
+          <li><a href="../ja/" hreflang="ja" lang="ja" aria-current="page">日本語</a></li>
+          <li><a href="../ko/" hreflang="ko" lang="ko">한국어</a></li>
+          <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+          <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+          <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+          <li><a href="../pt/" hreflang="pt" lang="pt">Português</a></li>
+        </ul>
+      </details>
       <div class="appearance" role="group" aria-label="表示モード">
         <button type="button" data-appearance="light" aria-pressed="false" aria-label="ライト" title="ライト"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
         <button type="button" data-appearance="system" aria-pressed="true" aria-label="システム設定" title="システム設定"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
@@ -373,6 +476,7 @@
     </div>
   </aside>
 
+  <script src="../appearance.js" defer></script>
   <script src="../consent.js" defer></script>
   <script src="../maggy.js" defer></script>
 </body>

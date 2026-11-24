@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 """Render brand images from the real mascot sprite and colors.
 
-    python3 scripts/make_brand.py    # writes assets/social-preview.png, assets/avatar.png
+    python3 scripts/make_brand.py    # writes assets/social-preview.png, assets/avatar.png,
+                                     # docs/favicon.svg, docs/favicon.ico
 
 social-preview.png (1280x640) is the GitHub repo social preview;
-avatar.png (512x512) is the agy-pet org avatar. Needs Pillow (macOS fonts).
+avatar.png (512x512) is the agy-pet org avatar.
+favicon.svg is a vector version of the avatar for the site tab icon;
+favicon.ico (16/32/48) is the fallback for browsers without SVG favicons. Needs Pillow (macOS fonts).
 """
 
 import os
@@ -120,6 +123,76 @@ def avatar():
     return path
 
 
+DOCS_DIR = os.path.join(ROOT, "docs")
+FAVICON_U = 34  # cell width in a 512 box: a tighter crop than the avatar so it reads at 16px
+FAVICON_SPARKLES = ((0, 1, "✦"), (0, 10, "·"))
+
+
+def favicon_origin(S, u):
+    sw, sh = sprite_size(u)
+    return (S - sw) / 2, (S - sh) / 2 + u / 2
+
+
+def favicon_svg():
+    """Vector favicon: the avatar's sprite, eyes and sparkles on a rounded dark tile."""
+    S, u = 512, FAVICON_U
+    x0, y0 = favicon_origin(S, u)
+    pose, eyes = mascot.BASE, "◕◕"
+    hexc = lambda c: "#%02x%02x%02x" % tuple(c)
+    n = lambda v: f"{v:g}" if v == int(v) else f"{v:.2f}".rstrip("0")
+    parts = [f'<rect width="{S}" height="{S}" rx="96" fill="{hexc(BG)}"/>']
+    # merge each colored char-pair into one square so there are no hairline seams
+    for r, row in enumerate(pose):
+        c = 0
+        while c < len(row):
+            ch = row[c]
+            if ch == " ":
+                c += 1
+                continue
+            w = 1
+            while c + w < len(row) and row[c + w] == ch:
+                w += 1
+            parts.append(f'<rect x="{n(x0 + c * u)}" y="{n(y0 + r * 2 * u)}" width="{w * u}" '
+                         f'height="{2 * u}" fill="{hexc(mascot.LOGO_COLORS[ch])}"/>')
+            c += w
+    head_row = next(r for r, row in enumerate(pose) if " " not in row[2:10])
+    er, p = u * 0.42, u * 0.42 * 0.55
+    for col, _ in zip(mascot.EYE_COLS, eyes):
+        cx, cy = x0 + col * u + u / 2, y0 + head_row * 2 * u + u
+        parts.append(f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(er)}" fill="{hexc(mascot.EYE_COLOR)}"/>')
+        parts.append(f'<circle cx="{n(cx + er * 0.3)}" cy="{n(cy - er * 0.25)}" r="{n(p)}" fill="{hexc(BG)}"/>')
+    for r, c, glyph in FAVICON_SPARKLES:
+        cx, cy = x0 + c * u + u / 2, y0 + r * 2 * u + u
+        if glyph == "✦":
+            R = u * 0.75
+            k = R * 0.28
+            pts = [(cx, cy - R), (cx + k, cy - k), (cx + R, cy), (cx + k, cy + k),
+                   (cx, cy + R), (cx - k, cy + k), (cx - R, cy), (cx - k, cy - k)]
+            parts.append(f'<polygon points="{" ".join(f"{n(x)},{n(y)}" for x, y in pts)}" '
+                         f'fill="{hexc(mascot.SPARKLE_COLOR)}"/>')
+        else:
+            parts.append(f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(u * 0.14)}" '
+                         f'fill="{hexc(mascot.SPARKLE_COLOR)}"/>')
+    svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {S} {S}">'
+           + "".join(parts) + "</svg>\n")
+    path = os.path.join(DOCS_DIR, "favicon.svg")
+    with open(path, "w") as f:
+        f.write(svg)
+    return path
+
+
+def favicon_ico():
+    """Raster fallback, drawn at 512 with a rounded tile and downsampled."""
+    S, u = 512, FAVICON_U
+    img = Image.new("RGBA", (S, S), (0, 0, 0, 0))
+    ImageDraw.Draw(img).rounded_rectangle([0, 0, S - 1, S - 1], radius=96, fill=BG)
+    x0, y0 = favicon_origin(S, u)
+    draw_sprite(img, round(x0), round(y0), u, mascot.BASE, "◕◕", FAVICON_SPARKLES)
+    path = os.path.join(DOCS_DIR, "favicon.ico")
+    img.save(path, sizes=[(16, 16), (32, 32), (48, 48)])
+    return path
+
+
 if __name__ == "__main__":
     os.makedirs(OUT_DIR, exist_ok=True)
-    print("wrote", social_preview(), avatar())
+    print("wrote", social_preview(), avatar(), favicon_svg(), favicon_ico())

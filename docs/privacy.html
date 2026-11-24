@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Maggy</title>
+  <meta name="description" content="Privacy Policy for the Maggy website and Antigravity CLI (agy) statusline tool.">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://agy-pet.github.io/privacy.html">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="512x512" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="appearance.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var EEA_UK_CH = [
+        'AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR',
+        'GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MT',
+        'NL','NO','PL','PT','RO','SE','SI','SK'
+      ];
+      var gpc = Boolean(navigator.globalPrivacyControl);
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        region: EEA_UK_CH,
+        wait_for_update: 500
+      });
+      gtag('consent', 'default', {
+        analytics_storage: gpc ? 'denied' : 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      try {
+        var saved = localStorage.getItem('maggy.consent');
+        if (saved === 'granted' || saved === 'denied') {
+          gtag('consent', 'update', { analytics_storage: saved });
+        }
+      } catch (e) {}
+    })();
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <a class="wordmark" href="./" aria-label="Maggy home"><img class="wordmark-logo" src="favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
+    <div class="top-right">
+      <nav aria-label="Primary">
+        <a href="./">Home</a>
+        <a href="privacy.html" aria-current="page">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://github.com/agy-pet/maggy">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="legal">
+    <h1>Privacy Policy</h1>
+    <p class="legal-updated">Last updated: November 25, 2026</p>
+
+    <section>
+      <h2>1. The Maggy CLI tool (zero telemetry)</h2>
+      <p>The <code>maggy</code> command-line tool runs entirely locally on your machine. It does <strong>not</strong> collect, transmit, or share any telemetry, analytics, prompts, code, or session data.</p>
+      <p>Locally, <code>maggy</code> only reads and writes configuration and cache files under <code>~/.config/maggy/</code> and <code>~/.cache/maggy/</code>, and — when you run <code>maggy setup</code> or <code>maggy uninstall</code> — updates the <code>statusLine</code> entry in <code>~/.gemini/antigravity-cli/settings.json</code>.</p>
+    </section>
+
+    <section>
+      <h2>2. Website analytics (Google Analytics &amp; GTM)</h2>
+      <p>This landing page (<code>agy-pet.github.io</code>) uses <strong>Google Tag Manager</strong> and <strong>Google Analytics (GA4)</strong> with <strong>Google Consent Mode v2</strong> to understand overall site traffic, such as page views, referrers, approximate region, language, and browser or device type.</p>
+      <p>For visitors in the <strong>European Economic Area (EEA), the United Kingdom, and Switzerland</strong>, analytics storage is <strong>denied by default</strong> and no analytics cookies are set unless you accept via the consent banner. Advertising storage and personalization signals (<code>ad_storage</code>, <code>ad_user_data</code>, <code>ad_personalization</code>) are always denied globally. We also honor the browser's <strong>Global Privacy Control (GPC)</strong> signal.</p>
+      <p>When analytics storage is granted, Google Analytics may set cookies or use similar browser storage to distinguish visits and sessions. This data is processed by Google in accordance with the <a href="https://policies.google.com/privacy">Google Privacy Policy</a> and <a href="https://policies.google.com/technologies/partner-sites">How Google uses information from sites that use our services</a>.</p>
+      <p>We do not sell personal data, run ads, or collect personally identifiable information (such as names or email addresses) on this site.</p>
+    </section>
+
+    <section>
+      <h2>3. Managing consent &amp; opting out</h2>
+      <p>You can accept, decline, or change your Google Analytics cookie preference at any time:</p>
+      <ul>
+        <li>Open <button type="button" class="foot-btn" data-consent-open>Cookie settings</button> to update your choice on this browser (stored locally under <code>maggy.consent</code>).</li>
+        <li>Enable Global Privacy Control (GPC) or a content blocker, or disable cookies in your browser settings.</li>
+        <li>Install the official <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics Opt-out Browser Add-on</a>.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Hosting</h2>
+      <p>This website is hosted on <a href="https://pages.github.com/">GitHub Pages</a>. GitHub may collect standard technical server logs (such as IP addresses) to operate and secure the service, subject to the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+    </section>
+
+    <section>
+      <h2>5. Changes &amp; contact</h2>
+      <p>We may update this Privacy Policy as the project evolves. The latest version is always posted on this page. If you have questions, open an issue on <a href="https://github.com/agy-pet/maggy/issues">GitHub</a>.</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Made for <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> statuslines. Not affiliated with Google.</p>
+    <div class="foot-end">
+      <p class="foot-links">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <button type="button" class="foot-btn" data-consent-open hidden>Cookie settings</button>
+        <a href="https://github.com/agy-pet/maggy">Source on GitHub</a>
+      </p>
+      <div class="appearance" role="group" aria-label="Appearance">
+        <button type="button" data-appearance="light" aria-pressed="false" aria-label="Light" title="Light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+        <button type="button" data-appearance="system" aria-pressed="true" aria-label="System" title="System"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+        <button type="button" data-appearance="dark" aria-pressed="false" aria-label="Dark" title="Dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="consent-banner" class="consent" role="dialog" aria-live="polite" aria-label="Analytics consent" hidden>
+    <p class="consent-text">
+      <span>This site uses Google Analytics cookies to understand overall traffic. The CLI sends zero telemetry.</span>
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
+    <div class="consent-actions">
+      <button type="button" class="consent-btn" data-consent="denied">Decline</button>
+      <button type="button" class="consent-btn consent-accept" data-consent="granted">Accept</button>
+    </div>
+  </aside>
+
+  <script src="consent.js" defer></script>
+</body>
+</html>

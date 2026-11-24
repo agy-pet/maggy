@@ -2,7 +2,9 @@
 
 Meet **Maggy** 🌋, a little magma pet who lives in your agy statusline.
 
-**[See her dance →](https://agy-pet.github.io/maggy/)**
+**[See her dance →](https://agy-pet.github.io/)**
+
+> 🤖 Using an AI coding agent? Point it at [`llms.txt`](https://agy-pet.github.io/llms.txt) (or the full docs in [`llms-full.txt`](https://agy-pet.github.io/llms-full.txt)) and ask it to install Maggy.
 
 A custom [Antigravity CLI (`agy`)](https://antigravity.google/docs/cli/statusline) statusline featuring a dancing Antigravity logo — the same gradient arch `agy` prints in its own startup banner, with a pair of expressive eyes added — displayed alongside your model, context usage, quota bars, workspace, git branch, and reasoning effort.
 
@@ -33,7 +35,7 @@ maggy setup
 ### One-line installer
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/agy-pet/maggy/master/install.sh | bash
+curl -fsSL https://agy-pet.github.io/install.sh | bash
 ```
 
 This clones the repo to `~/.maggy`, links `maggy` into `~/.local/bin`, and runs `maggy setup`. Pass setup options after `bash -s --`, e.g. `| bash -s -- --theme xmas --no-mood`. Run it again (or `maggy update`) to update.
@@ -77,26 +79,30 @@ agy picks up settings changes automatically (or run `/statusline enable` inside 
 
 ```text
 maggy setup [--force] [--padding N] [--stack|--no-stack] [--theme T] [--name N]
-            [--no-blink] [--no-mood] [--no-pet] [--no-motion] [--side left|right]
-maggy uninstall [--purge]        remove the statusLine (and config + cache with --purge)
+            [--no-blink] [--no-mood] [--no-pet] [--no-motion] [--side left|right] [--no-stretch]
+maggy uninstall [--purge]        remove the statusLine (and config, cache and stats with --purge)
 maggy status [-q]                setup state, settings, theme and a sample of Maggy
 
 # pet commands: the `pet` prefix is optional (maggy theme xmas = maggy pet theme xmas)
 maggy [pet] on | off | toggle    show or hide the logo, keeping the metrics
-maggy [pet] theme [auto|default|xmas]   show or switch the theme
+maggy [pet] theme [auto|NAME|list]      show or switch the theme (default, xmas, halloween, cny, yours)
 maggy [pet] motion [on|off|toggle]      off: a still pose per state, no dancing or sparkles
 maggy [pet] side [left|right|toggle]    which side of the metrics the logo sits on
 maggy [pet] blink [on|off|toggle]       idle twinkling via the terminal blink attribute
 maggy [pet] mood [on|off|toggle]        the "Maggy is dancing ♪" caption beside the logo
+maggy [pet] stretch [on|off|toggle|MIN] stretch reminder after MIN (default 45) minutes of work
 maggy [pet] name [NAME] [--reset]       rename your pet
 maggy [pet] preview [state] [--theme T] [--name N] [--once] [--width W]
 
 # statusline commands: the `statusline` prefix is required
 maggy statusline on | off | toggle      turn the whole statusline on/off without removing it
-maggy statusline show | hide [SEGMENT...]   model, context, quota, workspace, git, effort (or all)
+maggy statusline show | hide [SEGMENT...]   model, context, quota, workspace, git, effort, stats (or all)
 maggy statusline                 render from agy's JSON on stdin (what agy runs)
 
 maggy config [show|get|set|reset|path] [key] [value]
+maggy stats [today|week|month|year|all] [--days N] [--json]   tasks, busy time, streaks
+maggy stats web [--out PATH] [--no-open]   dashboard in your browser (one local HTML file)
+maggy stats on | off | toggle | reset --yes | path
 maggy doctor                     check python, terminal, agy settings and render time
 maggy update                     brew upgrade, or git pull for curl installs
 maggy version | help
@@ -117,13 +123,16 @@ Commands that touch agy's settings take `--settings PATH`. Shell completions for
   "pet": true,
   "motion": true,
   "side": "left",
-  "hide": []
+  "hide": [],
+  "stretch": true,
+  "stretch_after": 45,
+  "stats": true
 }
 ```
 
-`hide` lists segments to leave out: `model`, `context`, `quota` (the inline quota and the quota rows), `workspace`, `git`, `effort`. `maggy statusline show` / `hide` with no arguments print which are shown.
+`hide` lists segments to leave out: `model`, `context`, `quota` (the inline quota and the quota rows), `workspace`, `git`, `effort`, `stats` (today's tasks `✓12` and, from 2 days on, your streak `🔥5`). `maggy statusline show` / `hide` with no arguments print which are shown.
 
-The env vars `MAGGY_THEME`, `MAGGY_BLINK`, `MAGGY_MOOD`, `MAGGY_PET` and `MAGGY_MOTION` win over the file, e.g. in the `statusLine` command: `MAGGY_THEME=default maggy statusline`.
+The env vars `MAGGY_THEME`, `MAGGY_BLINK`, `MAGGY_MOOD`, `MAGGY_PET`, `MAGGY_MOTION`, `MAGGY_STRETCH` and `MAGGY_STATS` win over the file, e.g. in the `statusLine` command: `MAGGY_THEME=default maggy statusline`.
 
 ---
 
@@ -139,7 +148,9 @@ The env vars `MAGGY_THEME`, `MAGGY_BLINK`, `MAGGY_MOOD`, `MAGGY_PET` and `MAGGY_
   - `idle`: agy doesn't redraw the status line on a timer, so an idle pose can't animate; it holds still until the next redraw, and only the sparkles around it twinkle (terminal blink attribute) so it never looks frozen. Each redraw picks a pose: a happy "done!" pose with sparkles right after work finishes, then a random fidget on each redraw (glance, wink, blink, sit, stretch, foot tap…), never the same one twice in a row; after 2 minutes idle it dozes off (`z Z`)
   - `reviewing`: 4-frame curious side-to-side lean
   - `error`: 2-frame dizzy wobble, tinted red
-- **Seasonal themes**: on Christmas Day (Dec 25, local time) the logo switches to a Xmas look by itself: the crown turns into a red Santa hat with a white pom-pom, sparkles become snowflakes, snow falls around the logo, a string of twinkling lights chases across the arch, and a little decorated tree with a twinkling star stands beside it. It goes back to normal the next day.
+- **Seasonal themes**: on Christmas Day (Dec 25, local time) the logo switches to a Xmas look by itself: the crown turns into a red Santa hat with a white pom-pom, sparkles become snowflakes, snow falls around the logo, a string of twinkling lights chases across the arch, and a little decorated tree with a twinkling star stands beside it. It goes back to normal the next day. Halloween (Oct 31) brings a witch-purple hat, glowing eyes and a jack-o'-lantern with a flickering candle; Chinese New Year (by the lunar calendar, e.g. Feb 6, 2027) brings a gold crown, gold confetti and a red lantern with a swaying tassel. You can add your own themes too (see [Themes](#themes)).
+- **Stretch reminder**: after 45 minutes of continuous work (short pauses between turns don't count as a break), idle redraws show Maggy doing side stretches and the mood line says "Maggy thinks you should stretch". It stops once agy has been idle for 5 minutes. Change the time with `maggy stretch 30`, or turn it off with `maggy stretch off`.
+- **Stats for nerds**: `maggy stats` shows what Maggy saw today: tasks finished (one per agy turn), errors, busy time and the share spent in tools, average and longest task, time agy waited for your approval, peak context, quota burned, your daily streak, busiest hour, an hour-of-day sparkline, and the top models and projects. `maggy stats week|month` adds a per-day sparkline, `maggy stats year` a GitHub-style heatmap, `--json` dumps the numbers, and `maggy stats web` opens a dashboard in your browser (KPIs with change vs the previous period, busy time per day split into working and tool use, a year heatmap you can click to open any day, a weekday × hour rhythm grid, models, projects and quota). The dashboard is one self-contained HTML file, written to `~/.local/state/maggy/dashboard.html`; it loads nothing from the network. The `stats` statusline segment shows today's tasks and your streak (`✓12 🔥5`), and the done caption numbers your tasks (`Maggy: task #12 today ✦`). Stats stay on your machine (`~/.local/state/maggy/stats.json`, honors `XDG_STATE_HOME`); turn counting off with `maggy stats off`. Times are measured between agy's state changes, so they're close but not to the second.
 - **Zero-jitter alignment**: every frame line is strictly 14 single-width columns wide, so the metrics column never shifts horizontally.
 - **Display options**: hide the logo (`maggy off`, short for `maggy pet off`; every pet command works without the `pet` prefix), stop the animation (`maggy motion off` keeps one still pose per state; only the eyes and the red error tint change), move the logo to the right of the metrics (`maggy side right`), or hide metric segments (`maggy statusline hide git effort`). Every on/off option also takes `toggle`.
 - **Responsive layout**: automatically switches to a compact 1-line arch (`▟▀▙`) in the logo's colors when `terminal_width < 60`.
@@ -180,6 +191,7 @@ maggy preview initializing  # spinning loader eyes
 maggy preview idle          # simulated idle redraws: done! -> random fidgets -> dozing
 maggy preview reviewing     # side-to-side lean
 maggy preview error         # red-tinted wobble
+maggy preview stretch       # the stretch reminder
 maggy preview                       # every theme, one under another, each with its name
 maggy preview working --theme xmas   # just one theme, any day
 maggy preview idle --once            # print one frame and exit
@@ -195,14 +207,55 @@ echo '{"agent_state":"working","model":{"display_name":"Gemini Pro","effort":"me
 
 ## Themes
 
-By default the theme is picked by date (`xmas` on Dec 25, the plain logo otherwise). Switch it manually; the next statusline redraw picks it up:
+By default the theme is picked by date: `halloween` on Oct 31, `xmas` on Dec 25, `cny` on Chinese New Year (dates listed through 2036), and the plain logo otherwise. Switch it manually; the next statusline redraw picks it up:
 
 ```bash
-maggy theme          # show the active theme and the list
+maggy theme list     # every theme, its date and which one is active
 maggy theme xmas     # always show the Xmas look
 maggy theme default  # always the plain logo (no seasonal themes)
 maggy theme auto     # back to picking by date
 ```
+
+### Your own themes
+
+Drop a JSON file into `~/.config/maggy/themes/` and its file name becomes the theme name (`paddy.json` → `maggy theme paddy`):
+
+```json
+{
+  "description": "St Patrick's Day",
+  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
+  "sparkles": { "✦": "☘", "·": "·" },
+  "sparkle_color": "#a3e635",
+  "eye_color": "#ffffff",
+  "prop": [
+    "c c",
+    "ccc",
+    " s "
+  ],
+  "prop_cells": {
+    "c": { "bg": "#1f9d55" },
+    "s": { "fg": "#3f6212", "glyphs": ["│"] }
+  },
+  "dates": ["03-17"]
+}
+```
+
+Every key is optional.
+
+- `colors`: recolor the logo by region (`crown`, `arch`, `body`, `legs`, `feet`) or by single cell (`a`–`p`, see `LOGO_COLORS` in `mascot.py`). Use `"#rrggbb"` or `[r, g, b]`.
+- `sparkles`: swap the `✦` and `·` sparkles for other single-width characters.
+- `prop`: a small picture drawn beside the logo, like the Xmas tree or the lantern. It's up to 5 rows of up to 8 characters; a shorter prop stands on the bottom row. Every character except a space needs an entry in `prop_cells`, and each entry can have:
+  - `bg`: fill the cell with a color
+  - `fg`: the color of the cell's glyph
+  - `glyphs`: one or more single-width characters, cycled one per frame (a cell with no `glyphs` is blank)
+  - `chase`: a list of glyph colors that cycle along the prop each frame, like the tree's lights (use instead of `fg`)
+  - `blink`: `"all"` or `"alt"` (every other cell) to twinkle while Maggy is idle
+
+  A cell needs at least `bg` or `glyphs`.
+- `base`: start from a built-in theme (`xmas`, `halloween`, `cny`) and change only what your file sets. For example, `{"base": "xmas", "colors": {"crown": "#2563eb"}}` keeps the tree, snow and lights but gives Maggy a blue hat. Add `"prop": null` to drop the built-in prop.
+- `dates`: `"MM-DD"` or `"YYYY-MM-DD"` days when `auto` shows this theme. On those days your theme wins over a built-in one.
+
+Names can use letters, digits, `-` and `_`, and can't reuse a built-in name. `maggy theme list` shows your themes and warns about any file it skipped, with the reason.
 
 ---
 
@@ -211,12 +264,12 @@ maggy theme auto     # back to picking by date
 All mascot visuals live in `mascot.py`:
 
 - **Poses**: `BASE`, `SQUAT`, `TIPTOE`, `KICK_LEFT`, `KICK_RIGHT` are 5 rows × 12 columns. Each letter is a logo cell color from `LOGO_COLORS`; a space is transparent. `BASE` is the exact `agy` banner logo.
-- **Frames**: `WORKING_FRAMES`, `TOOL_FRAMES`, `LOADING_FRAMES`, `REVIEWING_FRAMES`, `ERROR_FRAMES`, `IDLE_FIDGETS`, `SLEEP_FRAMES` (plus the single `DONE_FRAME`) are lists of `(pose, x_offset, sparkles, brightness, eyes)`. `eyes` is a 2-character string (left, right) or `""` for none. `x_offset` (0–2) sways the logo inside the 14-column sprite; sparkles are `(row, col, glyph)`.
+- **Frames**: `WORKING_FRAMES`, `TOOL_FRAMES`, `LOADING_FRAMES`, `REVIEWING_FRAMES`, `ERROR_FRAMES`, `IDLE_FIDGETS`, `SLEEP_FRAMES`, `STRETCH_FRAMES` (plus the single `DONE_FRAME`) are lists of `(pose, x_offset, sparkles, brightness, eyes)`. `eyes` is a 2-character string (left, right) or `""` for none. `x_offset` (0–2) sways the logo inside the 14-column sprite; sparkles are `(row, col, glyph)`.
 - **Colors**: `LOGO_COLORS` holds the banner's RGB values; `SPARKLE_COLOR`, `EYE_COLOR` and `ERROR_TINT` control the accents. `EYE_COLS` sets where the eyes sit on the head row.
-- **Themes**: `THEMES` maps a theme name to cell color overrides, sparkle glyph swaps, sparkle color, an optional pom-pom, `snowfall`, arch `lights` and a side `tree` (see `TREE`); `THEME_DATES` maps `(month, day)` to the theme shown on that day.
+- **Themes**: `THEMES` maps a theme name to cell color overrides, sparkle glyph swaps, sparkle color, an optional pom-pom, `snowfall`, arch `lights`, `eye_color` and a side `prop` (a small grid like `TREE`, `PUMPKIN` or `LANTERN`, with `prop_cells` describing each cell); `THEME_DATES` maps `(month, day)` to the theme shown on that day, and `CNY_DATES` lists the Chinese New Year dates.
 - **Moods**: `MOODS` maps each mood to a caption; `{name}` is replaced with the pet name.
 - **Landing page**: `docs/maggy.js` mirrors the poses, frames and themes from `mascot.py`; update it when you change them.
-- **Idle timing**: `DONE_SECONDS` (default 4) and `SLEEP_SECONDS` (default 120) control how long the "done!" pose lasts and when it dozes off.
+- **Idle timing**: `DONE_SECONDS` (default 4) and `SLEEP_SECONDS` (default 120) control how long the "done!" pose lasts and when it dozes off. `BREAK_SECONDS` (default 300) is how long agy has to be idle before the stretch timer starts over.
 - **Animation debounce**: Adjust `min_interval` (default `0.14` seconds) in `next_frame_index()`.
 - **Narrow breakpoint**: Change `term_width < 60` in `statusline.py` to adjust when the compact 1-line fallback triggers.
 
@@ -233,6 +286,12 @@ All mascot visuals live in `mascot.py`:
   brew uninstall maggy  # Homebrew installs
   rm -rf ~/.maggy ~/.local/bin/maggy   # curl installs
   ```
+
+---
+
+## License
+
+[MIT](LICENSE)
 
 ---
 

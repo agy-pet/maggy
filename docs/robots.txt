@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://agy-pet.github.io/maggy/sitemap.xml

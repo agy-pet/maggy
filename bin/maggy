@@ -1,0 +1,16 @@
+#!/bin/bash
+# maggy: entry point. Resolves symlinks (e.g. ~/.local/bin/maggy) to find the code.
+# Homebrew's wrapper sets MAGGY_PYTHON and MAGGY_BIN.
+src="${BASH_SOURCE[0]}"
+while [ -L "$src" ]; do
+    dir="$(cd -P "$(dirname "$src")" >/dev/null 2>&1 && pwd)"
+    src="$(readlink "$src")"
+    case "$src" in /*) ;; *) src="$dir/$src" ;; esac
+done
+ROOT="$(cd -P "$(dirname "$src")/.." >/dev/null 2>&1 && pwd)"
+
+PY="${MAGGY_PYTHON:-}"
+if [ -z "$PY" ]; then
+    if [ -x /usr/bin/python3 ]; then PY=/usr/bin/python3; else PY=python3; fi
+fi
+exec "$PY" "$ROOT/cli.py" "$@"

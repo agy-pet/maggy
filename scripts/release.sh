@@ -5,7 +5,7 @@
 #
 # 1. writes VERSION, commits and tags v<version>, pushes the tag
 # 2. builds maggy-<version>.tar.gz from the tag and publishes a GitHub release
-#    with it and install.sh attached
+#    with it and install.sh (pinned to the tag) attached
 # 3. writes the formula with the new url/sha256 into packaging/homebrew/
 #    and, if a tap checkout is given, into <tap>/Formula/ (commit + push it yourself)
 set -euo pipefail
@@ -34,8 +34,12 @@ git archive --format=tar.gz --prefix="maggy-$VERSION/" -o "$DIST/$TARBALL" "v$VE
 SHA="$(shasum -a 256 "$DIST/$TARBALL" | cut -d' ' -f1)"
 echo "==> $TARBALL sha256 $SHA"
 
-echo "==> creating GitHub release v$VERSION with $TARBALL and install.sh"
-gh release create "v$VERSION" "$DIST/$TARBALL" install.sh \
+# The uploaded install.sh installs this tag, not whatever master is at install time.
+sed -E 's|^REF="\$\{MAGGY_REF:-master\}"$|REF="${MAGGY_REF:-v'"$VERSION"'}"|' install.sh > "$DIST/install.sh"
+grep -q "^REF=\"\${MAGGY_REF:-v$VERSION}\"$" "$DIST/install.sh" || { echo "failed to pin install.sh to v$VERSION" >&2; exit 1; }
+
+echo "==> creating GitHub release v$VERSION with $TARBALL and install.sh (pinned to v$VERSION)"
+gh release create "v$VERSION" "$DIST/$TARBALL" "$DIST/install.sh" \
     --repo "$REPO" --title "v$VERSION" --generate-notes --latest
 
 echo "==> verifying $URL"

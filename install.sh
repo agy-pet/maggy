@@ -13,9 +13,13 @@
 #   MAGGY_DIR   install location   (default: ~/.maggy)
 #   MAGGY_BIN_DIR          where to link maggy (default: ~/.local/bin)
 #   AGY_SETTINGS           agy settings file  (default: ~/.gemini/antigravity-cli/settings.json)
+#   MAGGY_REF              tag or branch to install (default: the release this
+#                          installer came from; master when run from the repo)
 set -euo pipefail
 
 REPO_URL="https://github.com/agy-pet/maggy.git"
+# scripts/release.sh rewrites this default to the release tag in the copy it uploads.
+REF="${MAGGY_REF:-master}"
 INSTALL_DIR="${MAGGY_DIR:-$HOME/.maggy}"
 BIN_DIR="${MAGGY_BIN_DIR:-$HOME/.local/bin}"
 
@@ -27,13 +31,14 @@ command -v python3 >/dev/null 2>&1 || die "python3 is required"
 
 # 1. Fetch or update the code
 if [ -d "$INSTALL_DIR/.git" ]; then
-    say "Updating $INSTALL_DIR"
-    git -C "$INSTALL_DIR" pull --ff-only --quiet
+    say "Updating $INSTALL_DIR to $REF"
+    git -C "$INSTALL_DIR" fetch --depth 1 --quiet origin "$REF"
+    git -C "$INSTALL_DIR" checkout --quiet --detach FETCH_HEAD
 elif [ -e "$INSTALL_DIR" ]; then
     die "$INSTALL_DIR exists and is not a git clone; set MAGGY_DIR to another path"
 else
-    say "Cloning into $INSTALL_DIR"
-    git clone --depth 1 --quiet "$REPO_URL" "$INSTALL_DIR"
+    say "Cloning $REF into $INSTALL_DIR"
+    git clone --depth 1 --quiet --branch "$REF" "$REPO_URL" "$INSTALL_DIR"
 fi
 chmod +x "$INSTALL_DIR/bin/maggy"
 

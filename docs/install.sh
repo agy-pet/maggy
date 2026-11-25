@@ -4,8 +4,10 @@
 set -euo pipefail
 main() {
     local script
-    script="$(curl -fsSL https://github.com/agy-pet/maggy/releases/latest/download/install.sh 2>/dev/null)" ||
-        script="$(curl -fsSL https://raw.githubusercontent.com/agy-pet/maggy/master/install.sh)"
+    script="$(curl -fsSL https://github.com/agy-pet/maggy/releases/latest/download/install.sh)" || {
+        echo "maggy: could not download the release installer; try again, or: brew install agy-pet/tap/maggy" >&2
+        exit 1
+    }
     bash -c "$script" maggy-install "$@"
 }
 main "$@"

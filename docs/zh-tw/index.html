@@ -211,7 +211,7 @@
         <div id="maggy" class="sprite" role="img" aria-label="正在跳舞的 Maggy（長了眼睛的 Antigravity Logo 寵物）"></div>
         <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state</span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +222,6 @@
           <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 分鐘</button>
           <button type="button" data-mood="stretch" aria-pressed="false">idle · 連續工作 45 分鐘</button>
         </div>
-        <p class="note states-note">agy 只在狀態變化時才重繪狀態列，不會定時更新。閒置時 Maggy 會維持同一個姿勢，只有周圍的小星星透過終端機的閃爍屬性一閃一閃。再點一次 <b>idle</b> 可模擬下一次重繪。</p>
       </figure>
     </section>
 
@@ -250,7 +249,7 @@
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme">主題</label>
+          <label for="opt-theme"><span>主題</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
           <select id="opt-theme" name="theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
@@ -265,11 +264,10 @@
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span>閒置閃爍</span></label>
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span>閒置閃爍</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
-      <p class="note"><code>auto</code> 會依日期自動切換節慶裝扮（詳見下方<a href="#themes">主題</a>）。閒置閃爍利用終端機內建的 blink 屬性，就算 agy 沒有重新繪製，小星星仍會持續閃爍。</p>
     </section>
 
     <section id="themes" class="themes" aria-labelledby="themes-title">
@@ -430,6 +428,11 @@
   </main>
 
   <footer class="foot">
+    <ol class="footnotes" aria-label="註腳">
+      <li id="fn-1">agy 只在狀態變化時才重繪狀態列，不會定時更新。閒置時 Maggy 會維持同一個姿勢，只有周圍的小星星透過終端機的閃爍屬性一閃一閃。再點一次 <b>idle</b> 可模擬下一次重繪。</li>
+      <li id="fn-2"><code>auto</code> 會依日期自動切換節慶裝扮（詳見<a href="#themes">主題</a>）。</li>
+      <li id="fn-3">閒置閃爍利用終端機內建的 blink 屬性，就算 agy 沒有重新繪製，小星星仍會持續閃爍。</li>
+    </ol>
     <p class="foot-note">專為 <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> 狀態列打造，非 Google 官方專案。</p>
     <div class="foot-end">
       <p class="foot-links">

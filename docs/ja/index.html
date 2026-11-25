@@ -211,7 +211,7 @@
         <div id="maggy" class="sprite" role="img" aria-label="目がついて踊る Antigravity ロゴのペット、Maggy"></div>
         <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state</span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +222,6 @@
           <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 分経過</button>
           <button type="button" data-mood="stretch" aria-pressed="false">idle · 45 分作業後</button>
         </div>
-        <p class="note states-note">agy は状態が変わったときだけステータスラインを再描画し、タイマーでは更新しません。アイドル中の Maggy は同じポーズのままで、周りのきらめきだけがターミナルの点滅機能（blink）で光ります。<b>idle</b> をもう一度クリックすると次の再描画を再現できます。</p>
       </figure>
     </section>
 
@@ -250,7 +249,7 @@
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme">テーマ</label>
+          <label for="opt-theme"><span>テーマ</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
           <select id="opt-theme" name="theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
@@ -265,11 +264,10 @@
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span>アイドル時の点滅</span></label>
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span>アイドル時の点滅</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
-      <p class="note"><code>auto</code> は日付に合わせて季節テーマを自動で切り替えます（詳しくは下の<a href="#themes">テーマ</a>を参照）。アイドル時の点滅はターミナルの blink 属性を使うため、agy の再描画が止まっても星が光り続けます。</p>
     </section>
 
     <section id="themes" class="themes" aria-labelledby="themes-title">
@@ -430,6 +428,11 @@
   </main>
 
   <footer class="foot">
+    <ol class="footnotes" aria-label="注釈">
+      <li id="fn-1">agy は状態が変わったときだけステータスラインを再描画し、タイマーでは更新しません。アイドル中の Maggy は同じポーズのままで、周りのきらめきだけがターミナルの点滅機能（blink）で光ります。<b>idle</b> をもう一度クリックすると次の再描画を再現できます。</li>
+      <li id="fn-2"><code>auto</code> は日付に合わせて季節テーマを自動で切り替えます（詳しくは<a href="#themes">テーマ</a>を参照）。</li>
+      <li id="fn-3">アイドル時の点滅はターミナルの blink 属性を使うため、agy の再描画が止まっても星が光り続けます。</li>
+    </ol>
     <p class="foot-note"><a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> 向けの非公式ステータスラインです（Google とは一切関係ありません）。</p>
     <div class="foot-end">
       <p class="foot-links">

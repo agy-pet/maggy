@@ -211,7 +211,7 @@
         <div id="maggy" class="sprite" role="img" aria-label="Maggy, le logo Antigravity doté d&#x27;yeux, en train de danser"></div>
         <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state</span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +222,6 @@
           <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 min</button>
           <button type="button" data-mood="stretch" aria-pressed="false">idle · 45 min de travail</button>
         </div>
-        <p class="note states-note">agy ne redessine la statusline que lorsque quelque chose change, jamais à intervalle fixe. Au repos, Maggy garde une seule pose et seules ses étincelles scintillent (via l'attribut blink du terminal). Cliquez à nouveau sur <b>idle</b> pour simuler le prochain rafraîchissement.</p>
       </figure>
     </section>
 
@@ -250,7 +249,7 @@
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme">Thème</label>
+          <label for="opt-theme"><span>Thème</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
           <select id="opt-theme" name="theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
@@ -265,11 +264,10 @@
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span>Scintillement au repos</span></label>
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span>Scintillement au repos</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
-      <p class="note"><code>auto</code> choisit la tenue de saison selon la date (voir <a href="#themes">Thèmes</a> ci-dessous). Le scintillement au repos s'appuie sur l'attribut blink du terminal : les étincelles continuent même quand agy ne rafraîchit plus l'écran.</p>
     </section>
 
     <section id="themes" class="themes" aria-labelledby="themes-title">
@@ -430,6 +428,11 @@
   </main>
 
   <footer class="foot">
+    <ol class="footnotes" aria-label="Notes de bas de page">
+      <li id="fn-1">agy ne redessine la statusline que lorsque quelque chose change, jamais à intervalle fixe. Au repos, Maggy garde une seule pose et seules ses étincelles scintillent (via l'attribut blink du terminal). Cliquez à nouveau sur <b>idle</b> pour simuler le prochain rafraîchissement.</li>
+      <li id="fn-2"><code>auto</code> choisit la tenue de saison selon la date (voir <a href="#themes">Thèmes</a>).</li>
+      <li id="fn-3">Le scintillement au repos s'appuie sur l'attribut blink du terminal : les étincelles continuent même quand agy ne rafraîchit plus l'écran.</li>
+    </ol>
     <p class="foot-note">Créé pour la barre d'état d'<a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a>. Projet indépendant, non affilié à Google.</p>
     <div class="foot-end">
       <p class="foot-links">

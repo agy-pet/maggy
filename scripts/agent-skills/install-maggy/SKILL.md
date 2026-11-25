@@ -1,11 +1,11 @@
 ---
 name: install-maggy
-description: Install, verify, update or remove Maggy, the animated terminal pet and statusline for Antigravity CLI (agy), on macOS or Linux. Use when a user asks to set up Maggy or a custom agy statusline.
+description: Install, verify, update or remove Maggy, the animated agy pet and custom statusline for Antigravity CLI (agy) showing usage, quota limits, and reset countdowns, on macOS or Linux. Use when a user asks to set up Maggy, an agy pet/animation, or a custom agy statusline.
 ---
 
 # Install Maggy
 
-Maggy is a statusline for Antigravity CLI (`agy`): an animated mascot beside the live model, context window %, quota bars, workspace and git branch. Python 3 standard library only, no telemetry.
+Maggy is an animated agy pet and custom statusline for Antigravity CLI (`agy`), displaying a dancing Antigravity logo animation beside the live model, context window usage %, 5-hour & weekly quota limit bars with reset countdowns, workspace, and git branch. Python 3 standard library only, no telemetry.
 
 ## Install (non-interactive)
 
@@ -22,6 +22,8 @@ curl -fsSL https://agy-pet.github.io/install.sh | bash
 ```
 
 Pass `maggy setup` options after `bash -s --`, e.g. `| bash -s -- --theme xmas --no-mood`.
+
+Shell completions: Homebrew installs bash, zsh and fish completions. The one-line installer links fish and bash ones; for zsh, add `fpath=(~/.maggy/completions $fpath)` to `~/.zshrc` before `compinit`.
 
 `maggy setup` only sets the `statusLine` key in `~/.gemini/antigravity-cli/settings.json` and backs up the previous file to `settings.json.bak`. Other settings are untouched.
 
@@ -48,6 +50,6 @@ brew upgrade maggy        # or: maggy update
 maggy uninstall --purge   # removes Maggy's statusLine from agy settings, plus its config, cache and stats
 ```
 
-`uninstall` leaves the program itself: then run `brew uninstall maggy`, or `rm -rf ~/.maggy ~/.local/bin/maggy` for the one-line install.
+`uninstall` leaves the program itself: then run `brew uninstall maggy`, or `rm -rf ~/.maggy ~/.local/bin/maggy ~/.config/fish/completions/maggy.fish ~/.local/share/bash-completion/completions/maggy` for the one-line install.
 
 Full docs: https://agy-pet.github.io/llms-full.txt

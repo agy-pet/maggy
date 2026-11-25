@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maggy — Mascotte &amp; barre d'état pour Antigravity CLI (agy)</title>
-  <meta name="description" content="Mascotte animée et barre d&#x27;état pour Antigravity CLI (agy). Maggy danse à côté du modèle actif, des barres de contexte et de quota, et de la branche git.">
+  <title>Maggy — Mascotte, animation &amp; statusline agy (usage, limites &amp; reset)</title>
+  <meta name="description" content="Mascotte animée agy et statusline pour Antigravity CLI affichant l&#x27;usage du contexte, les limites de quota 5h et hebdo, le compte à rebours de reset, le modèle et la branche git.">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -34,18 +34,18 @@
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/fr/">
-  <meta property="og:title" content="Maggy — Mascotte &amp; barre d&#x27;état pour Antigravity CLI (agy)">
-  <meta property="og:description" content="Mascotte animée de terminal et barre d&#x27;état sur mesure pour Antigravity CLI (agy) — une mascotte dansante à côté du modèle actif, des barres de contexte et de quota, du niveau de raisonnement et de votre branche git.">
+  <meta property="og:title" content="Maggy — Mascotte, animation &amp; statusline agy (usage, limites &amp; reset)">
+  <meta property="og:description" content="Mascotte animée agy et barre d&#x27;état sur mesure pour Antigravity CLI — animation dansante à côté de l&#x27;usage du contexte, des limites de quota 5h et hebdo, du compte à rebours de reset et de la branche git.">
   <meta property="og:image" content="https://agy-pet.github.io/social-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Maggy — Mascotte &amp; barre d&#x27;état pour Antigravity CLI (agy)">
+  <meta property="og:image:alt" content="Maggy — Mascotte, animation &amp; statusline agy (usage, limites &amp; reset)">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maggy — Mascotte &amp; barre d&#x27;état pour Antigravity CLI (agy)">
-  <meta name="twitter:description" content="Mascotte animée et barre d&#x27;état pour Antigravity CLI (agy). Maggy danse à côté du modèle actif, des barres de contexte et de quota, et de la branche git.">
+  <meta name="twitter:title" content="Maggy — Mascotte, animation &amp; statusline agy (usage, limites &amp; reset)">
+  <meta name="twitter:description" content="Mascotte animée agy et statusline pour Antigravity CLI affichant l&#x27;usage du contexte, les limites de quota 5h et hebdo, le compte à rebours de reset, le modèle et la branche git.">
   <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
-  <meta name="twitter:image:alt" content="Maggy — Mascotte &amp; barre d&#x27;état pour Antigravity CLI (agy)">
+  <meta name="twitter:image:alt" content="Maggy — Mascotte, animation &amp; statusline agy (usage, limites &amp; reset)">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
@@ -62,8 +62,12 @@
       {
         "@type": "SoftwareApplication",
         "name": "Maggy",
-        "alternateName": "maggy",
-        "description": "Mascotte animée de terminal et barre d'état sur mesure pour Antigravity CLI (agy) — une mascotte dansante à côté du modèle actif, des barres de contexte et de quota, du niveau de raisonnement et de votre branche git.",
+        "alternateName": [
+          "maggy",
+          "agy-pet",
+          "agy statusline"
+        ],
+        "description": "Mascotte animée agy et barre d'état sur mesure pour Antigravity CLI — animation dansante à côté de l'usage du contexte, des limites de quota 5h et hebdo, du compte à rebours de reset et de la branche git.",
         "url": "https://agy-pet.github.io/fr/",
         "inLanguage": "fr",
         "image": "https://agy-pet.github.io/social-preview.png",
@@ -83,7 +87,14 @@
         "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
         "isAccessibleForFree": true,
         "license": "https://opensource.org/licenses/MIT",
-        "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+        "keywords": "Antigravity CLI, agy, agy statusline, agy pet, agy animation, terminal pet, CLI mascot, quota usage, rate limit, quota limit, reset countdown, reset timer, context window, Homebrew",
+        "featureList": [
+          "Live agy statusline showing context window usage %, 5-hour and weekly quota limits, and reset countdowns",
+          "State-aware agy pet animations for working, tool_use, initializing, reviewing, idle, sleep, stretch, and error",
+          "Color-coded quota usage bars with cached reset timers across statusline refreshes",
+          "Seasonal auto themes (Christmas, Halloween, Chinese New Year) and custom JSON themes",
+          "Zero telemetry, Python 3 standard library only, macOS and Linux support"
+        ],
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,10 +107,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Comment afficher la fenêtre de contexte et les quotas dans Antigravity CLI (agy) ?",
+            "name": "Comment afficher l'usage, les limites de quota et le compte à rebours de reset dans la statusline agy ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Installez Maggy avec brew install agy-pet/tap/maggy && maggy setup puis redémarrez agy ou lancez /statusline enable. Maggy configure statusLine dans ~/.gemini/antigravity-cli/settings.json et affiche le modèle actif, le % de contexte, les barres de quota colorées, l'espace de travail, la branche git et le niveau de raisonnement à côté de la mascotte."
+              "text": "Installez Maggy avec brew install agy-pet/tap/maggy && maggy setup puis redémarrez agy ou lancez /statusline enable. Maggy configure statusLine dans ~/.gemini/antigravity-cli/settings.json et affiche le modèle actif, le % d'usage du contexte, les barres de limite de quota 5h et hebdomadaires avec heure et compte à rebours de réinitialisation (mis en cache entre les rafraîchissements), l'espace de travail, la branche git et le niveau de raisonnement."
             }
           },
           {
@@ -132,6 +143,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Maggy fonctionne sur macOS et Linux (y compris WSL) dans tout terminal truecolor (24 bits) comme Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp ou le terminal intégré de VS Code, avec Python 3."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Comment fonctionne l'animation de la mascotte agy dans la statusline ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maggy dessine le logo Antigravity avec des yeux expressifs dans votre terminal et enchaîne des animations selon agent_state : danse en working, trépigne en tool_use, se penche en reviewing, scintille en idle et s'assoupit après 2 minutes. Prévisualisez une animation avec maggy preview working ou figez-la avec maggy motion off."
             }
           }
         ]
@@ -199,7 +218,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">Maggy&nbsp;<span aria-hidden="true">🌋</span> s'installe dans votre statusline agy.</h1>
-        <p class="lede">Une mascotte animée de terminal et barre d'état sur mesure pour <strong>Antigravity CLI (<code>agy</code>)</strong>. Maggy danse pendant qu'<code>agy</code> réfléchit, trépigne lors des appels d'outils et pique du nez quand vous vous absentez — juste à côté du modèle actif, de la fenêtre de contexte, des barres de quota, du niveau de raisonnement et de votre branche git.</p>
+        <p class="lede">Une <strong>mascotte animée agy</strong> et barre d'état sur mesure pour <strong>Antigravity CLI (<code>agy</code>)</strong>. L'animation de Maggy danse pendant qu'<code>agy</code> réfléchit, trépigne lors des appels d'outils et pique du nez quand vous vous absentez — juste à côté du modèle actif, de l'usage du contexte, des limites de quota 5h et hebdomadaires avec compte à rebours de réinitialisation, du niveau de raisonnement et de votre branche git.</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
           <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">Copier</button>
@@ -236,7 +255,7 @@
     <section id="try" class="try" aria-labelledby="try-title">
       <div class="section-head">
         <h2 id="try-title">Personnalisez votre statusline agy</h2>
-        <p>Voici la barre d'état qu'<code>agy</code> affiche sous votre invite. Maggy se tient à gauche du modèle, de l'usage du contexte, des barres de quota colorées, de l'espace de travail et de la branche git : chaque frame a exactement la même largeur, rien ne bouge autour d'elle. Modifiez une option ci-dessous pour voir la commande correspondante.</p>
+        <p>Voici la barre d'état qu'<code>agy</code> affiche sous votre invite : modèle, usage du contexte, barres colorées de limites de quota 5h et hebdo avec compte à rebours de reset, espace de travail et branche git à côté de votre mascotte animée agy. Chaque frame a exactement la même largeur, rien ne bouge autour d'elle. Modifiez une option ci-dessous pour voir la commande correspondante.</p>
       </div>
 
       <div class="terminal" role="region" aria-label="Aperçu de la barre d&#x27;état agy avec Maggy">
@@ -418,8 +437,8 @@
       </div>
       <div class="faq-list">
         <details>
-          <summary>Comment afficher la fenêtre de contexte et les quotas dans Antigravity CLI (agy) ?</summary>
-          <p>Installez Maggy avec <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> puis redémarrez <code>agy</code> ou lancez <code>/statusline enable</code>. Maggy configure <code>statusLine</code> dans <code>~/.gemini/antigravity-cli/settings.json</code> et affiche le modèle actif, le % de contexte, les barres de quota colorées, l'espace de travail, la branche git et le niveau de raisonnement à côté de la mascotte.</p>
+          <summary>Comment afficher l'usage, les limites de quota et le compte à rebours de reset dans la statusline agy ?</summary>
+          <p>Installez Maggy avec <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> puis redémarrez <code>agy</code> ou lancez <code>/statusline enable</code>. Maggy configure <code>statusLine</code> dans <code>~/.gemini/antigravity-cli/settings.json</code> et affiche le modèle actif, le % d'usage du contexte, les barres de limite de quota 5h et hebdomadaires avec heure et compte à rebours de réinitialisation (mis en cache entre les rafraîchissements), l'espace de travail, la branche git et le niveau de raisonnement.</p>
         </details>
         <details>
           <summary>Pourquoi la barre d'état ne s'affiche-t-elle pas après maggy setup ?</summary>
@@ -436,6 +455,10 @@
         <details>
           <summary>Quels systèmes et terminaux sont pris en charge ?</summary>
           <p>Maggy fonctionne sur macOS et Linux (y compris WSL) dans tout terminal truecolor (24 bits) comme Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp ou le terminal intégré de VS Code, avec Python 3.</p>
+        </details>
+        <details>
+          <summary>Comment fonctionne l'animation de la mascotte agy dans la statusline ?</summary>
+          <p>Maggy dessine le logo Antigravity avec des yeux expressifs dans votre terminal et enchaîne des animations selon <code>agent_state</code> : danse en <code>working</code>, trépigne en <code>tool_use</code>, se penche en <code>reviewing</code>, scintille en <code>idle</code> et s'assoupit après 2 minutes. Prévisualisez une animation avec <code>maggy preview working</code> ou figez-la avec <code>maggy motion off</code>.</p>
         </details>
       </div>
     </section>

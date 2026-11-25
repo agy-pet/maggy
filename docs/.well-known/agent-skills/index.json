@@ -11,9 +11,9 @@
     {
       "name": "install-maggy",
       "type": "skill-md",
-      "description": "Install, verify, update or remove Maggy, the animated terminal pet and statusline for Antigravity CLI (agy), on macOS or Linux. Use when a user asks to set up Maggy or a custom agy statusline.",
+      "description": "Install, verify, update or remove Maggy, the animated agy pet and custom statusline for Antigravity CLI (agy) showing usage, quota limits, and reset countdowns, on macOS or Linux. Use when a user asks to set up Maggy, an agy pet/animation, or a custom agy statusline.",
       "url": "/.well-known/agent-skills/install-maggy/SKILL.md",
-      "digest": "sha256:9a09f85439932acc10d96063173bd6e5b6da422e3c4431fc46cf2f376ec8eb06"
+      "digest": "sha256:e5000b7d105c4bfeebc2edade0be35dc7926306c3a53e04663219e07abf5df5e"
     }
   ]
 }

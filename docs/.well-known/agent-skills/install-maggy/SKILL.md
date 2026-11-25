@@ -1,11 +1,11 @@
 ---
 name: install-maggy
-description: Install, verify, update or remove Maggy, the animated terminal pet and statusline for Antigravity CLI (agy), on macOS or Linux. Use when a user asks to set up Maggy or a custom agy statusline.
+description: Install, verify, update or remove Maggy, the animated agy pet and custom statusline for Antigravity CLI (agy) showing usage, quota limits, and reset countdowns, on macOS or Linux. Use when a user asks to set up Maggy, an agy pet/animation, or a custom agy statusline.
 ---
 
 # Install Maggy
 
-Maggy is a statusline for Antigravity CLI (`agy`): an animated mascot beside the live model, context window %, quota bars, workspace and git branch. Python 3 standard library only, no telemetry.
+Maggy is an animated agy pet and custom statusline for Antigravity CLI (`agy`), displaying a dancing Antigravity logo animation beside the live model, context window usage %, 5-hour & weekly quota limit bars with reset countdowns, workspace, and git branch. Python 3 standard library only, no telemetry.
 
 ## Install (non-interactive)
 

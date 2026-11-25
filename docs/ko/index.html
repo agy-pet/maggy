@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maggy — Antigravity CLI (agy)용 터미널 펫 &amp; 상태바</title>
-  <meta name="description" content="Antigravity CLI (agy)를 위한 애니메이션 터미널 펫과 커스텀 상태바. 현재 모델, 컨텍스트 및 할당량 바, Git 브랜치 옆에서 춤추는 Maggy를 만나보세요.">
+  <title>Maggy — agy 펫·애니메이션 &amp; 상태바 (사용량·한도·리셋 표시)</title>
+  <meta name="description" content="Antigravity CLI (agy)용 애니메이션 터미널 펫 &amp; 커스텀 상태바. 컨텍스트 사용량, 5시간·주간 할당량 한도, 리셋 카운트다운, 현재 모델, Git 브랜치를 실시간 표시합니다.">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -34,18 +34,18 @@
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/ko/">
-  <meta property="og:title" content="Maggy — Antigravity CLI (agy)용 터미널 펫 &amp; 상태바">
-  <meta property="og:description" content="Antigravity CLI (agy)용 애니메이션 터미널 펫 &amp; 커스텀 상태바 — 현재 모델, 컨텍스트 및 할당량 바, 추론 강도, Git 브랜치 옆에서 함께하는 마스코트.">
+  <meta property="og:title" content="Maggy — agy 펫·애니메이션 &amp; 상태바 (사용량·한도·리셋 표시)">
+  <meta property="og:description" content="Antigravity CLI (agy)용 애니메이션 펫 &amp; 커스텀 상태바 — 춤추는 로고 애니메이션 옆에 컨텍스트 사용량, 5시간·주간 할당량 한도, 리셋 카운트다운, Git 브랜치를 함께 표시합니다.">
   <meta property="og:image" content="https://agy-pet.github.io/social-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Maggy — Antigravity CLI (agy)용 터미널 펫 &amp; 상태바">
+  <meta property="og:image:alt" content="Maggy — agy 펫·애니메이션 &amp; 상태바 (사용량·한도·리셋 표시)">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maggy — Antigravity CLI (agy)용 터미널 펫 &amp; 상태바">
-  <meta name="twitter:description" content="Antigravity CLI (agy)를 위한 애니메이션 터미널 펫과 커스텀 상태바. 현재 모델, 컨텍스트 및 할당량 바, Git 브랜치 옆에서 춤추는 Maggy를 만나보세요.">
+  <meta name="twitter:title" content="Maggy — agy 펫·애니메이션 &amp; 상태바 (사용량·한도·리셋 표시)">
+  <meta name="twitter:description" content="Antigravity CLI (agy)용 애니메이션 터미널 펫 &amp; 커스텀 상태바. 컨텍스트 사용량, 5시간·주간 할당량 한도, 리셋 카운트다운, 현재 모델, Git 브랜치를 실시간 표시합니다.">
   <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
-  <meta name="twitter:image:alt" content="Maggy — Antigravity CLI (agy)용 터미널 펫 &amp; 상태바">
+  <meta name="twitter:image:alt" content="Maggy — agy 펫·애니메이션 &amp; 상태바 (사용량·한도·리셋 표시)">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
@@ -62,8 +62,12 @@
       {
         "@type": "SoftwareApplication",
         "name": "Maggy",
-        "alternateName": "maggy",
-        "description": "Antigravity CLI (agy)용 애니메이션 터미널 펫 & 커스텀 상태바 — 현재 모델, 컨텍스트 및 할당량 바, 추론 강도, Git 브랜치 옆에서 함께하는 마스코트.",
+        "alternateName": [
+          "maggy",
+          "agy-pet",
+          "agy statusline"
+        ],
+        "description": "Antigravity CLI (agy)용 애니메이션 펫 & 커스텀 상태바 — 춤추는 로고 애니메이션 옆에 컨텍스트 사용량, 5시간·주간 할당량 한도, 리셋 카운트다운, Git 브랜치를 함께 표시합니다.",
         "url": "https://agy-pet.github.io/ko/",
         "inLanguage": "ko",
         "image": "https://agy-pet.github.io/social-preview.png",
@@ -83,7 +87,14 @@
         "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
         "isAccessibleForFree": true,
         "license": "https://opensource.org/licenses/MIT",
-        "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+        "keywords": "Antigravity CLI, agy, agy statusline, agy pet, agy animation, terminal pet, CLI mascot, quota usage, rate limit, quota limit, reset countdown, reset timer, context window, Homebrew",
+        "featureList": [
+          "Live agy statusline showing context window usage %, 5-hour and weekly quota limits, and reset countdowns",
+          "State-aware agy pet animations for working, tool_use, initializing, reviewing, idle, sleep, stretch, and error",
+          "Color-coded quota usage bars with cached reset timers across statusline refreshes",
+          "Seasonal auto themes (Christmas, Halloween, Chinese New Year) and custom JSON themes",
+          "Zero telemetry, Python 3 standard library only, macOS and Linux support"
+        ],
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,10 +107,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Antigravity CLI (agy)에서 컨텍스트 창과 할당량 바를 표시하려면 어떻게 하나요?",
+            "name": "agy 상태바에서 사용량, 할당량 한도, 리셋 카운트다운을 표시하려면 어떻게 하나요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "brew install agy-pet/tap/maggy && maggy setup으로 설치한 뒤 agy를 재시작하거나 /statusline enable을 실행하세요. ~/.gemini/antigravity-cli/settings.json의 statusLine에 연결되어 마스코트 옆에 현재 모델, 컨텍스트 비율, 색상별 할당량 바, 워크스페이스, Git 브랜치, 추론 강도가 표시됩니다."
+              "text": "brew install agy-pet/tap/maggy && maggy setup으로 설치한 뒤 agy를 재시작하거나 /statusline enable을 실행하세요. ~/.gemini/antigravity-cli/settings.json의 statusLine에 연결되어 현재 모델, 컨텍스트 사용률, 색상별 5시간·주간 할당량 한도 바와 리셋 시각·카운트다운(갱신 간 캐시 유지), 워크스페이스, Git 브랜치, 추론 강도가 표시됩니다."
             }
           },
           {
@@ -132,6 +143,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Python 3가 설치된 macOS 및 Linux(WSL 포함)에서 동작하며 Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, VS Code 통합 터미널 등 모든 24비트 트루컬러 터미널을 지원합니다."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "상태바의 agy 펫 애니메이션은 어떻게 동작하나요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maggy는 표정이 살아있는 눈이 달린 Antigravity 로고를 터미널에 직접 그려 agent_state에 따라 애니메이션을 재생합니다. working 중엔 춤추고, tool_use 중엔 발을 구르며, reviewing엔 기웃거리고, idle엔 반짝이다 2분 후 좁니다. maggy preview working으로 미리 보거나 maggy motion off로 정지할 수 있습니다."
             }
           }
         ]
@@ -199,7 +218,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">내 <span class="nowrap">agy 상태바</span>에 사는 Maggy&nbsp;<span aria-hidden="true">🌋</span></h1>
-        <p class="lede"><strong>Antigravity CLI(<code>agy</code>)</strong>용 애니메이션 터미널 펫이자 커스텀 상태바입니다. <code>agy</code>가 일할 땐 신나게 춤추고, 도구를 호출할 땐 발을 동동 구르며, 자리를 비우면 꾸벅꾸벅 좁니다. 현재 모델, 컨텍스트 창, 할당량 바, 추론 강도, Git 브랜치 바로 옆에서 함께합니다.</p>
+        <p class="lede"><strong>Antigravity CLI(<code>agy</code>)</strong>용 애니메이션 <strong>agy 펫</strong>이자 커스텀 상태바입니다. <code>agy</code>가 일할 땐 로고 애니메이션이 신나게 춤추고, 도구를 호출할 땐 발을 동동 구르며, 자리를 비우면 꾸벅꾸벅 좁니다. 현재 모델, 컨텍스트 사용량, 5시간·주간 할당량 한도와 리셋 카운트다운, 추론 강도, Git 브랜치 바로 옆에서 함께합니다.</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
           <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">복사</button>
@@ -236,7 +255,7 @@
     <section id="try" class="try" aria-labelledby="try-title">
       <div class="section-head">
         <h2 id="try-title">agy 상태바 커스터마이즈</h2>
-        <p>프롬프트 아래에 <code>agy</code>가 띄워 주는 상태바입니다. 모델, 컨텍스트 사용량, 색상별 할당량 바, 워크스페이스, Git 브랜치 왼쪽에 Maggy가 자리하며 모든 프레임의 너비가 같아 옆 글자가 흔들리지 않습니다. 아래 옵션을 바꿔 보며 해당하는 명령어를 바로 확인해 보세요.</p>
+        <p>프롬프트 아래에 <code>agy</code>가 띄워 주는 상태바입니다. 애니메이션 agy 펫 옆에 모델, 컨텍스트 사용량, 색상별 5시간·주간 할당량 한도와 리셋 타이머, 워크스페이스, Git 브랜치를 표시하며 모든 프레임 너비가 같아 흔들리지 않습니다. 아래 옵션을 바꿔 보며 해당하는 명령어를 바로 확인해 보세요.</p>
       </div>
 
       <div class="terminal" role="region" aria-label="Maggy가 포함된 agy 상태바 미리보기">
@@ -418,8 +437,8 @@
       </div>
       <div class="faq-list">
         <details>
-          <summary>Antigravity CLI (agy)에서 컨텍스트 창과 할당량 바를 표시하려면 어떻게 하나요?</summary>
-          <p><code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>으로 설치한 뒤 <code>agy</code>를 재시작하거나 <code>/statusline enable</code>을 실행하세요. <code>~/.gemini/antigravity-cli/settings.json</code>의 <code>statusLine</code>에 연결되어 마스코트 옆에 현재 모델, 컨텍스트 비율, 색상별 할당량 바, 워크스페이스, Git 브랜치, 추론 강도가 표시됩니다.</p>
+          <summary>agy 상태바에서 사용량, 할당량 한도, 리셋 카운트다운을 표시하려면 어떻게 하나요?</summary>
+          <p><code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>으로 설치한 뒤 <code>agy</code>를 재시작하거나 <code>/statusline enable</code>을 실행하세요. <code>~/.gemini/antigravity-cli/settings.json</code>의 <code>statusLine</code>에 연결되어 현재 모델, 컨텍스트 사용률, 색상별 5시간·주간 할당량 한도 바와 리셋 시각·카운트다운(갱신 간 캐시 유지), 워크스페이스, Git 브랜치, 추론 강도가 표시됩니다.</p>
         </details>
         <details>
           <summary>maggy setup 후에도 상태 표시줄이 보이지 않아요.</summary>
@@ -436,6 +455,10 @@
         <details>
           <summary>어떤 플랫폼과 터미널을 지원하나요?</summary>
           <p>Python 3가 설치된 macOS 및 Linux(WSL 포함)에서 동작하며 Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, VS Code 통합 터미널 등 모든 24비트 트루컬러 터미널을 지원합니다.</p>
+        </details>
+        <details>
+          <summary>상태바의 agy 펫 애니메이션은 어떻게 동작하나요?</summary>
+          <p>Maggy는 표정이 살아있는 눈이 달린 Antigravity 로고를 터미널에 직접 그려 <code>agent_state</code>에 따라 애니메이션을 재생합니다. <code>working</code> 중엔 춤추고, <code>tool_use</code> 중엔 발을 구르며, <code>reviewing</code>엔 기웃거리고, <code>idle</code>엔 반짝이다 2분 후 좁니다. <code>maggy preview working</code>으로 미리 보거나 <code>maggy motion off</code>로 정지할 수 있습니다.</p>
         </details>
       </div>
     </section>

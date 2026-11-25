@@ -61,7 +61,7 @@
   const IDLE_MOODS = new Set(["idle", "done", "sleep", "stretch"]);
 
   const MOODS = {
-    working: "{name} is dancing ♪",
+    working: "{name} is dancing",
     tool_use: "{name} is stomping around",
     initializing: "{name} is waking up…",
     reviewing: "{name} is peeking",

@@ -195,23 +195,31 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">agy <span class="nowrap">ステータスライン</span>に住む Maggy&nbsp;🌋</h1>
+        <h1 id="hero-title">agy <span class="nowrap">ステータスライン</span>に住む Maggy&nbsp;<span aria-hidden="true">🌋</span></h1>
         <p class="lede"><strong>Antigravity CLI（<code>agy</code>）</strong>向けのアニメーション付きターミナルペット＆カスタムステータスライン。<code>agy</code> が動いている間は楽しそうに踊り、ツール実行中は元気よく足踏みし、席を外すとうとうと居眠りします。使用中のモデル、コンテキスト使用率、クォータ残量バー、推論レベル、Git ブランチのすぐ隣でいつも一緒です。</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
-          <button type="button" class="copy" data-copy="hero-cmd">コピー</button>
+          <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">コピー</button>
         </div>
         <p class="hint">macOS / Linux・Python 3・Truecolor 対応ターミナルが必要です。<a href="#install">その他のインストール方法</a></p>
       </div>
 
-      <figure class="stage">
-        <div id="maggy" class="sprite" role="img" aria-label="目がついて踊る Antigravity ロゴのペット、Maggy"></div>
-        <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
+      <div class="stage">
+        <figure class="sprite-figure">
+          <div id="maggy" class="sprite" role="img" aria-label="目がついて踊る Antigravity ロゴのペット、Maggy"></div>
+          <figcaption class="mood-bar">
+            <span id="mood" aria-live="polite">Maggy is dancing ♪</span>
+            <button type="button" id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="アニメーションを一時停止" title="アニメーションを一時停止" data-label-pause="アニメーションを一時停止" data-label-play="アニメーションを再生">
+              <svg class="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+              <svg class="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4.5v15l13-7.5z"/></svg>
+            </button>
+          </figcaption>
+        </figure>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1"><span class="sr-only">脚注</span> 1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +230,7 @@
           <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 分経過</button>
           <button type="button" data-mood="stretch" aria-pressed="false">idle · 45 分作業後</button>
         </div>
-      </figure>
+      </div>
     </section>
 
     <section id="try" class="try" aria-labelledby="try-title">
@@ -231,26 +239,29 @@
         <p>プロンプトの下に <code>agy</code> が表示するステータスラインです。モデル、コンテキスト使用率、色分けされたクォータバー、ワークスペース、Git ブランチの左側に Maggy が並びます。全フレーム同じ幅なので、横の表示がガタつくことはありません。下の設定を変えると、対応するコマンドがリアルタイムで確認できます。</p>
       </div>
 
-      <div class="terminal" aria-label="Maggy 付き agy ステータスラインのプレビュー">
+      <div class="terminal" role="region" aria-label="Maggy 付き agy ステータスラインのプレビュー">
         <div class="term-bar"><span>agy</span><span class="dim-text">~/code/my-app</span>
           <span class="term-bg" role="group" aria-label="ターミナルの背景">
             <button type="button" data-term-bg="dark" aria-pressed="true">ダーク</button>
             <button type="button" data-term-bg="light" aria-pressed="false">ライト</button>
           </span>
         </div>
-        <div class="term-prompt"><span class="caret">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
-        <div id="term-body" class="term-body"></div>
+        <div class="term-prompt"><span class="caret" aria-hidden="true">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
+        <div id="term-body" class="term-body" aria-hidden="true"></div>
+        <p id="term-sr" class="sr-only"></p>
       </div>
 
       <div class="controls">
         <div class="control">
           <label for="pet-name">ペットの名前</label>
-          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false">
+          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false" aria-describedby="cmd-name">
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme"><span>テーマ</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
-          <select id="opt-theme" name="theme">
+          <div class="control-label">
+            <label for="opt-theme">テーマ</label><sup class="fn-ref"><a href="#fn-2" id="fnref-2"><span class="sr-only">脚注</span> 2</a></sup>
+          </div>
+          <select id="opt-theme" name="theme" aria-describedby="cmd-theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
             <option value="xmas">xmas</option>
@@ -260,11 +271,13 @@
           <code id="cmd-theme">maggy theme auto</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-mood" type="checkbox" checked><span>ひとこと表示</span></label>
+          <label class="switch"><input id="opt-mood" type="checkbox" checked aria-describedby="cmd-mood"><span>ひとこと表示</span></label>
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span>アイドル時の点滅</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
+          <div class="control-label">
+            <label class="switch"><input id="opt-blink" type="checkbox" checked aria-describedby="cmd-blink"><span>アイドル時の点滅</span></label><sup class="fn-ref"><a href="#fn-3" id="fnref-3"><span class="sr-only">脚注</span> 3</a></sup>
+          </div>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
@@ -325,7 +338,7 @@
         </div>
         <div class="theme-json-wrap">
           <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
-          <pre class="theme-json"><code>{
+          <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
   "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
@@ -356,8 +369,8 @@
 
       <div id="pane-brew" class="pane" role="tabpanel" aria-labelledby="tab-brew">
         <ol class="steps">
-          <li><span>Homebrew でインストール</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1">コピー</button></div></li>
-          <li><span>agy に組み込む</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2">コピー</button></div></li>
+          <li><span>Homebrew でインストール</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1" aria-describedby="c1">コピー</button></div></li>
+          <li><span>agy に組み込む</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2" aria-describedby="c2">コピー</button></div></li>
           <li><span>agy を再起動するか、セッション内で <code>/statusline enable</code> を実行してください。</span></li>
         </ol>
         <p class="note"><code>brew upgrade maggy</code> でアップデートできます。bash・zsh・fish のシェル補完も同梱されています。</p>
@@ -365,7 +378,7 @@
 
       <div id="pane-curl" class="pane" role="tabpanel" aria-labelledby="tab-curl" hidden>
         <ol class="steps">
-          <li><span>インストーラーを実行します。<code>~/.maggy</code> にクローンし、<code>~/.local/bin</code> に <code>maggy</code> をリンクして <code>maggy setup</code> まで自動で行います。</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3">コピー</button></div></li>
+          <li><span>インストーラーを実行します。<code>~/.maggy</code> にクローンし、<code>~/.local/bin</code> に <code>maggy</code> をリンクして <code>maggy setup</code> まで自動で行います。</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3" aria-describedby="c3">コピー</button></div></li>
           <li><span>agy を再起動するか、セッション内で <code>/statusline enable</code> を実行してください。</span></li>
         </ol>
         <p class="note"><code>| bash -s -- --theme xmas --no-mood</code> のように初期オプションを渡せます。更新は <code>maggy update</code> で行えます。</p>
@@ -373,8 +386,8 @@
 
       <div id="pane-git" class="pane" role="tabpanel" aria-labelledby="tab-git" hidden>
         <ol class="steps">
-          <li><span>リポジトリをクローン</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4">コピー</button></div></li>
-          <li><span>agy に組み込む</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5">コピー</button></div></li>
+          <li><span>リポジトリをクローン</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4" aria-describedby="c4">コピー</button></div></li>
+          <li><span>agy に組み込む</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5" aria-describedby="c5">コピー</button></div></li>
           <li><span>agy を再起動するか、セッション内で <code>/statusline enable</code> を実行してください。</span></li>
         </ol>
       </div>
@@ -444,9 +457,9 @@
         <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
-        <summary aria-label="言語を選択">
+        <summary>
           <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <span class="lang-current">日本語</span>
+          <span class="sr-only">言語を選択</span><span class="sr-only">: </span><span class="lang-current">日本語</span>
         </summary>
         <ul class="lang-menu">
           <li><a href="../" hreflang="en" lang="en">English</a></li>
@@ -468,8 +481,8 @@
     </div>
   </footer>
 
-  <aside id="consent-banner" class="consent" role="dialog" aria-live="polite" aria-label="アナリティクスの同意" hidden>
-    <p class="consent-text">
+  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="アナリティクスの同意" aria-describedby="consent-desc" hidden>
+    <p id="consent-desc" class="consent-text">
       <span>このサイトでは全体のトラフィック把握のために Google アナリティクスの Cookie を使用します。CLI 自体はテレメトリを一切送信しません。</span>
       <a href="../privacy.html">プライバシーポリシー</a>
     </p>
@@ -477,7 +490,9 @@
       <button type="button" class="consent-btn" data-consent="denied">拒否</button>
       <button type="button" class="consent-btn consent-accept" data-consent="granted">同意する</button>
     </div>
-  </aside>
+  </div>
+
+  <span id="a11y-status" class="sr-only" role="status" aria-live="polite"></span>
 
   <script src="../appearance.js" defer></script>
   <script src="../consent.js" defer></script>

@@ -109,19 +109,32 @@
     const banner = document.getElementById("consent-banner");
     if (!banner) return;
 
-    const show = () => {
+    let lastTrigger = null;
+
+    const show = (trigger = null) => {
+      lastTrigger = trigger;
       banner.hidden = false;
     };
-    const hide = () => {
+    const hide = (restoreFocus = false) => {
       banner.hidden = true;
+      if (restoreFocus && lastTrigger && typeof lastTrigger.focus === "function") {
+        lastTrigger.focus();
+      }
+      lastTrigger = null;
     };
 
     banner.querySelectorAll("[data-consent]").forEach((btn) => {
       btn.addEventListener("click", () => {
         const choice = btn.dataset.consent === "granted" ? "granted" : "denied";
         saveConsent(choice);
-        hide();
+        hide(true);
       });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !banner.hidden) {
+        hide(true);
+      }
     });
 
     const inRegion = isConsentRegion();
@@ -133,7 +146,7 @@
       }
       trigger.addEventListener("click", (e) => {
         e.preventDefault();
-        show();
+        show(trigger);
         const firstBtn = banner.querySelector("[data-consent]");
         if (firstBtn) firstBtn.focus();
       });

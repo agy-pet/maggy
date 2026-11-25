@@ -195,23 +195,31 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title" data-i18n-html="hero.title">Maggy&nbsp;🌋 lives in your agy statusline.</h1>
+        <h1 id="hero-title" data-i18n-html="hero.title">Maggy&nbsp;<span aria-hidden="true">🌋</span> lives in your agy statusline.</h1>
         <p class="lede" data-i18n-html="hero.lede">An animated terminal pet and custom <strong>Antigravity CLI (<code>agy</code>)</strong> statusline. Maggy dances while <code>agy</code> works, stomps through tool calls, and dozes off when you step away — right beside your live model, context window, quota usage bars, reasoning effort, and git branch.</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
-          <button type="button" class="copy" data-copy="hero-cmd" data-i18n="copy.idle">Copy</button>
+          <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd" data-i18n="copy.idle">Copy</button>
         </div>
         <p class="hint" data-i18n-html="hero.hint">macOS or Linux, Python 3, a truecolor terminal. <a href="#install">Other ways to install</a></p>
       </div>
 
-      <figure class="stage">
-        <div id="maggy" class="sprite" role="img" aria-label="Maggy, the Antigravity logo with eyes, dancing" data-i18n-attr="aria-label:hero.spriteAria"></div>
-        <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
+      <div class="stage">
+        <figure class="sprite-figure">
+          <div id="maggy" class="sprite" role="img" aria-label="Maggy, the Antigravity logo with eyes, dancing" data-i18n-attr="aria-label:hero.spriteAria"></div>
+          <figcaption class="mood-bar">
+            <span id="mood" aria-live="polite">Maggy is dancing ♪</span>
+            <button type="button" id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="Pause animation" title="Pause animation" data-label-pause="Pause animation" data-label-play="Play animation" data-i18n-attr="aria-label:a11y.pause,title:a11y.pause,data-label-pause:a11y.pause,data-label-play:a11y.play">
+              <svg class="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+              <svg class="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4.5v15l13-7.5z"/></svg>
+            </button>
+          </figcaption>
+        </figure>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1"><span class="sr-only" data-i18n="a11y.footnote">Footnote</span> 1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +230,7 @@
           <button type="button" data-mood="sleep" aria-pressed="false" data-i18n="states.sleep">idle · 2 min</button>
           <button type="button" data-mood="stretch" aria-pressed="false" data-i18n="states.stretch">idle · 45 min of work</button>
         </div>
-      </figure>
+      </div>
     </section>
 
     <section id="try" class="try" aria-labelledby="try-title">
@@ -231,26 +239,29 @@
         <p data-i18n-html="try.desc">This is the statusline <code>agy</code> draws under your prompt. Maggy sits to the left of your model, context usage, color-coded quota bars, workspace, and git branch — every frame is the same width, so nothing beside her ever shifts. Change a setting below to see the command that does it.</p>
       </div>
 
-      <div class="terminal" aria-label="Preview of the agy statusline with Maggy" data-i18n-attr="aria-label:try.terminalAria">
+      <div class="terminal" role="region" aria-label="Preview of the agy statusline with Maggy" data-i18n-attr="aria-label:try.terminalAria">
         <div class="term-bar"><span>agy</span><span class="dim-text">~/code/my-app</span>
           <span class="term-bg" role="group" aria-label="Terminal background" data-i18n-attr="aria-label:try.termBgAria">
             <button type="button" data-term-bg="dark" aria-pressed="true" data-i18n="try.termDark">Dark</button>
             <button type="button" data-term-bg="light" aria-pressed="false" data-i18n="try.termLight">Light</button>
           </span>
         </div>
-        <div class="term-prompt"><span class="caret">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
-        <div id="term-body" class="term-body"></div>
+        <div class="term-prompt"><span class="caret" aria-hidden="true">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
+        <div id="term-body" class="term-body" aria-hidden="true"></div>
+        <p id="term-sr" class="sr-only"></p>
       </div>
 
       <div class="controls">
         <div class="control">
           <label for="pet-name" data-i18n="try.petName">Pet name</label>
-          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false">
+          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false" aria-describedby="cmd-name">
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme"><span data-i18n="try.theme">Theme</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
-          <select id="opt-theme" name="theme">
+          <div class="control-label">
+            <label for="opt-theme" data-i18n="try.theme">Theme</label><sup class="fn-ref"><a href="#fn-2" id="fnref-2"><span class="sr-only" data-i18n="a11y.footnote">Footnote</span> 2</a></sup>
+          </div>
+          <select id="opt-theme" name="theme" aria-describedby="cmd-theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
             <option value="xmas">xmas</option>
@@ -260,11 +271,13 @@
           <code id="cmd-theme">maggy theme auto</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-mood" type="checkbox" checked><span data-i18n="try.moodCaption">Mood caption</span></label>
+          <label class="switch"><input id="opt-mood" type="checkbox" checked aria-describedby="cmd-mood"><span data-i18n="try.moodCaption">Mood caption</span></label>
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span data-i18n="try.idleTwinkle">Idle twinkle</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
+          <div class="control-label">
+            <label class="switch"><input id="opt-blink" type="checkbox" checked aria-describedby="cmd-blink"><span data-i18n="try.idleTwinkle">Idle twinkle</span></label><sup class="fn-ref"><a href="#fn-3" id="fnref-3"><span class="sr-only" data-i18n="a11y.footnote">Footnote</span> 3</a></sup>
+          </div>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
@@ -325,7 +338,7 @@
         </div>
         <div class="theme-json-wrap">
           <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
-          <pre class="theme-json"><code>{
+          <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
   "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
@@ -356,8 +369,8 @@
 
       <div id="pane-brew" class="pane" role="tabpanel" aria-labelledby="tab-brew">
         <ol class="steps">
-          <li><span data-i18n="install.brew.step1">Install the formula</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1" data-i18n="copy.idle">Copy</button></div></li>
-          <li><span data-i18n="install.brew.step2">Hook Maggy into agy</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2" data-i18n="copy.idle">Copy</button></div></li>
+          <li><span data-i18n="install.brew.step1">Install the formula</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1" aria-describedby="c1" data-i18n="copy.idle">Copy</button></div></li>
+          <li><span data-i18n="install.brew.step2">Hook Maggy into agy</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2" aria-describedby="c2" data-i18n="copy.idle">Copy</button></div></li>
           <li><span data-i18n-html="install.restart">Restart agy, or run <code>/statusline enable</code> inside it.</span></li>
         </ol>
         <p class="note" data-i18n-html="install.brew.note">Upgrade with <code>brew upgrade maggy</code>. Shell completions for bash, zsh and fish come with it.</p>
@@ -365,7 +378,7 @@
 
       <div id="pane-curl" class="pane" role="tabpanel" aria-labelledby="tab-curl" hidden>
         <ol class="steps">
-          <li><span data-i18n-html="install.curl.step1">Run the installer. It clones to <code>~/.maggy</code>, links <code>maggy</code> into <code>~/.local/bin</code> and runs <code>maggy setup</code>.</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3" data-i18n="copy.idle">Copy</button></div></li>
+          <li><span data-i18n-html="install.curl.step1">Run the installer. It clones to <code>~/.maggy</code>, links <code>maggy</code> into <code>~/.local/bin</code> and runs <code>maggy setup</code>.</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3" aria-describedby="c3" data-i18n="copy.idle">Copy</button></div></li>
           <li><span data-i18n-html="install.restart">Restart agy, or run <code>/statusline enable</code> inside it.</span></li>
         </ol>
         <p class="note" data-i18n-html="install.curl.note">Pass setup options with <code>| bash -s -- --theme xmas --no-mood</code>. Update later with <code>maggy update</code>.</p>
@@ -373,8 +386,8 @@
 
       <div id="pane-git" class="pane" role="tabpanel" aria-labelledby="tab-git" hidden>
         <ol class="steps">
-          <li><span data-i18n="install.git.step1">Clone the repo</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4" data-i18n="copy.idle">Copy</button></div></li>
-          <li><span data-i18n="install.git.step2">Hook Maggy into agy</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5" data-i18n="copy.idle">Copy</button></div></li>
+          <li><span data-i18n="install.git.step1">Clone the repo</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4" aria-describedby="c4" data-i18n="copy.idle">Copy</button></div></li>
+          <li><span data-i18n="install.git.step2">Hook Maggy into agy</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5" aria-describedby="c5" data-i18n="copy.idle">Copy</button></div></li>
           <li><span data-i18n-html="install.restart">Restart agy, or run <code>/statusline enable</code> inside it.</span></li>
         </ol>
       </div>
@@ -444,9 +457,9 @@
         <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
-        <summary aria-label="Language" data-i18n-attr="aria-label:a11y.lang">
+        <summary>
           <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <span class="lang-current">English</span>
+          <span class="sr-only" data-i18n="a11y.lang">Language</span><span class="sr-only">: </span><span class="lang-current">English</span>
         </summary>
         <ul class="lang-menu">
           <li><a href="./" hreflang="en" lang="en" aria-current="page">English</a></li>
@@ -468,8 +481,8 @@
     </div>
   </footer>
 
-  <aside id="consent-banner" class="consent" role="dialog" aria-live="polite" aria-label="Analytics consent" data-i18n-attr="aria-label:consent.label" hidden>
-    <p class="consent-text">
+  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="Analytics consent" aria-describedby="consent-desc" data-i18n-attr="aria-label:consent.label" hidden>
+    <p id="consent-desc" class="consent-text">
       <span data-i18n="consent.text">This site uses Google Analytics cookies to understand overall traffic. The CLI sends zero telemetry.</span>
       <a href="privacy.html" data-i18n="consent.privacy">Privacy Policy</a>
     </p>
@@ -477,7 +490,9 @@
       <button type="button" class="consent-btn" data-consent="denied" data-i18n="consent.decline">Decline</button>
       <button type="button" class="consent-btn consent-accept" data-consent="granted" data-i18n="consent.accept">Accept</button>
     </div>
-  </aside>
+  </div>
+
+  <span id="a11y-status" class="sr-only" role="status" aria-live="polite"></span>
 
   <script src="appearance.js" defer></script>
   <script src="consent.js" defer></script>

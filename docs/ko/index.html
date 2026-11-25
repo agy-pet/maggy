@@ -195,23 +195,31 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">내 <span class="nowrap">agy 상태바</span>에 사는 Maggy&nbsp;🌋</h1>
+        <h1 id="hero-title">내 <span class="nowrap">agy 상태바</span>에 사는 Maggy&nbsp;<span aria-hidden="true">🌋</span></h1>
         <p class="lede"><strong>Antigravity CLI(<code>agy</code>)</strong>용 애니메이션 터미널 펫이자 커스텀 상태바입니다. <code>agy</code>가 일할 땐 신나게 춤추고, 도구를 호출할 땐 발을 동동 구르며, 자리를 비우면 꾸벅꾸벅 좁니다. 현재 모델, 컨텍스트 창, 할당량 바, 추론 강도, Git 브랜치 바로 옆에서 함께합니다.</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
-          <button type="button" class="copy" data-copy="hero-cmd">복사</button>
+          <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">복사</button>
         </div>
         <p class="hint">macOS 또는 Linux, Python 3, 트루컬러 터미널이 필요합니다. <a href="#install">다른 설치 방법</a></p>
       </div>
 
-      <figure class="stage">
-        <div id="maggy" class="sprite" role="img" aria-label="눈이 달린 Antigravity 로고 펫 Maggy가 춤추는 모습"></div>
-        <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
+      <div class="stage">
+        <figure class="sprite-figure">
+          <div id="maggy" class="sprite" role="img" aria-label="눈이 달린 Antigravity 로고 펫 Maggy가 춤추는 모습"></div>
+          <figcaption class="mood-bar">
+            <span id="mood" aria-live="polite">Maggy is dancing ♪</span>
+            <button type="button" id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="애니메이션 일시정지" title="애니메이션 일시정지" data-label-pause="애니메이션 일시정지" data-label-play="애니메이션 재생">
+              <svg class="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
+              <svg class="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4.5v15l13-7.5z"/></svg>
+            </button>
+          </figcaption>
+        </figure>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1"><span class="sr-only">각주</span> 1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +230,7 @@
           <button type="button" data-mood="sleep" aria-pressed="false">idle · 2분 경과</button>
           <button type="button" data-mood="stretch" aria-pressed="false">idle · 45분 작업 후</button>
         </div>
-      </figure>
+      </div>
     </section>
 
     <section id="try" class="try" aria-labelledby="try-title">
@@ -231,26 +239,29 @@
         <p>프롬프트 아래에 <code>agy</code>가 띄워 주는 상태바입니다. 모델, 컨텍스트 사용량, 색상별 할당량 바, 워크스페이스, Git 브랜치 왼쪽에 Maggy가 자리하며 모든 프레임의 너비가 같아 옆 글자가 흔들리지 않습니다. 아래 옵션을 바꿔 보며 해당하는 명령어를 바로 확인해 보세요.</p>
       </div>
 
-      <div class="terminal" aria-label="Maggy가 포함된 agy 상태바 미리보기">
+      <div class="terminal" role="region" aria-label="Maggy가 포함된 agy 상태바 미리보기">
         <div class="term-bar"><span>agy</span><span class="dim-text">~/code/my-app</span>
           <span class="term-bg" role="group" aria-label="터미널 배경">
             <button type="button" data-term-bg="dark" aria-pressed="true">다크</button>
             <button type="button" data-term-bg="light" aria-pressed="false">라이트</button>
           </span>
         </div>
-        <div class="term-prompt"><span class="caret">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
-        <div id="term-body" class="term-body"></div>
+        <div class="term-prompt"><span class="caret" aria-hidden="true">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
+        <div id="term-body" class="term-body" aria-hidden="true"></div>
+        <p id="term-sr" class="sr-only"></p>
       </div>
 
       <div class="controls">
         <div class="control">
           <label for="pet-name">펫 이름</label>
-          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false">
+          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false" aria-describedby="cmd-name">
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme"><span>테마</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
-          <select id="opt-theme" name="theme">
+          <div class="control-label">
+            <label for="opt-theme">테마</label><sup class="fn-ref"><a href="#fn-2" id="fnref-2"><span class="sr-only">각주</span> 2</a></sup>
+          </div>
+          <select id="opt-theme" name="theme" aria-describedby="cmd-theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
             <option value="xmas">xmas</option>
@@ -260,11 +271,13 @@
           <code id="cmd-theme">maggy theme auto</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-mood" type="checkbox" checked><span>상태 문구</span></label>
+          <label class="switch"><input id="opt-mood" type="checkbox" checked aria-describedby="cmd-mood"><span>상태 문구</span></label>
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span>대기 중 깜박임</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
+          <div class="control-label">
+            <label class="switch"><input id="opt-blink" type="checkbox" checked aria-describedby="cmd-blink"><span>대기 중 깜박임</span></label><sup class="fn-ref"><a href="#fn-3" id="fnref-3"><span class="sr-only">각주</span> 3</a></sup>
+          </div>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
@@ -325,7 +338,7 @@
         </div>
         <div class="theme-json-wrap">
           <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
-          <pre class="theme-json"><code>{
+          <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
   "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
@@ -356,8 +369,8 @@
 
       <div id="pane-brew" class="pane" role="tabpanel" aria-labelledby="tab-brew">
         <ol class="steps">
-          <li><span>Homebrew로 설치</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1">복사</button></div></li>
-          <li><span>agy에 연결</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2">복사</button></div></li>
+          <li><span>Homebrew로 설치</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1" aria-describedby="c1">복사</button></div></li>
+          <li><span>agy에 연결</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2" aria-describedby="c2">복사</button></div></li>
           <li><span>agy를 재시작하거나 세션 내에서 <code>/statusline enable</code>을 실행하세요.</span></li>
         </ol>
         <p class="note"><code>brew upgrade maggy</code>로 간편하게 업그레이드할 수 있습니다. bash, zsh, fish 셸 자동 완성도 함께 설치됩니다.</p>
@@ -365,7 +378,7 @@
 
       <div id="pane-curl" class="pane" role="tabpanel" aria-labelledby="tab-curl" hidden>
         <ol class="steps">
-          <li><span>설치 스크립트를 실행하면 <code>~/.maggy</code>에 클론하고 <code>~/.local/bin</code>에 <code>maggy</code>를 연결한 뒤 <code>maggy setup</code>까지 자동으로 마칩니다.</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3">복사</button></div></li>
+          <li><span>설치 스크립트를 실행하면 <code>~/.maggy</code>에 클론하고 <code>~/.local/bin</code>에 <code>maggy</code>를 연결한 뒤 <code>maggy setup</code>까지 자동으로 마칩니다.</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3" aria-describedby="c3">복사</button></div></li>
           <li><span>agy를 재시작하거나 세션 내에서 <code>/statusline enable</code>을 실행하세요.</span></li>
         </ol>
         <p class="note"><code>| bash -s -- --theme xmas --no-mood</code>처럼 초기 옵션을 넘길 수 있으며, 업데이트는 <code>maggy update</code>로 하면 됩니다.</p>
@@ -373,8 +386,8 @@
 
       <div id="pane-git" class="pane" role="tabpanel" aria-labelledby="tab-git" hidden>
         <ol class="steps">
-          <li><span>저장소 클론</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4">복사</button></div></li>
-          <li><span>agy에 연결</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5">복사</button></div></li>
+          <li><span>저장소 클론</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4" aria-describedby="c4">복사</button></div></li>
+          <li><span>agy에 연결</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5" aria-describedby="c5">복사</button></div></li>
           <li><span>agy를 재시작하거나 세션 내에서 <code>/statusline enable</code>을 실행하세요.</span></li>
         </ol>
       </div>
@@ -444,9 +457,9 @@
         <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
-        <summary aria-label="언어 선택">
+        <summary>
           <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          <span class="lang-current">한국어</span>
+          <span class="sr-only">언어 선택</span><span class="sr-only">: </span><span class="lang-current">한국어</span>
         </summary>
         <ul class="lang-menu">
           <li><a href="../" hreflang="en" lang="en">English</a></li>
@@ -468,8 +481,8 @@
     </div>
   </footer>
 
-  <aside id="consent-banner" class="consent" role="dialog" aria-live="polite" aria-label="분석 쿠키 동의" hidden>
-    <p class="consent-text">
+  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="분석 쿠키 동의" aria-describedby="consent-desc" hidden>
+    <p id="consent-desc" class="consent-text">
       <span>이 사이트는 전체 트래픽을 파악하기 위해 Google 애널리틱스 쿠키를 사용합니다. CLI 도구는 어떠한 원격 측정 데이터도 전송하지 않습니다.</span>
       <a href="../privacy.html">개인정보처리방침</a>
     </p>
@@ -477,7 +490,9 @@
       <button type="button" class="consent-btn" data-consent="denied">거부</button>
       <button type="button" class="consent-btn consent-accept" data-consent="granted">수락</button>
     </div>
-  </aside>
+  </div>
+
+  <span id="a11y-status" class="sr-only" role="status" aria-live="polite"></span>
 
   <script src="../appearance.js" defer></script>
   <script src="../consent.js" defer></script>

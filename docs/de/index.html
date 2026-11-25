@@ -305,7 +305,7 @@
     <section id="themes" class="themes" aria-labelledby="themes-title">
       <div class="section-head">
         <h2 id="themes-title">Saisonale &amp; eigene Themes</h2>
-        <p>Standardmäßig kleidet <code>auto</code> Maggy an Feiertagen passend ein und wechselt am nächsten Tag zurück. Klicke auf eine Karte für die Live-Vorschau, fixiere ein Theme mit <code>maggy theme &lt;name&gt;</code> oder füge dein eigenes JSON-Theme hinzu.</p>
+        <p>Standardmäßig kleidet <code>auto</code> Maggy an Feiertagen passend ein und wechselt am nächsten Tag zurück. Klicke auf eine Karte für die Live-Vorschau, fixiere ein Theme mit <code>maggy theme &lt;name&gt;</code> oder <a href="#custom-theme">füge dein eigenes JSON-Theme hinzu</a>.</p>
       </div>
 
       <div class="theme-grid" role="group" aria-label="Integrierte Themes">
@@ -406,7 +406,7 @@
         <div><dt><code>maggy uninstall --purge</code></dt><dd>Entfernt den statusLine-Eintrag samt Konfiguration und Cache. Alle anderen agy-Einstellungen bleiben unberührt.</dd></div>
       </dl>
 
-      <div class="theme-custom">
+      <div id="custom-theme" class="theme-custom">
         <div class="theme-custom-copy">
           <h3>Eigenes Theme erstellen</h3>
           <p>Lege eine JSON-Datei in <code>~/.config/maggy/themes/</code> ab – der Dateiname wird zum Theme-Namen (z. B. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Färbe Bereiche oder Zellen um, tausche die Symbole, zeichne mit <code>prop</code> deine eigene Deko neben Maggy (wie den Baum oder die Laterne) oder starte mit <code>base</code> von einem eingebauten Theme. Setze <code>dates</code> für <code>auto</code>; mit <code>maggy theme list</code> siehst du alle Themes.</p>

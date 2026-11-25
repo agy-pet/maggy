@@ -305,7 +305,7 @@
     <section id="themes" class="themes" aria-labelledby="themes-title">
       <div class="section-head">
         <h2 id="themes-title">节日与自定义主题</h2>
-        <p>默认 <code>auto</code> 会在节日当天自动给 Maggy 换装，次日恢复原样。点击下方卡片可实时预览，用 <code>maggy theme &lt;name&gt;</code> 可随时锁定主题，也能放入 JSON 文件打造专属主题。</p>
+        <p>默认 <code>auto</code> 会在节日当天自动给 Maggy 换装，次日恢复原样。点击下方卡片可实时预览，用 <code>maggy theme &lt;name&gt;</code> 可随时锁定主题，也能<a href="#custom-theme">放入 JSON 文件打造专属主题</a>。</p>
       </div>
 
       <div class="theme-grid" role="group" aria-label="内置主题">
@@ -406,7 +406,7 @@
         <div><dt><code>maggy uninstall --purge</code></dt><dd>移除 statusLine 配置项、配置文件与缓存，其余 agy 设置保持原样。</dd></div>
       </dl>
 
-      <div class="theme-custom">
+      <div id="custom-theme" class="theme-custom">
         <div class="theme-custom-copy">
           <h3>打造你的专属主题</h3>
           <p>将 JSON 文件放入 <code>~/.config/maggy/themes/</code>，文件名即为主题名（如 <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。可按区域或像素格自定义配色、替换星光字符，用 <code>prop</code> 在 Maggy 身旁画出自己的装饰（就像圣诞树或灯笼），或用 <code>base</code> 基于内置主题修改。设置 <code>dates</code> 即可让 <code>auto</code> 在指定日期自动切换，运行 <code>maggy theme list</code> 查看全部已安装主题。</p>

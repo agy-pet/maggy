@@ -426,7 +426,7 @@ h2 {
 .states button[aria-pressed="true"] { background: var(--ink); color: var(--ash); border-color: var(--ink); }
 
 /* -------------------------------------------------------------- sections */
-section { scroll-margin-top: 24px; }
+section, .theme-custom { scroll-margin-top: 24px; }
 .try, .themes, .install, .commands, .faq {
   max-width: var(--maxw);
   margin: 0 auto;

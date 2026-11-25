@@ -305,7 +305,7 @@
     <section id="themes" class="themes" aria-labelledby="themes-title">
       <div class="section-head">
         <h2 id="themes-title" data-i18n="themes.title">Seasonal &amp; custom themes</h2>
-        <p data-i18n-html="themes.desc">By default, <code>auto</code> dresses Maggy up on holidays and switches back the next day. Pick any card below to preview it live, lock a theme anytime with <code>maggy theme &lt;name&gt;</code>, or add your own JSON theme.</p>
+        <p data-i18n-html="themes.desc">By default, <code>auto</code> dresses Maggy up on holidays and switches back the next day. Pick any card below to preview it live, lock a theme anytime with <code>maggy theme &lt;name&gt;</code>, or <a href="#custom-theme">add your own JSON theme</a>.</p>
       </div>
 
       <div class="theme-grid" role="group" aria-label="Built-in themes" data-i18n-attr="aria-label:themes.gridAria">
@@ -406,7 +406,7 @@
         <div><dt><code>maggy uninstall --purge</code></dt><dd data-i18n="commands.uninstall">Removes the statusLine entry, config and cache. Your other agy settings stay.</dd></div>
       </dl>
 
-      <div class="theme-custom">
+      <div id="custom-theme" class="theme-custom">
         <div class="theme-custom-copy">
           <h3 data-i18n="themes.custom.title">Make your own theme</h3>
           <p data-i18n-html="themes.custom.desc">Drop a JSON file into <code>~/.config/maggy/themes/</code> and its filename becomes the theme name (e.g. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Recolor regions or cells, swap sparkles, draw your own <code>prop</code> beside Maggy (like the tree or lantern), or start from a built-in look with <code>base</code>. Set <code>dates</code> so <code>auto</code> activates it automatically, and run <code>maggy theme list</code> to see all installed themes.</p>

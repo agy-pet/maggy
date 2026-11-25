@@ -305,7 +305,7 @@
     <section id="themes" class="themes" aria-labelledby="themes-title">
       <div class="section-head">
         <h2 id="themes-title">季節テーマ＆カスタムテーマ</h2>
-        <p>デフォルトの <code>auto</code> はイベント当日に自動で衣替えし、翌日には元に戻ります。下のカードをクリックするとライブプレビューでき、<code>maggy theme &lt;name&gt;</code> で固定したり、独自の JSON テーマを追加したりできます。</p>
+        <p>デフォルトの <code>auto</code> はイベント当日に自動で衣替えし、翌日には元に戻ります。下のカードをクリックするとライブプレビューでき、<code>maggy theme &lt;name&gt;</code> で固定したり、<a href="#custom-theme">独自の JSON テーマを追加</a>したりできます。</p>
       </div>
 
       <div class="theme-grid" role="group" aria-label="組み込みテーマ">
@@ -406,7 +406,7 @@
         <div><dt><code>maggy uninstall --purge</code></dt><dd>statusLine の設定・設定ファイル・キャッシュを削除します。他の agy 設定には触れません。</dd></div>
       </dl>
 
-      <div class="theme-custom">
+      <div id="custom-theme" class="theme-custom">
         <div class="theme-custom-copy">
           <h3>オリジナルテーマを作る</h3>
           <p><code>~/.config/maggy/themes/</code> に JSON ファイルを置くだけで、ファイル名がそのままテーマ名になります（例：<code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。パーツやセル単位で配色を変えたり、きらめき記号を差し替えたり、<code>prop</code> で Maggy の横にツリーや提灯のような飾りを描いたり、<code>base</code> で組み込みテーマをベースにしたりできます。<code>dates</code> を設定すれば <code>auto</code> で自動表示。<code>maggy theme list</code> で一覧を確認できます。</p>

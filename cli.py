@@ -167,8 +167,13 @@ def cmd_setup(args):
     data = read_settings(path)
     status = data.get("statusLine") if isinstance(data.get("statusLine"), dict) else {}
     if status and not is_ours(status) and not args.force:
-        die(f"{path} already has a custom statusLine:\n  {status.get('command')}\n"
-            "re-run with --force to replace it (the old file is kept as settings.json.bak)")
+        executable = "maggy" if shutil.which("maggy") else maggy_bin()
+        retry = [executable, "setup", "--force", *args.argv[1:]]
+        if os.environ.get("AGY_SETTINGS") and not args.settings:
+            retry.extend(["--settings", path])
+        die(f"{path} already has a custom status line:\n  {status.get('command')}\n\n"
+            f"To use Maggy instead, run this command:\n  {shlex.join(retry)}\n\n"
+            f"Maggy will back up your current settings to {path}.bak before switching.")
     status.update({"type": "command", "command": statusline_command(), "enabled": True})
     if args.padding is not None:
         status["padding"] = max(0, args.padding)
@@ -1011,6 +1016,7 @@ def main(argv=None):
         return cmd_statusline()
     parser = build_parser()
     args = parser.parse_args(argv)
+    args.argv = argv
     if args.version:
         return cmd_version(args)
     if not getattr(args, "func", None):

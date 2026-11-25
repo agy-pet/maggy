@@ -750,8 +750,7 @@ section { scroll-margin-top: 24px; }
 .footnotes {
   list-style: decimal;
   margin: 0 0 16px;
-  padding: 20px 0 0 1.4em;
-  border-top: 1px solid var(--line);
+  padding: 0 0 0 1.4em;
   font-size: 12px;
   line-height: 1.55;
   color: var(--muted);

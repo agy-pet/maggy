@@ -1,0 +1,40 @@
+# Homebrew formula for maggy (Maggy).
+# Lives in the tap repo agy-pet/homebrew-tap as Formula/maggy.rb;
+# scripts/release.sh fills in url/sha256 for each tagged version.
+class Maggy < Formula
+  desc "Dancing Antigravity logo for the agy statusline"
+  homepage "https://agy-pet.github.io/maggy/"
+  url "https://github.com/agy-pet/maggy/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "cc6c2c7c99ff60757304275739caa1bfeb601167fb22af7bb0536193880384cf"
+  head "https://github.com/agy-pet/maggy.git", branch: "master"
+
+  depends_on "python@3.13"
+
+  def install
+    libexec.install Dir["*.py"], "VERSION", "bin"
+    (bin/"maggy").write_env_script libexec/"bin/maggy",
+      MAGGY_PYTHON: formula_opt_bin("python@3.13")/"python3.13",
+      MAGGY_BIN:    opt_bin/"maggy",
+      MAGGY_BREW:   "1"
+    bash_completion.install "completions/maggy.bash" => "maggy"
+    zsh_completion.install "completions/_maggy"
+    fish_completion.install "completions/maggy.fish"
+  end
+
+  def caveats
+    <<~EOS
+      To hook Maggy into agy's statusline, run:
+        maggy setup
+
+      Then restart agy (or run /statusline enable inside it).
+      More: maggy status · maggy preview working · maggy theme xmas · maggy help
+      Before uninstalling, run `maggy uninstall` to remove the statusLine entry.
+    EOS
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/maggy version")
+    json = '{"agent_state":"working","model":{"display_name":"Gemini"},"terminal_width":120}'
+    assert_match "Gemini", pipe_output("#{bin}/maggy statusline", json)
+  end
+end

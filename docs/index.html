@@ -160,6 +160,7 @@
   </script>
   <link rel="preload" href="fonts/instrument-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/martian-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts/fonts.css">
   <link rel="stylesheet" href="style.css">
   <script>!function(){try{var v=localStorage.getItem('maggy.appearance');if(v==='light'||v==='dark')document.documentElement.dataset.theme=v}catch(e){}}();</script>
@@ -196,7 +197,23 @@
     })();
     gtag('js', new Date());
   </script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X"></script>
+  <script>
+    // Load GTM off the critical path: on first interaction, or once the page
+    // has settled after load, so it never competes with first render.
+    (function(){
+      var done = false, ev = ['pointerdown','keydown','touchstart','scroll'];
+      function load(){
+        if (done) return; done = true;
+        ev.forEach(function(e){ removeEventListener(e, load, true); });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X';
+        document.head.appendChild(s);
+      }
+      ev.forEach(function(e){ addEventListener(e, load, { capture: true, passive: true, once: true }); });
+      addEventListener('load', function(){ setTimeout(load, 6000); });
+    })();
+  </script>
 </head>
 <body data-locale="" data-copy-idle="Copy" data-copy-copied="Copied" data-copy-fallback="Select and copy">
   <a class="skip" href="#main" data-i18n="a11y.skip">Skip to content</a>
@@ -478,7 +495,7 @@
         <button type="button" class="foot-btn" data-consent-open data-i18n="footer.cookies" hidden>Cookie settings</button>
         <a href="https://github.com/agy-pet/maggy/issues/new" data-i18n="footer.feedback">Feedback</a>
         <a href="https://github.com/agy-pet/maggy" data-i18n="footer.source">Source on GitHub</a>
-        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" data-i18n-attr="alt:footer.installsAlt" height="20" loading="lazy" decoding="async"></a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" data-i18n-attr="alt:footer.installsAlt" width="72" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
         <summary>

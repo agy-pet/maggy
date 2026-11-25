@@ -540,7 +540,26 @@ section { scroll-margin-top: 24px; }
 @media (prefers-reduced-motion: reduce) { .switch input, .switch input::after { transition: none; } }
 
 .note { font-size: 14px; color: var(--muted); margin: 20px 0 0; max-width: 52em; }
-.states-note { font-size: 12px; margin: 12px auto 0; max-width: 440px; text-align: center; }
+
+/* Footnote superscript markers */
+.fn-ref {
+  font-size: 0.72em;
+  line-height: 0;
+  vertical-align: super;
+  margin-left: 1px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.fn-ref a {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 0 2px;
+  transition: color 0.15s;
+}
+.fn-ref a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
 
 /* Themes */
 .theme-grid {
@@ -728,6 +747,25 @@ section { scroll-margin-top: 24px; }
   color: var(--muted);
 }
 .foot p { margin: 0; }
+.footnotes {
+  list-style: decimal;
+  margin: 0 0 16px;
+  padding: 20px 0 0 1.4em;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+.footnotes li {
+  scroll-margin-top: 24px;
+  max-width: 78ch;
+  opacity: 0.75;
+  transition: color 0.15s, opacity 0.15s;
+}
+.footnotes li + li { margin-top: 6px; }
+.footnotes li:target { color: var(--ink); opacity: 1; }
+.footnotes a { color: inherit; }
+.footnotes code { font-size: 0.92em; padding: 0.05em 0.3em; }
 .foot-end { display: flex; align-items: center; gap: 12px 20px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--line); }
 .foot .foot-links { display: flex; align-items: center; gap: 8px 18px; flex-wrap: wrap; margin-right: auto; }
 .foot-links .installs { display: inline-flex; line-height: 0; }

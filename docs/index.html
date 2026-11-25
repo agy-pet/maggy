@@ -211,7 +211,7 @@
         <div id="maggy" class="sprite" role="img" aria-label="Maggy, the Antigravity logo with eyes, dancing" data-i18n-attr="aria-label:hero.spriteAria"></div>
         <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state</span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +222,6 @@
           <button type="button" data-mood="sleep" aria-pressed="false" data-i18n="states.sleep">idle · 2 min</button>
           <button type="button" data-mood="stretch" aria-pressed="false" data-i18n="states.stretch">idle · 45 min of work</button>
         </div>
-        <p class="note states-note" data-i18n-html="states.note">agy redraws the statusline only when something changes, never on a timer. While idle Maggy holds one pose and only her sparkles twinkle (via the terminal's blink attribute). Click <b>idle</b> again to simulate the next redraw.</p>
       </figure>
     </section>
 
@@ -250,7 +249,7 @@
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme" data-i18n="try.theme">Theme</label>
+          <label for="opt-theme"><span data-i18n="try.theme">Theme</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
           <select id="opt-theme" name="theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
@@ -265,11 +264,10 @@
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span data-i18n="try.idleTwinkle">Idle twinkle</span></label>
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span data-i18n="try.idleTwinkle">Idle twinkle</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
-      <p class="note" data-i18n-html="try.note"><code>auto</code> picks seasonal looks by date (see <a href="#themes">Themes</a> below). Idle twinkle uses the terminal's blink attribute, so sparkles keep moving even when agy stops redrawing.</p>
     </section>
 
     <section id="themes" class="themes" aria-labelledby="themes-title">
@@ -430,6 +428,11 @@
   </main>
 
   <footer class="foot">
+    <ol class="footnotes" aria-label="Footnotes" data-i18n-attr="aria-label:a11y.footnotes">
+      <li id="fn-1" data-i18n-html="fn.states">agy redraws the statusline only when something changes, never on a timer. While idle Maggy holds one pose and only her sparkles twinkle (via the terminal's blink attribute). Click <b>idle</b> again to simulate the next redraw.</li>
+      <li id="fn-2" data-i18n-html="fn.autoTheme"><code>auto</code> picks seasonal looks by date (see <a href="#themes">Themes</a>).</li>
+      <li id="fn-3" data-i18n-html="fn.idleTwinkle">Idle twinkle uses the terminal's blink attribute, so sparkles keep moving even when agy stops redrawing.</li>
+    </ol>
     <p class="foot-note" data-i18n-html="footer.madeFor">Made for <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a> statuslines. Not affiliated with Google.</p>
     <div class="foot-end">
       <p class="foot-links">

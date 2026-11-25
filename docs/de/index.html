@@ -211,7 +211,7 @@
         <div id="maggy" class="sprite" role="img" aria-label="Maggy, das tanzende Antigravity-Logo mit Augen"></div>
         <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state</span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +222,6 @@
           <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 Min.</button>
           <button type="button" data-mood="stretch" aria-pressed="false">idle · nach 45 Min. Arbeit</button>
         </div>
-        <p class="note states-note">agy zeichnet die Statuszeile nur neu, wenn sich etwas ändert – nie per Timer. Im Leerlauf bleibt Maggy in einer Pose und nur ihre Sternchen blinken (über das Blink-Attribut des Terminals). Klicke erneut auf <b>idle</b>, um das nächste Neuzeichnen zu simulieren.</p>
       </figure>
     </section>
 
@@ -250,7 +249,7 @@
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme">Theme</label>
+          <label for="opt-theme"><span>Theme</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
           <select id="opt-theme" name="theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
@@ -265,11 +264,10 @@
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span>Blinken im Leerlauf</span></label>
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span>Blinken im Leerlauf</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
-      <p class="note"><code>auto</code> wählt saisonale Looks automatisch nach Datum (siehe <a href="#themes">Themes</a> unten). Das Blinken im Leerlauf nutzt das Blink-Attribut des Terminals – so leuchten die Sternchen weiter, auch wenn agy nichts neu zeichnet.</p>
     </section>
 
     <section id="themes" class="themes" aria-labelledby="themes-title">
@@ -430,6 +428,11 @@
   </main>
 
   <footer class="foot">
+    <ol class="footnotes" aria-label="Fußnoten">
+      <li id="fn-1">agy zeichnet die Statuszeile nur neu, wenn sich etwas ändert – nie per Timer. Im Leerlauf bleibt Maggy in einer Pose und nur ihre Sternchen blinken (über das Blink-Attribut des Terminals). Klicke erneut auf <b>idle</b>, um das nächste Neuzeichnen zu simulieren.</li>
+      <li id="fn-2"><code>auto</code> wählt saisonale Looks automatisch nach Datum (siehe <a href="#themes">Themes</a>).</li>
+      <li id="fn-3">Das Blinken im Leerlauf nutzt das Blink-Attribut des Terminals – so leuchten die Sternchen weiter, auch wenn agy nichts neu zeichnet.</li>
+    </ol>
     <p class="foot-note">Entwickelt für die <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a>-Statuszeile. Inoffizielles Projekt, nicht mit Google verbunden.</p>
     <div class="foot-end">
       <p class="foot-links">

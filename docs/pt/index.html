@@ -211,7 +211,7 @@
         <div id="maggy" class="sprite" role="img" aria-label="Maggy, o logotipo da Antigravity com olhos, dançando"></div>
         <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state</span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1">1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -222,7 +222,6 @@
           <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 min</button>
           <button type="button" data-mood="stretch" aria-pressed="false">idle · 45 min de trabalho</button>
         </div>
-        <p class="note states-note">O agy só redesenha a statusline quando algo muda, nunca por temporizador. Em repouso, a Maggy mantém uma pose e só os brilhos piscam (usando o atributo blink do terminal). Clique em <b>idle</b> de novo para simular o próximo redesenho.</p>
       </figure>
     </section>
 
@@ -250,7 +249,7 @@
           <code id="cmd-name">maggy name --reset</code>
         </div>
         <div class="control">
-          <label for="opt-theme">Tema</label>
+          <label for="opt-theme"><span>Tema</span><sup class="fn-ref"><a href="#fn-2" id="fnref-2">2</a></sup></label>
           <select id="opt-theme" name="theme">
             <option value="auto" selected>auto</option>
             <option value="default">default</option>
@@ -265,11 +264,10 @@
           <code id="cmd-mood">maggy mood on</code>
         </div>
         <div class="control">
-          <label class="switch"><input id="opt-blink" type="checkbox" checked><span>Brilho em repouso</span></label>
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span class="switch-label"><span>Brilho em repouso</span><sup class="fn-ref"><a href="#fn-3" id="fnref-3">3</a></sup></span></label>
           <code id="cmd-blink">maggy blink on</code>
         </div>
       </div>
-      <p class="note"><code>auto</code> escolhe visuais sazonais pela data (veja <a href="#themes">Temas</a> abaixo). O brilho em repouso usa o atributo blink do terminal, mantendo os brilhos piscando mesmo quando o agy para de redesenhar.</p>
     </section>
 
     <section id="themes" class="themes" aria-labelledby="themes-title">
@@ -430,6 +428,11 @@
   </main>
 
   <footer class="foot">
+    <ol class="footnotes" aria-label="Notas de rodapé">
+      <li id="fn-1">O agy só redesenha a statusline quando algo muda, nunca por temporizador. Em repouso, a Maggy mantém uma pose e só os brilhos piscam (usando o atributo blink do terminal). Clique em <b>idle</b> de novo para simular o próximo redesenho.</li>
+      <li id="fn-2"><code>auto</code> escolhe visuais sazonais pela data (veja <a href="#themes">Temas</a>).</li>
+      <li id="fn-3">O brilho em repouso usa o atributo blink do terminal, mantendo os brilhos piscando mesmo quando o agy para de redesenhar.</li>
+    </ol>
     <p class="foot-note">Feito para a barra de status da <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a>. Projeto independente, sem vínculo com o Google.</p>
     <div class="foot-end">
       <p class="foot-links">

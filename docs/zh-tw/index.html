@@ -152,6 +152,14 @@
               "@type": "Answer",
               "text": "Maggy 直接在終端機繪製帶有表情雙眼的 Antigravity Logo，並依 agent_state 切換狀態動畫——working 時跳舞、tool_use 時踏步、reviewing 時探頭、idle 時星光閃爍、閒置 2 分鐘後打瞌睡。隨時可用 maggy preview working 預覽動畫，或用 maggy motion off 固定靜態姿勢。"
             }
+          },
+          {
+            "@type": "Question",
+            "name": "為什麼 Homebrew 安裝了舊版 Maggy？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "解除安裝 Maggy 後，Homebrew 會保留本機的 tap。如果 tap 尚未更新，重新安裝時就可能選到舊版。執行下方指令，只更新 Maggy 的 tap 並安裝最新版。安裝後可用 maggy --version 確認版本。"
+            }
           }
         ]
       }
@@ -476,6 +484,11 @@
         <details>
           <summary>agy 狀態列中的寵物動畫是如何運作的？</summary>
           <p>Maggy 直接在終端機繪製帶有表情雙眼的 Antigravity Logo，並依 <code>agent_state</code> 切換狀態動畫——<code>working</code> 時跳舞、<code>tool_use</code> 時踏步、<code>reviewing</code> 時探頭、<code>idle</code> 時星光閃爍、閒置 2 分鐘後打瞌睡。隨時可用 <code>maggy preview working</code> 預覽動畫，或用 <code>maggy motion off</code> 固定靜態姿勢。</p>
+        </details>
+        <details>
+          <summary>為什麼 Homebrew 安裝了舊版 Maggy？</summary>
+          <p>解除安裝 Maggy 後，Homebrew 會保留本機的 tap。如果 tap 尚未更新，重新安裝時就可能選到舊版。執行下方指令，只更新 Maggy 的 tap 並安裝最新版。安裝後可用 <code>maggy --version</code> 確認版本。</p>
+          <div class="cmd-box"><code id="faq-brew-refresh">HOMEBREW_NO_AUTO_UPDATE=1 brew tap agy-pet/tap &amp;&amp; git -C "$(brew --repo agy-pet/tap)" pull --ff-only &amp;&amp; HOMEBREW_NO_AUTO_UPDATE=1 brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code><button type="button" class="copy" data-copy="faq-brew-refresh" aria-describedby="faq-brew-refresh">複製</button></div>
         </details>
       </div>
     </section>

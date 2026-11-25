@@ -152,6 +152,14 @@
               "@type": "Answer",
               "text": "Maggy는 표정이 살아있는 눈이 달린 Antigravity 로고를 터미널에 직접 그려 agent_state에 따라 애니메이션을 재생합니다. working 중엔 춤추고, tool_use 중엔 발을 구르며, reviewing엔 기웃거리고, idle엔 반짝이다 2분 후 좁니다. maggy preview working으로 미리 보거나 maggy motion off로 정지할 수 있습니다."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Homebrew가 이전 버전의 Maggy를 설치하는 이유는 무엇인가요?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maggy를 삭제해도 Homebrew의 로컬 탭은 남아 있습니다. 탭이 오래되면 다시 설치할 때 이전 버전이 선택될 수 있습니다. 아래 명령으로 Maggy 탭만 갱신하고 최신 버전을 설치하세요. 설치된 버전은 maggy --version으로 확인할 수 있습니다."
+            }
           }
         ]
       }
@@ -476,6 +484,11 @@
         <details>
           <summary>상태바의 agy 펫 애니메이션은 어떻게 동작하나요?</summary>
           <p>Maggy는 표정이 살아있는 눈이 달린 Antigravity 로고를 터미널에 직접 그려 <code>agent_state</code>에 따라 애니메이션을 재생합니다. <code>working</code> 중엔 춤추고, <code>tool_use</code> 중엔 발을 구르며, <code>reviewing</code>엔 기웃거리고, <code>idle</code>엔 반짝이다 2분 후 좁니다. <code>maggy preview working</code>으로 미리 보거나 <code>maggy motion off</code>로 정지할 수 있습니다.</p>
+        </details>
+        <details>
+          <summary>Homebrew가 이전 버전의 Maggy를 설치하는 이유는 무엇인가요?</summary>
+          <p>Maggy를 삭제해도 Homebrew의 로컬 탭은 남아 있습니다. 탭이 오래되면 다시 설치할 때 이전 버전이 선택될 수 있습니다. 아래 명령으로 Maggy 탭만 갱신하고 최신 버전을 설치하세요. 설치된 버전은 <code>maggy --version</code>으로 확인할 수 있습니다.</p>
+          <div class="cmd-box"><code id="faq-brew-refresh">HOMEBREW_NO_AUTO_UPDATE=1 brew tap agy-pet/tap &amp;&amp; git -C "$(brew --repo agy-pet/tap)" pull --ff-only &amp;&amp; HOMEBREW_NO_AUTO_UPDATE=1 brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code><button type="button" class="copy" data-copy="faq-brew-refresh" aria-describedby="faq-brew-refresh">복사</button></div>
         </details>
       </div>
     </section>

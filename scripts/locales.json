@@ -161,7 +161,9 @@
       "faq.q6": "How does the agy pet animation work in the statusline?",
       "faq.a6": "Maggy renders the Antigravity logo with expressive eyes directly in your terminal and steps through state-aware animations driven by <code>agent_state</code> — dancing while <code>working</code>, stomping during <code>tool_use</code>, leaning while <code>reviewing</code>, twinkling while <code>idle</code>, and dozing after 2 minutes. Preview any animation anytime with <code>maggy preview working</code>, or freeze it with <code>maggy motion off</code>.",
       "themes.custom.schemaTitle": "JSON Schema for theme files",
-      "footer.installsAlt": "Install count"
+      "footer.installsAlt": "Install count",
+      "faq.q7": "Why did Homebrew install an older version of Maggy?",
+      "faq.a7": "Uninstalling Maggy leaves its Homebrew tap on disk. If the local tap is out of date, a reinstall can select an older release. Run this command to refresh just the Maggy tap and install its latest version. Check the result with <code>maggy --version</code>."
     },
     "zh-CN": {
       "meta.title": "Maggy — agy 终端宠物动画与状态栏（用量、配额上限与重置倒计时）",
@@ -267,7 +269,9 @@
       "faq.q6": "agy 状态栏里的宠物动画是如何工作的？",
       "faq.a6": "Maggy 直接在终端里绘制带表情眼睛的 Antigravity Logo，并根据 <code>agent_state</code> 播放不同状态的动画——<code>working</code> 时起舞、<code>tool_use</code> 时踏步、<code>reviewing</code> 时探头、<code>idle</code> 时星光闪烁、空闲 2 分钟后打瞌睡。随时可用 <code>maggy preview working</code> 预览动画，或用 <code>maggy motion off</code> 固定为静态姿势。",
       "themes.custom.schemaTitle": "主题文件的 JSON Schema",
-      "footer.installsAlt": "安装次数"
+      "footer.installsAlt": "安装次数",
+      "faq.q7": "为什么 Homebrew 安装了旧版 Maggy？",
+      "faq.a7": "卸载 Maggy 后，Homebrew 会保留本地 tap。如果 tap 尚未更新，重新安装时就可能选中旧版。运行下面的命令，只刷新 Maggy 的 tap 并安装最新版。安装后可用 <code>maggy --version</code> 确认版本。"
     },
     "zh-TW": {
       "meta.title": "Maggy — agy 終端機寵物動畫與狀態列（用量、配額上限與重設倒數）",
@@ -373,7 +377,9 @@
       "faq.q6": "agy 狀態列中的寵物動畫是如何運作的？",
       "faq.a6": "Maggy 直接在終端機繪製帶有表情雙眼的 Antigravity Logo，並依 <code>agent_state</code> 切換狀態動畫——<code>working</code> 時跳舞、<code>tool_use</code> 時踏步、<code>reviewing</code> 時探頭、<code>idle</code> 時星光閃爍、閒置 2 分鐘後打瞌睡。隨時可用 <code>maggy preview working</code> 預覽動畫，或用 <code>maggy motion off</code> 固定靜態姿勢。",
       "themes.custom.schemaTitle": "主題檔案的 JSON Schema",
-      "footer.installsAlt": "安裝次數"
+      "footer.installsAlt": "安裝次數",
+      "faq.q7": "為什麼 Homebrew 安裝了舊版 Maggy？",
+      "faq.a7": "解除安裝 Maggy 後，Homebrew 會保留本機的 tap。如果 tap 尚未更新，重新安裝時就可能選到舊版。執行下方指令，只更新 Maggy 的 tap 並安裝最新版。安裝後可用 <code>maggy --version</code> 確認版本。"
     },
     "ja": {
       "meta.title": "Maggy — agy ペット・アニメーション＆ステータスライン（使用量・上限・リセット表示）",
@@ -479,7 +485,9 @@
       "faq.q6": "agy ペットのアニメーションはステータスラインでどう動きますか？",
       "faq.a6": "Maggy は表情豊かな目が付いた Antigravity ロゴをターミナルに直接描画し、<code>agent_state</code> に応じたアニメーションを再生します（<code>working</code> でダンス、<code>tool_use</code> で足踏み、<code>reviewing</code> で覗き込み、<code>idle</code> で星が点滅、2分後に居眠り）。<code>maggy preview working</code> でいつでもプレビューでき、<code>maggy motion off</code> で静止表示にできます。",
       "themes.custom.schemaTitle": "テーマファイル用 JSON Schema",
-      "footer.installsAlt": "インストール数"
+      "footer.installsAlt": "インストール数",
+      "faq.q7": "Homebrew で古いバージョンの Maggy がインストールされるのはなぜですか？",
+      "faq.a7": "Maggy をアンインストールしても、Homebrew の tap はローカルに残ります。tap が古いと、再インストール時に古いリリースが選ばれることがあります。次のコマンドで Maggy の tap だけを更新し、最新版をインストールできます。バージョンは <code>maggy --version</code> で確認できます。"
     },
     "ko": {
       "meta.title": "Maggy — agy 펫·애니메이션 & 상태바 (사용량·한도·리셋 표시)",
@@ -585,7 +593,9 @@
       "faq.q6": "상태바의 agy 펫 애니메이션은 어떻게 동작하나요?",
       "faq.a6": "Maggy는 표정이 살아있는 눈이 달린 Antigravity 로고를 터미널에 직접 그려 <code>agent_state</code>에 따라 애니메이션을 재생합니다. <code>working</code> 중엔 춤추고, <code>tool_use</code> 중엔 발을 구르며, <code>reviewing</code>엔 기웃거리고, <code>idle</code>엔 반짝이다 2분 후 좁니다. <code>maggy preview working</code>으로 미리 보거나 <code>maggy motion off</code>로 정지할 수 있습니다.",
       "themes.custom.schemaTitle": "테마 파일용 JSON 스키마",
-      "footer.installsAlt": "설치 수"
+      "footer.installsAlt": "설치 수",
+      "faq.q7": "Homebrew가 이전 버전의 Maggy를 설치하는 이유는 무엇인가요?",
+      "faq.a7": "Maggy를 삭제해도 Homebrew의 로컬 탭은 남아 있습니다. 탭이 오래되면 다시 설치할 때 이전 버전이 선택될 수 있습니다. 아래 명령으로 Maggy 탭만 갱신하고 최신 버전을 설치하세요. 설치된 버전은 <code>maggy --version</code>으로 확인할 수 있습니다."
     },
     "es": {
       "meta.title": "Maggy — Mascota, animación y statusline de agy (uso, límites y reinicio)",
@@ -691,7 +701,9 @@
       "faq.q6": "¿Cómo funciona la animación de la mascota de agy en la statusline?",
       "faq.a6": "Maggy dibuja el logotipo de Antigravity con ojos expresivos directamente en tu terminal y reproduce animaciones según <code>agent_state</code>: baila en <code>working</code>, zapatea en <code>tool_use</code>, se inclina en <code>reviewing</code>, parpadea en <code>idle</code> y duerme tras 2 minutos. Previsualiza cualquier animación con <code>maggy preview working</code> o fíjala con <code>maggy motion off</code>.",
       "themes.custom.schemaTitle": "Esquema JSON para archivos de tema",
-      "footer.installsAlt": "Número de instalaciones"
+      "footer.installsAlt": "Número de instalaciones",
+      "faq.q7": "¿Por qué instaló Homebrew una versión anterior de Maggy?",
+      "faq.a7": "Al desinstalar Maggy, Homebrew conserva una copia local del tap. Si está desactualizada, puede instalar una versión anterior. Ejecuta este comando para actualizar solo el tap de Maggy e instalar su última versión. Comprueba la versión con <code>maggy --version</code>."
     },
     "fr": {
       "meta.title": "Maggy — Mascotte, animation & statusline agy (usage, limites & reset)",
@@ -797,7 +809,9 @@
       "faq.q6": "Comment fonctionne l'animation de la mascotte agy dans la statusline ?",
       "faq.a6": "Maggy dessine le logo Antigravity avec des yeux expressifs dans votre terminal et enchaîne des animations selon <code>agent_state</code> : danse en <code>working</code>, trépigne en <code>tool_use</code>, se penche en <code>reviewing</code>, scintille en <code>idle</code> et s'assoupit après 2 minutes. Prévisualisez une animation avec <code>maggy preview working</code> ou figez-la avec <code>maggy motion off</code>.",
       "themes.custom.schemaTitle": "Schéma JSON pour les fichiers de thème",
-      "footer.installsAlt": "Nombre d'installations"
+      "footer.installsAlt": "Nombre d'installations",
+      "faq.q7": "Pourquoi Homebrew a-t-il installé une ancienne version de Maggy ?",
+      "faq.a7": "Homebrew conserve une copie locale du tap après la désinstallation de Maggy. Si elle est obsolète, Homebrew peut réinstaller une ancienne version. Cette commande met à jour uniquement le tap de Maggy et installe sa dernière version. Vérifiez la version avec <code>maggy --version</code>."
     },
     "de": {
       "meta.title": "Maggy — agy Pet, Animation & Statuszeile (Nutzung, Limits & Reset)",
@@ -903,7 +917,9 @@
       "faq.q6": "Wie funktioniert die agy-Pet-Animation in der Statuszeile?",
       "faq.a6": "Maggy zeichnet das Antigravity-Logo mit ausdrucksstarken Augen direkt im Terminal und spielt zustandsabhängige Animationen über <code>agent_state</code> ab – tanzend bei <code>working</code>, stampfend bei <code>tool_use</code>, spähend bei <code>reviewing</code>, blinkend bei <code>idle</code> und schlummernd nach 2 Minuten. Mit <code>maggy preview working</code> siehst du jede Animation vorab, und <code>maggy motion off</code> hält eine feste Pose.",
       "themes.custom.schemaTitle": "JSON-Schema für Theme-Dateien",
-      "footer.installsAlt": "Anzahl der Installationen"
+      "footer.installsAlt": "Anzahl der Installationen",
+      "faq.q7": "Warum hat Homebrew eine ältere Version von Maggy installiert?",
+      "faq.a7": "Beim Deinstallieren von Maggy bleibt der lokale Homebrew-Tap erhalten. Ist er veraltet, kann Homebrew bei der nächsten Installation eine ältere Version auswählen. Mit diesem Befehl aktualisierst du nur den Maggy-Tap und installierst dessen neueste Version. Prüfe die Version mit <code>maggy --version</code>."
     },
     "pt": {
       "meta.title": "Maggy — Pet, animação e statusline do agy (uso, limites e reset)",
@@ -1009,7 +1025,9 @@
       "faq.q6": "Como funciona a animação do pet do agy na statusline?",
       "faq.a6": "A Maggy desenha o logotipo da Antigravity com olhos expressivos diretamente no terminal e reproduz animações guiadas por <code>agent_state</code> — dançando em <code>working</code>, sapateando em <code>tool_use</code>, espiando em <code>reviewing</code>, brilhando em <code>idle</code> e cochilando após 2 minutos. Pré-visualize qualquer animação com <code>maggy preview working</code> ou fixe a pose com <code>maggy motion off</code>.",
       "themes.custom.schemaTitle": "Esquema JSON para arquivos de tema",
-      "footer.installsAlt": "Total de instalações"
+      "footer.installsAlt": "Total de instalações",
+      "faq.q7": "Por que o Homebrew instalou uma versão antiga da Maggy?",
+      "faq.a7": "Ao desinstalar a Maggy, o Homebrew mantém uma cópia local do tap. Se ela estiver desatualizada, a reinstalação pode trazer uma versão antiga. Execute este comando para atualizar apenas o tap da Maggy e instalar a versão mais recente. Confira a versão com <code>maggy --version</code>."
     }
   }
 }

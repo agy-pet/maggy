@@ -152,6 +152,14 @@
               "@type": "Answer",
               "text": "Maggy zeichnet das Antigravity-Logo mit ausdrucksstarken Augen direkt im Terminal und spielt zustandsabhängige Animationen über agent_state ab – tanzend bei working, stampfend bei tool_use, spähend bei reviewing, blinkend bei idle und schlummernd nach 2 Minuten. Mit maggy preview working siehst du jede Animation vorab, und maggy motion off hält eine feste Pose."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum hat Homebrew eine ältere Version von Maggy installiert?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Beim Deinstallieren von Maggy bleibt der lokale Homebrew-Tap erhalten. Ist er veraltet, kann Homebrew bei der nächsten Installation eine ältere Version auswählen. Mit diesem Befehl aktualisierst du nur den Maggy-Tap und installierst dessen neueste Version. Prüfe die Version mit maggy --version."
+            }
           }
         ]
       }
@@ -476,6 +484,11 @@
         <details>
           <summary>Wie funktioniert die agy-Pet-Animation in der Statuszeile?</summary>
           <p>Maggy zeichnet das Antigravity-Logo mit ausdrucksstarken Augen direkt im Terminal und spielt zustandsabhängige Animationen über <code>agent_state</code> ab – tanzend bei <code>working</code>, stampfend bei <code>tool_use</code>, spähend bei <code>reviewing</code>, blinkend bei <code>idle</code> und schlummernd nach 2 Minuten. Mit <code>maggy preview working</code> siehst du jede Animation vorab, und <code>maggy motion off</code> hält eine feste Pose.</p>
+        </details>
+        <details>
+          <summary>Warum hat Homebrew eine ältere Version von Maggy installiert?</summary>
+          <p>Beim Deinstallieren von Maggy bleibt der lokale Homebrew-Tap erhalten. Ist er veraltet, kann Homebrew bei der nächsten Installation eine ältere Version auswählen. Mit diesem Befehl aktualisierst du nur den Maggy-Tap und installierst dessen neueste Version. Prüfe die Version mit <code>maggy --version</code>.</p>
+          <div class="cmd-box"><code id="faq-brew-refresh">HOMEBREW_NO_AUTO_UPDATE=1 brew tap agy-pet/tap &amp;&amp; git -C "$(brew --repo agy-pet/tap)" pull --ff-only &amp;&amp; HOMEBREW_NO_AUTO_UPDATE=1 brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code><button type="button" class="copy" data-copy="faq-brew-refresh" aria-describedby="faq-brew-refresh">Kopieren</button></div>
         </details>
       </div>
     </section>

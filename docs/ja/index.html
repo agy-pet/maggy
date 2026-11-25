@@ -152,6 +152,14 @@
               "@type": "Answer",
               "text": "Maggy は表情豊かな目が付いた Antigravity ロゴをターミナルに直接描画し、agent_state に応じたアニメーションを再生します（working でダンス、tool_use で足踏み、reviewing で覗き込み、idle で星が点滅、2分後に居眠り）。maggy preview working でいつでもプレビューでき、maggy motion off で静止表示にできます。"
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Homebrew で古いバージョンの Maggy がインストールされるのはなぜですか？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maggy をアンインストールしても、Homebrew の tap はローカルに残ります。tap が古いと、再インストール時に古いリリースが選ばれることがあります。次のコマンドで Maggy の tap だけを更新し、最新版をインストールできます。バージョンは maggy --version で確認できます。"
+            }
           }
         ]
       }
@@ -476,6 +484,11 @@
         <details>
           <summary>agy ペットのアニメーションはステータスラインでどう動きますか？</summary>
           <p>Maggy は表情豊かな目が付いた Antigravity ロゴをターミナルに直接描画し、<code>agent_state</code> に応じたアニメーションを再生します（<code>working</code> でダンス、<code>tool_use</code> で足踏み、<code>reviewing</code> で覗き込み、<code>idle</code> で星が点滅、2分後に居眠り）。<code>maggy preview working</code> でいつでもプレビューでき、<code>maggy motion off</code> で静止表示にできます。</p>
+        </details>
+        <details>
+          <summary>Homebrew で古いバージョンの Maggy がインストールされるのはなぜですか？</summary>
+          <p>Maggy をアンインストールしても、Homebrew の tap はローカルに残ります。tap が古いと、再インストール時に古いリリースが選ばれることがあります。次のコマンドで Maggy の tap だけを更新し、最新版をインストールできます。バージョンは <code>maggy --version</code> で確認できます。</p>
+          <div class="cmd-box"><code id="faq-brew-refresh">HOMEBREW_NO_AUTO_UPDATE=1 brew tap agy-pet/tap &amp;&amp; git -C "$(brew --repo agy-pet/tap)" pull --ff-only &amp;&amp; HOMEBREW_NO_AUTO_UPDATE=1 brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code><button type="button" class="copy" data-copy="faq-brew-refresh" aria-describedby="faq-brew-refresh">コピー</button></div>
         </details>
       </div>
     </section>

@@ -28,8 +28,7 @@ A custom [Antigravity CLI (`agy`)](https://antigravity.google/docs/cli/statuslin
 ### Homebrew (recommended)
 
 ```bash
-brew install agy-pet/tap/maggy
-maggy setup
+brew install agy-pet/tap/maggy && maggy setup
 ```
 
 `maggy setup` sets `statusLine` in `~/.gemini/antigravity-cli/settings.json` to `maggy statusline`. Your other settings stay as they are, and the previous file is backed up to `settings.json.bak`. Upgrade with `brew upgrade maggy` (or `maggy update`).
@@ -305,6 +304,19 @@ All mascot visuals live in `mascot.py`:
 - **Narrow breakpoint**: Change `term_width < 60` in `statusline.py` to adjust when the compact 1-line fallback triggers.
 
 ---
+
+## FAQ
+
+### Why did Homebrew install an older version of Maggy?
+
+Uninstalling Maggy leaves its Homebrew tap on disk. If the local tap is out of date, a reinstall can select an older release. Run this command to refresh just the Maggy tap and install its latest version. Check the result with `maggy --version`.
+
+```bash
+HOMEBREW_NO_AUTO_UPDATE=1 brew tap agy-pet/tap &&
+  git -C "$(brew --repo agy-pet/tap)" pull --ff-only &&
+  HOMEBREW_NO_AUTO_UPDATE=1 brew install agy-pet/tap/maggy &&
+  maggy setup
+```
 
 ## Troubleshooting & Uninstalling
 

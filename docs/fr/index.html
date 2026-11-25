@@ -152,6 +152,14 @@
               "@type": "Answer",
               "text": "Maggy dessine le logo Antigravity avec des yeux expressifs dans votre terminal et enchaîne des animations selon agent_state : danse en working, trépigne en tool_use, se penche en reviewing, scintille en idle et s'assoupit après 2 minutes. Prévisualisez une animation avec maggy preview working ou figez-la avec maggy motion off."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Pourquoi Homebrew a-t-il installé une ancienne version de Maggy ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Homebrew conserve une copie locale du tap après la désinstallation de Maggy. Si elle est obsolète, Homebrew peut réinstaller une ancienne version. Cette commande met à jour uniquement le tap de Maggy et installe sa dernière version. Vérifiez la version avec maggy --version."
+            }
           }
         ]
       }
@@ -476,6 +484,11 @@
         <details>
           <summary>Comment fonctionne l'animation de la mascotte agy dans la statusline ?</summary>
           <p>Maggy dessine le logo Antigravity avec des yeux expressifs dans votre terminal et enchaîne des animations selon <code>agent_state</code> : danse en <code>working</code>, trépigne en <code>tool_use</code>, se penche en <code>reviewing</code>, scintille en <code>idle</code> et s'assoupit après 2 minutes. Prévisualisez une animation avec <code>maggy preview working</code> ou figez-la avec <code>maggy motion off</code>.</p>
+        </details>
+        <details>
+          <summary>Pourquoi Homebrew a-t-il installé une ancienne version de Maggy ?</summary>
+          <p>Homebrew conserve une copie locale du tap après la désinstallation de Maggy. Si elle est obsolète, Homebrew peut réinstaller une ancienne version. Cette commande met à jour uniquement le tap de Maggy et installe sa dernière version. Vérifiez la version avec <code>maggy --version</code>.</p>
+          <div class="cmd-box"><code id="faq-brew-refresh">HOMEBREW_NO_AUTO_UPDATE=1 brew tap agy-pet/tap &amp;&amp; git -C "$(brew --repo agy-pet/tap)" pull --ff-only &amp;&amp; HOMEBREW_NO_AUTO_UPDATE=1 brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code><button type="button" class="copy" data-copy="faq-brew-refresh" aria-describedby="faq-brew-refresh">Copier</button></div>
         </details>
       </div>
     </section>

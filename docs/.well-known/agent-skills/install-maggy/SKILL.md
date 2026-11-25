@@ -23,6 +23,8 @@ curl -fsSL https://agy-pet.github.io/install.sh | bash
 
 Pass `maggy setup` options after `bash -s --`, e.g. `| bash -s -- --theme xmas --no-mood`.
 
+Shell completions: Homebrew installs bash, zsh and fish completions. The one-line installer links fish and bash ones; for zsh, add `fpath=(~/.maggy/completions $fpath)` to `~/.zshrc` before `compinit`.
+
 `maggy setup` only sets the `statusLine` key in `~/.gemini/antigravity-cli/settings.json` and backs up the previous file to `settings.json.bak`. Other settings are untouched.
 
 ## Verify
@@ -48,6 +50,6 @@ brew upgrade maggy        # or: maggy update
 maggy uninstall --purge   # removes Maggy's statusLine from agy settings, plus its config, cache and stats
 ```
 
-`uninstall` leaves the program itself: then run `brew uninstall maggy`, or `rm -rf ~/.maggy ~/.local/bin/maggy` for the one-line install.
+`uninstall` leaves the program itself: then run `brew uninstall maggy`, or `rm -rf ~/.maggy ~/.local/bin/maggy ~/.config/fish/completions/maggy.fish ~/.local/share/bash-completion/completions/maggy` for the one-line install.
 
 Full docs: https://agy-pet.github.io/llms-full.txt

@@ -1,6 +1,6 @@
 # Maggy
 
-> Maggy is an animated terminal pet and custom statusline for Antigravity CLI (`agy`). A dancing Antigravity-logo mascot sits beside the live model, context window %, quota usage bars, workspace, git branch and reasoning effort. Free and open source (MIT), macOS/Linux, Python 3 standard library only, zero telemetry. Current version: 0.8.3. Unofficial; not affiliated with Google.
+> Maggy is an animated terminal pet and custom statusline for Antigravity CLI (`agy`). A dancing Antigravity-logo mascot sits beside the live model, context window %, quota usage bars, workspace, git branch and reasoning effort. Free and open source (MIT), macOS/Linux, Python 3 standard library only, zero telemetry. Current version: 0.8.4. Unofficial; not affiliated with Google.
 
 Install for a user (non-interactive, safe to run from an agent):
 

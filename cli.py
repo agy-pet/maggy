@@ -21,6 +21,7 @@ if __name__ == "__main__" and sys.argv[1:] in RENDER_ARGV:
 
 import argparse  # noqa: E402
 import json  # noqa: E402
+import re  # noqa: E402
 import shlex  # noqa: E402
 import shutil  # noqa: E402
 import subprocess  # noqa: E402
@@ -702,14 +703,39 @@ def cmd_preview(args):
                  themes=[args.theme] if args.theme else None)
 
 
+def latest_release_tag():
+    """Newest vX.Y.Z tag on origin, or None."""
+    res = subprocess.run(["git", "-C", ROOT, "ls-remote", "--tags", "--refs", "origin", "v*"],
+                         capture_output=True, text=True, timeout=30)
+    best = None
+    for line in res.stdout.splitlines():
+        m = re.fullmatch(r"\S+\s+refs/tags/(v(\d+)\.(\d+)\.(\d+))", line.strip())
+        if m:
+            key = tuple(int(n) for n in m.groups()[1:])
+            if best is None or key > best[0]:
+                best = (key, m.group(1))
+    return best[1] if best else None
+
+
 def cmd_update(_args):
     kind = install_kind()
     if kind == "homebrew":
         say(f"brew upgrade {FORMULA}")
         os.execvp("brew", ["brew", "upgrade", FORMULA])
     if kind == "git":
-        say(f"Updating {ROOT}")
-        subprocess.run(["git", "-C", ROOT, "pull", "--ff-only"], check=True)
+        git = ["git", "-C", ROOT]
+        branch = subprocess.run(git + ["symbolic-ref", "-q", "--short", "HEAD"],
+                                capture_output=True, text=True).stdout.strip()
+        if branch:  # a dev checkout on a branch: follow it
+            say(f"Updating {ROOT} ({branch})")
+            subprocess.run(git + ["pull", "--ff-only"], check=True)
+        else:  # the installer pins a release tag: move to the newest one
+            tag = latest_release_tag()
+            if not tag:
+                die("couldn't find a release tag on origin; check your network and try again")
+            say(f"Updating {ROOT} to {tag}")
+            subprocess.run(git + ["fetch", "--depth", "1", "--quiet", "origin", f"refs/tags/{tag}"], check=True)
+            subprocess.run(git + ["checkout", "--quiet", "--detach", "FETCH_HEAD"], check=True)
         say(f"Now at v{version()}")
         return
     die(f"don't know how to update a manual install; re-run the installer from {REPO_URL}")

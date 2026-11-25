@@ -29,17 +29,20 @@ LOCALES_JSON = ROOT / "scripts" / "locales.json"
 SKILLS_SRC = ROOT / "scripts" / "agent-skills"
 SKILLS_OUT = DOCS / ".well-known" / "agent-skills"
 
-# Served at https://agy-pet.github.io/install.sh. Falls back to master if no release
-# has the asset yet. Wrapped in main() so bash parses the whole stub before running
-# anything when it's piped in.
+# Served at https://agy-pet.github.io/install.sh. Only ever runs the latest release's
+# installer (pinned to that release's tag); no fallback to unreleased master.
+# Wrapped in main() so bash parses the whole stub before running anything when
+# it's piped in.
 INSTALL_STUB = """#!/usr/bin/env bash
 # maggy installer: curl -fsSL https://agy-pet.github.io/install.sh | bash
 # Runs install.sh from the latest release; see https://github.com/agy-pet/maggy
 set -euo pipefail
 main() {
     local script
-    script="$(curl -fsSL https://github.com/agy-pet/maggy/releases/latest/download/install.sh 2>/dev/null)" ||
-        script="$(curl -fsSL https://raw.githubusercontent.com/agy-pet/maggy/master/install.sh)"
+    script="$(curl -fsSL https://github.com/agy-pet/maggy/releases/latest/download/install.sh)" || {
+        echo "maggy: could not download the release installer; try again, or: brew install agy-pet/tap/maggy" >&2
+        exit 1
+    }
     bash -c "$script" maggy-install "$@"
 }
 main "$@"

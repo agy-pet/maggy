@@ -331,28 +331,6 @@
         </button>
       </div>
 
-      <div class="theme-custom">
-        <div class="theme-custom-copy">
-          <h3>나만의 테마 만들기</h3>
-          <p><code>~/.config/maggy/themes/</code>에 JSON 파일을 넣으면 파일명이 곧 테마 이름이 됩니다(예: <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). 영역이나 셀 색상과 반짝이 문자를 바꾸고, <code>prop</code>으로 Maggy 옆에 트리나 등불 같은 장식을 직접 그리거나, <code>base</code>로 기본 테마를 바탕으로 수정할 수 있습니다. <code>dates</code>를 지정하면 <code>auto</code>로 자동 적용되며, <code>maggy theme list</code>로 전체 테마를 확인하세요.</p>
-        </div>
-        <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
-          <pre class="theme-json" tabindex="0"><code>{
-  "$schema": "https://agy-pet.github.io/theme.schema.json",
-  "description": "St Patrick's Day",
-  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
-  "sparkles": { "✦": "☘", "·": "·" },
-  "sparkle_color": "#a3e635",
-  "prop": ["c c", "ccc", " s "],
-  "prop_cells": {
-    "c": { "bg": "#1f9d55" },
-    "s": { "fg": "#3f6212", "glyphs": ["│"] }
-  },
-  "dates": ["03-17"]
-}</code></pre>
-        </div>
-      </div>
     </section>
 
     <section id="install" class="install" aria-labelledby="install-title">
@@ -408,6 +386,29 @@
         <div><dt><code>maggy config</code></dt><dd><code>~/.config/maggy/config.json</code>을 보여줍니다. <code>get</code>, <code>set</code>, <code>reset</code>으로 바꿀 수 있습니다.</dd></div>
         <div><dt><code>maggy uninstall --purge</code></dt><dd>statusLine 항목과 설정 파일, 캐시를 깔끔하게 지웁니다. 다른 agy 설정은 그대로 유지됩니다.</dd></div>
       </dl>
+
+      <div class="theme-custom">
+        <div class="theme-custom-copy">
+          <h3>나만의 테마 만들기</h3>
+          <p><code>~/.config/maggy/themes/</code>에 JSON 파일을 넣으면 파일명이 곧 테마 이름이 됩니다(예: <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). 영역이나 셀 색상과 반짝이 문자를 바꾸고, <code>prop</code>으로 Maggy 옆에 트리나 등불 같은 장식을 직접 그리거나, <code>base</code>로 기본 테마를 바탕으로 수정할 수 있습니다. <code>dates</code>를 지정하면 <code>auto</code>로 자동 적용되며, <code>maggy theme list</code>로 전체 테마를 확인하세요.</p>
+        </div>
+        <div class="theme-json-wrap">
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <pre class="theme-json" tabindex="0"><code>{
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
+  "description": "St Patrick's Day",
+  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
+  "sparkles": { "✦": "☘", "·": "·" },
+  "sparkle_color": "#a3e635",
+  "prop": ["c c", "ccc", " s "],
+  "prop_cells": {
+    "c": { "bg": "#1f9d55" },
+    "s": { "fg": "#3f6212", "glyphs": ["│"] }
+  },
+  "dates": ["03-17"]
+}</code></pre>
+        </div>
+      </div>
     </section>
 
     <section id="faq" class="faq" aria-labelledby="faq-title">

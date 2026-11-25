@@ -331,28 +331,6 @@
         </button>
       </div>
 
-      <div class="theme-custom">
-        <div class="theme-custom-copy">
-          <h3>Créez votre propre thème</h3>
-          <p>Déposez un fichier JSON dans <code>~/.config/maggy/themes/</code> : son nom devient celui du thème (ex. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Recolorez des zones ou des cellules, changez les étincelles, dessinez votre propre <code>prop</code> à côté de Maggy (comme le sapin ou la lanterne) ou partez d'un thème intégré avec <code>base</code>. Définissez <code>dates</code> pour l'activation automatique et lancez <code>maggy theme list</code> pour tout voir.</p>
-        </div>
-        <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
-          <pre class="theme-json" tabindex="0"><code>{
-  "$schema": "https://agy-pet.github.io/theme.schema.json",
-  "description": "St Patrick's Day",
-  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
-  "sparkles": { "✦": "☘", "·": "·" },
-  "sparkle_color": "#a3e635",
-  "prop": ["c c", "ccc", " s "],
-  "prop_cells": {
-    "c": { "bg": "#1f9d55" },
-    "s": { "fg": "#3f6212", "glyphs": ["│"] }
-  },
-  "dates": ["03-17"]
-}</code></pre>
-        </div>
-      </div>
     </section>
 
     <section id="install" class="install" aria-labelledby="install-title">
@@ -408,6 +386,29 @@
         <div><dt><code>maggy config</code></dt><dd>Affiche <code>~/.config/maggy/config.json</code>. Utilisez <code>get</code>, <code>set</code> ou <code>reset</code> pour le modifier.</dd></div>
         <div><dt><code>maggy uninstall --purge</code></dt><dd>Supprime l'entrée statusLine, la configuration et le cache sans toucher à vos autres réglages agy.</dd></div>
       </dl>
+
+      <div class="theme-custom">
+        <div class="theme-custom-copy">
+          <h3>Créez votre propre thème</h3>
+          <p>Déposez un fichier JSON dans <code>~/.config/maggy/themes/</code> : son nom devient celui du thème (ex. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Recolorez des zones ou des cellules, changez les étincelles, dessinez votre propre <code>prop</code> à côté de Maggy (comme le sapin ou la lanterne) ou partez d'un thème intégré avec <code>base</code>. Définissez <code>dates</code> pour l'activation automatique et lancez <code>maggy theme list</code> pour tout voir.</p>
+        </div>
+        <div class="theme-json-wrap">
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <pre class="theme-json" tabindex="0"><code>{
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
+  "description": "St Patrick's Day",
+  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
+  "sparkles": { "✦": "☘", "·": "·" },
+  "sparkle_color": "#a3e635",
+  "prop": ["c c", "ccc", " s "],
+  "prop_cells": {
+    "c": { "bg": "#1f9d55" },
+    "s": { "fg": "#3f6212", "glyphs": ["│"] }
+  },
+  "dates": ["03-17"]
+}</code></pre>
+        </div>
+      </div>
     </section>
 
     <section id="faq" class="faq" aria-labelledby="faq-title">

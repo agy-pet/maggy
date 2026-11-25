@@ -442,7 +442,7 @@ section { scroll-margin-top: 24px; }
   color: var(--term-text);
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 30px 60px -30px rgba(29, 23, 38, 0.45);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 16px 32px -20px rgba(29, 23, 38, 0.3);
 }
 .term-bar {
   display: flex;
@@ -487,7 +487,7 @@ section { scroll-margin-top: 24px; }
   --t-cyan: #147482;
   background: #ffffff;
   border: 1px solid var(--line);
-  box-shadow: 0 30px 60px -30px rgba(29, 23, 38, 0.3);
+  box-shadow: 0 16px 32px -20px rgba(29, 23, 38, 0.18);
 }
 .terminal.light .term-bar { color: #5c5668; border-bottom-color: #e6e2ec; background: #f6f5f8; }
 .terminal.light .dim-text { color: #615b6e; }

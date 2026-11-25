@@ -51,5 +51,23 @@ case ":$PATH:" in
     *) printf '\033[1;33mnote:\033[0m %s is not on your PATH; add it to use `maggy` directly\n' "$BIN_DIR" ;;
 esac
 
-# 3. Hook into agy (settings are backed up to settings.json.bak)
+# 3. Shell completions (Homebrew does this for brew installs)
+COMP_DIR="$INSTALL_DIR/completions"
+FISH_COMP_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/fish/completions"
+BASH_COMP_DIR="${BASH_COMPLETION_USER_DIR:-${XDG_DATA_HOME:-$HOME/.local/share}/bash-completion}/completions"
+if command -v fish >/dev/null 2>&1; then
+    mkdir -p "$FISH_COMP_DIR"
+    ln -sf "$COMP_DIR/maggy.fish" "$FISH_COMP_DIR/maggy.fish"
+    say "Linked fish completions into $FISH_COMP_DIR"
+fi
+if command -v bash >/dev/null 2>&1; then
+    mkdir -p "$BASH_COMP_DIR"
+    ln -sf "$COMP_DIR/maggy.bash" "$BASH_COMP_DIR/maggy"
+    say "Linked bash completions into $BASH_COMP_DIR (loaded by bash-completion 2)"
+fi
+if command -v zsh >/dev/null 2>&1; then
+    printf '\033[1;33mnote:\033[0m for zsh completions, add to ~/.zshrc before compinit:  fpath=(%s $fpath)\n' "$COMP_DIR"
+fi
+
+# 4. Hook into agy (settings are backed up to settings.json.bak)
 MAGGY_BIN="$BIN_DIR/maggy" "$BIN_DIR/maggy" setup "$@"

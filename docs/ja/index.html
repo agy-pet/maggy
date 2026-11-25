@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maggy — agy ペット・アニメーション＆ステータスライン（使用量・制限・リセット表示）</title>
-  <meta name="description" content="Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。コンテキスト使用量、5時間・週間クォータ制限、リセットまでのカウントダウン、モデル、Git ブランチを表示。">
+  <title>Maggy — agy ペット・アニメーション＆ステータスライン（使用量・上限・リセット表示）</title>
+  <meta name="description" content="Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。コンテキスト使用量、5時間・週間クォータ上限、リセットまでのカウントダウン、モデル、Git ブランチを表示。">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -34,18 +34,18 @@
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/ja/">
-  <meta property="og:title" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・制限・リセット表示）">
-  <meta property="og:description" content="Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。踊るロゴアニメーションの横でコンテキスト使用量、5時間・週間クォータ制限、リセットカウントダウン、Git ブランチを表示。">
+  <meta property="og:title" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・上限・リセット表示）">
+  <meta property="og:description" content="Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。踊るロゴアニメーションの横でコンテキスト使用量、5時間・週間クォータ上限、リセットカウントダウン、Git ブランチを表示。">
   <meta property="og:image" content="https://agy-pet.github.io/social-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・制限・リセット表示）">
+  <meta property="og:image:alt" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・上限・リセット表示）">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・制限・リセット表示）">
-  <meta name="twitter:description" content="Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。コンテキスト使用量、5時間・週間クォータ制限、リセットまでのカウントダウン、モデル、Git ブランチを表示。">
+  <meta name="twitter:title" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・上限・リセット表示）">
+  <meta name="twitter:description" content="Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。コンテキスト使用量、5時間・週間クォータ上限、リセットまでのカウントダウン、モデル、Git ブランチを表示。">
   <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
-  <meta name="twitter:image:alt" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・制限・リセット表示）">
+  <meta name="twitter:image:alt" content="Maggy — agy ペット・アニメーション＆ステータスライン（使用量・上限・リセット表示）">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
@@ -67,7 +67,7 @@
           "agy-pet",
           "agy statusline"
         ],
-        "description": "Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。踊るロゴアニメーションの横でコンテキスト使用量、5時間・週間クォータ制限、リセットカウントダウン、Git ブランチを表示。",
+        "description": "Antigravity CLI (agy) 向けのアニメーション付きペット＆カスタムステータスライン。踊るロゴアニメーションの横でコンテキスト使用量、5時間・週間クォータ上限、リセットカウントダウン、Git ブランチを表示。",
         "url": "https://agy-pet.github.io/ja/",
         "inLanguage": "ja",
         "image": "https://agy-pet.github.io/social-preview.png",
@@ -107,10 +107,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "agy ステータスラインで使用量・クォータ制限・リセットまでのカウントダウンを表示するには？",
+            "name": "agy ステータスラインで使用量・クォータ上限・リセットまでのカウントダウンを表示するには？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "brew install agy-pet/tap/maggy && maggy setup でインストール後、agy を再起動するか /statusline enable を実行してください。~/.gemini/antigravity-cli/settings.json の statusLine に登録され、モデル、コンテキスト使用率、色分けされた5時間・週間クォータ制限バーとリセット時刻・カウントダウン（更新間キャッシュ対応）、ワークスペース、Git ブランチ、推論レベルが表示されます。"
+              "text": "brew install agy-pet/tap/maggy && maggy setup でインストール後、agy を再起動するか /statusline enable を実行してください。~/.gemini/antigravity-cli/settings.json の statusLine に登録され、モデル、コンテキスト使用率、色分けされた5時間・週間クォータ上限バーとリセット時刻・カウントダウン（再描画をまたいでキャッシュ）、ワークスペース、Git ブランチ、推論レベルが表示されます。"
             }
           },
           {
@@ -118,7 +118,7 @@
             "name": "maggy setup 後にステータスラインが表示されない場合は？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "agy を再起動するか、セッション内で /statusline enable を実行してください。それでも表示されない場合は maggy doctor を実行し、Python 3・トゥルーカラー対応・~/.gemini/antigravity-cli/settings.json の statusLine 設定を確認してください。"
+              "text": "agy を再起動するか、セッション内で /statusline enable を実行してください。それでも表示されない場合は maggy doctor を実行し、Python 3・Truecolor 対応・~/.gemini/antigravity-cli/settings.json の statusLine 設定を確認してください。"
             }
           },
           {
@@ -131,7 +131,7 @@
           },
           {
             "@type": "Question",
-            "name": "マスコットを非表示にしたり、表示する項目をカスタマイズできますか？",
+            "name": "ペットを非表示にしたり、表示する項目をカスタマイズできますか？",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "はい。maggy pet off でメトリクスのみ表示、maggy motion off で静止表示、maggy side right で右側配置に変更できます。maggy statusline hide で個別項目（model・context・quota・workspace・git・effort）を隠し、maggy statusline show で戻せます。"
@@ -142,7 +142,7 @@
             "name": "対応している OS とターミナルは？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit トゥルーカラー対応のターミナルで利用できます。"
+              "text": "Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit Truecolor 対応のターミナルで利用できます。"
             }
           },
           {
@@ -218,7 +218,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">agy <span class="nowrap">ステータスライン</span>に住む Maggy&nbsp;<span aria-hidden="true">🌋</span></h1>
-        <p class="lede"><strong>Antigravity CLI（<code>agy</code>）</strong>向けのアニメーション付き <strong>agy ペット</strong>＆カスタムステータスライン。<code>agy</code> が動いている間はロゴのアニメーションが楽しそうに踊り、ツール実行中は足踏みし、席を外すと居眠りします。使用中のモデル、コンテキスト使用量、5時間・週間クォータ制限とリセットカウントダウン、推論レベル、Git ブランチのすぐ隣でいつも一緒です。</p>
+        <p class="lede"><strong>Antigravity CLI（<code>agy</code>）</strong>向けのアニメーション付き <strong>agy ペット</strong>＆カスタムステータスライン。<code>agy</code> が動いている間はロゴのアニメーションが楽しそうに踊り、ツール実行中は足踏みし、席を外すと居眠りします。使用中のモデル、コンテキスト使用量、5時間・週間クォータ上限とリセットカウントダウン、推論レベル、Git ブランチのすぐ隣でいつも一緒です。</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
           <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">コピー</button>
@@ -246,8 +246,8 @@
           <button type="button" data-mood="error" aria-pressed="false">error</button>
           <button type="button" data-mood="done" aria-pressed="false">idle · 完了直後</button>
           <button type="button" data-mood="idle" aria-pressed="false">idle</button>
-          <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 分経過</button>
-          <button type="button" data-mood="stretch" aria-pressed="false">idle · 45 分作業後</button>
+          <button type="button" data-mood="sleep" aria-pressed="false">idle · 2分経過</button>
+          <button type="button" data-mood="stretch" aria-pressed="false">idle · 45分作業後</button>
         </div>
       </div>
     </section>
@@ -255,7 +255,7 @@
     <section id="try" class="try" aria-labelledby="try-title">
       <div class="section-head">
         <h2 id="try-title">agy ステータスラインをカスタマイズ</h2>
-        <p>プロンプトの下に <code>agy</code> が表示するステータスラインです。アニメーションする agy ペットの横で、モデル、コンテキスト使用量、色分けされた5時間・週間クォータ制限とリセットタイマー、ワークスペース、Git ブランチを表示します。全フレーム同じ幅なので横の表示がガタつくことはありません。下の設定を変えると対応するコマンドが確認できます。</p>
+        <p>プロンプトの下に <code>agy</code> が表示するステータスラインです。アニメーションする agy ペットの横で、モデル、コンテキスト使用量、色分けされた5時間・週間クォータ上限とリセットタイマー、ワークスペース、Git ブランチを表示します。全フレーム同じ幅なので横の表示がガタつくことはありません。下の設定を変えると対応するコマンドが確認できます。</p>
       </div>
 
       <div class="terminal" role="region" aria-label="Maggy 付き agy ステータスラインのプレビュー">
@@ -323,7 +323,7 @@
           <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="xmas" aria-hidden="true"></div></div>
           <div class="theme-meta">
             <span class="theme-name">xmas</span>
-            <span class="theme-date">12 月 25 日</span>
+            <span class="theme-date">12月25日</span>
           </div>
           <p class="theme-desc">ポンポン付きサンタ帽、降る雪、アーチの電飾と小さなツリー。</p>
           <code class="theme-cmd">maggy theme xmas</code>
@@ -333,7 +333,7 @@
           <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="halloween" aria-hidden="true"></div></div>
           <div class="theme-meta">
             <span class="theme-name">halloween</span>
-            <span class="theme-date">10 月 31 日</span>
+            <span class="theme-date">10月31日</span>
           </div>
           <p class="theme-desc">紫の魔女帽子、光る瞳、ゆらめくジャック・オー・ランタン。</p>
           <code class="theme-cmd">maggy theme halloween</code>
@@ -393,7 +393,7 @@
     <section id="commands" class="commands" aria-labelledby="commands-title">
       <div class="section-head">
         <h2 id="commands-title">CLI コマンド</h2>
-        <p>操作はすべて 1 つのコマンドで完結します。全一覧は <code>maggy help</code> を実行してください。</p>
+        <p>操作はすべて1つのコマンドで完結します。全一覧は <code>maggy help</code> を実行してください。</p>
       </div>
       <dl class="cmd-list">
         <div><dt><code>maggy status</code></dt><dd>Maggy の連携状態やテーマ・設定を確認し、プレビューを表示します。</dd></div>
@@ -401,7 +401,7 @@
         <div><dt><code>maggy statusline off</code></dt><dd>設定を残したままステータスラインを一時非表示にします。<code>statusline on</code> で復帰できます。</dd></div>
         <div><dt><code>maggy pet off</code></dt><dd>ロゴを隠してメトリクスだけ表示します。<code>motion off</code> で静止ポーズに、<code>side right</code> で右側配置に切り替え可能。いずれも <code>toggle</code> に対応しています。</dd></div>
         <div><dt><code>maggy statusline hide git effort</code></dt><dd>表示項目を絞り込みます（<code>model</code> / <code>context</code> / <code>quota</code> / <code>workspace</code> / <code>git</code> / <code>effort</code>）。<code>maggy statusline show</code> で戻せます。</dd></div>
-        <div><dt><code>maggy doctor</code></dt><dd>Python、Truecolor 対応、設定ファイル、および 1 フレームあたりの描画速度を診断します。</dd></div>
+        <div><dt><code>maggy doctor</code></dt><dd>Python、Truecolor 対応、設定ファイル、および1フレームあたりの描画速度を診断します。</dd></div>
         <div><dt><code>maggy config</code></dt><dd><code>~/.config/maggy/config.json</code> を表示します。<code>get</code>・<code>set</code>・<code>reset</code> で編集できます。</dd></div>
         <div><dt><code>maggy uninstall --purge</code></dt><dd>statusLine の設定・設定ファイル・キャッシュを削除します。他の agy 設定には触れません。</dd></div>
       </dl>
@@ -412,7 +412,7 @@
           <p><code>~/.config/maggy/themes/</code> に JSON ファイルを置くだけで、ファイル名がそのままテーマ名になります（例：<code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。パーツやセル単位で配色を変えたり、きらめき記号を差し替えたり、<code>prop</code> で Maggy の横にツリーや提灯のような飾りを描いたり、<code>base</code> で組み込みテーマをベースにしたりできます。<code>dates</code> を設定すれば <code>auto</code> で自動表示。<code>maggy theme list</code> で一覧を確認できます。</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="テーマファイル用 JSON Schema">schema</a></div>
           <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
@@ -437,24 +437,24 @@
       </div>
       <div class="faq-list">
         <details>
-          <summary>agy ステータスラインで使用量・クォータ制限・リセットまでのカウントダウンを表示するには？</summary>
-          <p><code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> でインストール後、<code>agy</code> を再起動するか <code>/statusline enable</code> を実行してください。<code>~/.gemini/antigravity-cli/settings.json</code> の <code>statusLine</code> に登録され、モデル、コンテキスト使用率、色分けされた5時間・週間クォータ制限バーとリセット時刻・カウントダウン（更新間キャッシュ対応）、ワークスペース、Git ブランチ、推論レベルが表示されます。</p>
+          <summary>agy ステータスラインで使用量・クォータ上限・リセットまでのカウントダウンを表示するには？</summary>
+          <p><code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> でインストール後、<code>agy</code> を再起動するか <code>/statusline enable</code> を実行してください。<code>~/.gemini/antigravity-cli/settings.json</code> の <code>statusLine</code> に登録され、モデル、コンテキスト使用率、色分けされた5時間・週間クォータ上限バーとリセット時刻・カウントダウン（再描画をまたいでキャッシュ）、ワークスペース、Git ブランチ、推論レベルが表示されます。</p>
         </details>
         <details>
           <summary>maggy setup 後にステータスラインが表示されない場合は？</summary>
-          <p><code>agy</code> を再起動するか、セッション内で <code>/statusline enable</code> を実行してください。それでも表示されない場合は <code>maggy doctor</code> を実行し、Python 3・トゥルーカラー対応・<code>~/.gemini/antigravity-cli/settings.json</code> の <code>statusLine</code> 設定を確認してください。</p>
+          <p><code>agy</code> を再起動するか、セッション内で <code>/statusline enable</code> を実行してください。それでも表示されない場合は <code>maggy doctor</code> を実行し、Python 3・Truecolor 対応・<code>~/.gemini/antigravity-cli/settings.json</code> の <code>statusLine</code> 設定を確認してください。</p>
         </details>
         <details>
           <summary>Maggy は agy の動作を重くしたり、テレメトリを送信したりしますか？</summary>
           <p>いいえ。<code>maggy</code> CLI は Python 3 標準ライブラリのみで完全ローカル動作し、テレメトリは一切送信しません。<code>agy</code> が状態変化時のみ呼び出す仕組み（バックグラウンドタイマーなし）で、描画速度はいつでも <code>maggy doctor</code> で計測できます。</p>
         </details>
         <details>
-          <summary>マスコットを非表示にしたり、表示する項目をカスタマイズできますか？</summary>
+          <summary>ペットを非表示にしたり、表示する項目をカスタマイズできますか？</summary>
           <p>はい。<code>maggy pet off</code> でメトリクスのみ表示、<code>maggy motion off</code> で静止表示、<code>maggy side right</code> で右側配置に変更できます。<code>maggy statusline hide</code> で個別項目（<code>model</code>・<code>context</code>・<code>quota</code>・<code>workspace</code>・<code>git</code>・<code>effort</code>）を隠し、<code>maggy statusline show</code> で戻せます。</p>
         </details>
         <details>
           <summary>対応している OS とターミナルは？</summary>
-          <p>Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit トゥルーカラー対応のターミナルで利用できます。</p>
+          <p>Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit Truecolor 対応のターミナルで利用できます。</p>
         </details>
         <details>
           <summary>agy ペットのアニメーションはステータスラインでどう動きますか？</summary>
@@ -465,7 +465,7 @@
   </main>
 
   <footer class="foot">
-    <ol class="footnotes" aria-label="注釈">
+    <ol class="footnotes" aria-label="脚注">
       <li id="fn-1">agy は状態が変わったときだけステータスラインを再描画し、タイマーでは更新しません。アイドル中の Maggy は同じポーズのままで、周りのきらめきだけがターミナルの点滅機能（blink）で光ります。<b>idle</b> をもう一度クリックすると次の再描画を再現できます。</li>
       <li id="fn-2"><code>auto</code> は日付に合わせて季節テーマを自動で切り替えます（詳しくは<a href="#themes">テーマ</a>を参照）。</li>
       <li id="fn-3">アイドル時の点滅はターミナルの blink 属性を使うため、agy の再描画が止まっても星が光り続けます。</li>
@@ -478,7 +478,7 @@
         <button type="button" class="foot-btn" data-consent-open hidden>Cookie 設定</button>
         <a href="https://github.com/agy-pet/maggy/issues/new">フィードバック</a>
         <a href="https://github.com/agy-pet/maggy">GitHub でソースを見る</a>
-        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="インストール数" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
         <summary>
@@ -505,7 +505,7 @@
     </div>
   </footer>
 
-  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="アナリティクスの同意" aria-describedby="consent-desc" hidden>
+  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="アクセス解析の同意" aria-describedby="consent-desc" hidden>
     <p id="consent-desc" class="consent-text">
       <span>このサイトでは全体のトラフィック把握のために Google アナリティクスの Cookie を使用します。CLI 自体はテレメトリを一切送信しません。</span>
       <a href="../privacy.html">プライバシーポリシー</a>

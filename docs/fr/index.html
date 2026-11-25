@@ -107,7 +107,7 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "Comment afficher l'usage, les limites de quota et le compte à rebours de reset dans la statusline agy ?",
+            "name": "Comment afficher l'usage, les limites de quota et le compte à rebours de réinitialisation dans la statusline agy ?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Installez Maggy avec brew install agy-pet/tap/maggy && maggy setup puis redémarrez agy ou lancez /statusline enable. Maggy configure statusLine dans ~/.gemini/antigravity-cli/settings.json et affiche le modèle actif, le % d'usage du contexte, les barres de limite de quota 5h et hebdomadaires avec heure et compte à rebours de réinitialisation (mis en cache entre les rafraîchissements), l'espace de travail, la branche git et le niveau de raisonnement."
@@ -123,7 +123,7 @@
           },
           {
             "@type": "Question",
-            "name": "Maggy ralentit-il agy ou envoie-t-il de la télémétrie ?",
+            "name": "Maggy ralentit-elle agy ou envoie-t-elle de la télémétrie ?",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Non. L'outil CLI maggy fonctionne 100 % en local avec la seule bibliothèque standard Python 3 et n'envoie aucune télémétrie. agy ne l'appelle qu'en cas de changement d'état (sans minuteur en arrière-plan), et vous pouvez mesurer la vitesse de rendu avec maggy doctor."
@@ -231,7 +231,7 @@
           <div id="maggy" class="sprite" role="img" aria-label="Maggy, le logo Antigravity doté d&#x27;yeux, en train de danser"></div>
           <figcaption class="mood-bar">
             <span id="mood" aria-live="polite">Maggy is dancing</span>
-            <button type="button" id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="Mettre en pause l’animation" title="Mettre en pause l’animation" data-label-pause="Mettre en pause l’animation" data-label-play="Lancer l’animation">
+            <button type="button" id="motion-toggle" class="motion-toggle" aria-pressed="false" aria-label="Mettre en pause l&#x27;animation" title="Mettre en pause l&#x27;animation" data-label-pause="Mettre en pause l&#x27;animation" data-label-play="Lancer l&#x27;animation">
               <svg class="icon-pause" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="5" y="4" width="5" height="16" rx="1"/><rect x="14" y="4" width="5" height="16" rx="1"/></svg>
               <svg class="icon-play" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 4.5v15l13-7.5z"/></svg>
             </button>
@@ -412,7 +412,7 @@
           <p>Déposez un fichier JSON dans <code>~/.config/maggy/themes/</code> : son nom devient celui du thème (ex. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Recolorez des zones ou des cellules, changez les étincelles, dessinez votre propre <code>prop</code> à côté de Maggy (comme le sapin ou la lanterne) ou partez d'un thème intégré avec <code>base</code>. Définissez <code>dates</code> pour l'activation automatique et lancez <code>maggy theme list</code> pour tout voir.</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="Schéma JSON pour les fichiers de thème">schema</a></div>
           <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
@@ -437,7 +437,7 @@
       </div>
       <div class="faq-list">
         <details>
-          <summary>Comment afficher l'usage, les limites de quota et le compte à rebours de reset dans la statusline agy ?</summary>
+          <summary>Comment afficher l'usage, les limites de quota et le compte à rebours de réinitialisation dans la statusline agy ?</summary>
           <p>Installez Maggy avec <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> puis redémarrez <code>agy</code> ou lancez <code>/statusline enable</code>. Maggy configure <code>statusLine</code> dans <code>~/.gemini/antigravity-cli/settings.json</code> et affiche le modèle actif, le % d'usage du contexte, les barres de limite de quota 5h et hebdomadaires avec heure et compte à rebours de réinitialisation (mis en cache entre les rafraîchissements), l'espace de travail, la branche git et le niveau de raisonnement.</p>
         </details>
         <details>
@@ -445,7 +445,7 @@
           <p>Redémarrez <code>agy</code> ou exécutez <code>/statusline enable</code> dans votre session. Si elle n'apparaît toujours pas, lancez <code>maggy doctor</code> pour vérifier Python 3, la prise en charge truecolor du terminal et l'entrée <code>statusLine</code> dans <code>~/.gemini/antigravity-cli/settings.json</code>.</p>
         </details>
         <details>
-          <summary>Maggy ralentit-il agy ou envoie-t-il de la télémétrie ?</summary>
+          <summary>Maggy ralentit-elle agy ou envoie-t-elle de la télémétrie ?</summary>
           <p>Non. L'outil CLI <code>maggy</code> fonctionne 100 % en local avec la seule bibliothèque standard Python 3 et n'envoie aucune télémétrie. <code>agy</code> ne l'appelle qu'en cas de changement d'état (sans minuteur en arrière-plan), et vous pouvez mesurer la vitesse de rendu avec <code>maggy doctor</code>.</p>
         </details>
         <details>
@@ -478,7 +478,7 @@
         <button type="button" class="foot-btn" data-consent-open hidden>Paramètres des cookies</button>
         <a href="https://github.com/agy-pet/maggy/issues/new">Retours</a>
         <a href="https://github.com/agy-pet/maggy">Code source sur GitHub</a>
-        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Nombre d&#x27;installations" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
         <summary>
@@ -505,7 +505,7 @@
     </div>
   </footer>
 
-  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="Consentement analytique" aria-describedby="consent-desc" hidden>
+  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="Consentement aux cookies d&#x27;analyse" aria-describedby="consent-desc" hidden>
     <p id="consent-desc" class="consent-text">
       <span>Ce site utilise des cookies Google Analytics pour mesurer le trafic global. L'outil CLI n'envoie aucune télémétrie.</span>
       <a href="../privacy.html">Politique de confidentialité</a>

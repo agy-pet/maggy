@@ -110,7 +110,7 @@
             "name": "Como mostrar uso, limites de cota e contagem de reset na statusline do agy?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Instale a Maggy com brew install agy-pet/tap/maggy && maggy setup e reinicie o agy ou execute /statusline enable. A Maggy configura statusLine em ~/.gemini/antigravity-cli/settings.json e exibe o modelo atual, % de uso de contexto, barras coloridas de limite de cota de 5 horas e semanal com horário e contagem de reset (em cache entre atualizações), workspace, branch do git e esforço de raciocínio."
+              "text": "Instale a Maggy com brew install agy-pet/tap/maggy && maggy setup e reinicie o agy ou execute /statusline enable. A Maggy configura statusLine em ~/.gemini/antigravity-cli/settings.json e exibe o modelo atual, % de uso de contexto, barras coloridas de limite de cota de 5 horas e semanal com horário e contagem de reset (mantidos em cache entre atualizações), workspace, branch do git e nível de raciocínio."
             }
           },
           {
@@ -295,7 +295,7 @@
         </div>
         <div class="control">
           <div class="control-label">
-            <label class="switch"><input id="opt-blink" type="checkbox" checked aria-describedby="cmd-blink"><span>Brilho em repouso</span></label><sup class="fn-ref"><a href="#fn-3" id="fnref-3"><span class="sr-only">Nota de rodapé</span> 3</a></sup>
+            <label class="switch"><input id="opt-blink" type="checkbox" checked aria-describedby="cmd-blink"><span>Cintilação em repouso</span></label><sup class="fn-ref"><a href="#fn-3" id="fnref-3"><span class="sr-only">Nota de rodapé</span> 3</a></sup>
           </div>
           <code id="cmd-blink">maggy blink on</code>
         </div>
@@ -325,7 +325,7 @@
             <span class="theme-name">xmas</span>
             <span class="theme-date">25 dez</span>
           </div>
-          <p class="theme-desc">Gorro de Papai Noel com pompom, neve caindo, luzes no arco e uma árvore.</p>
+          <p class="theme-desc">Gorro de Papai Noel com pompom, neve caindo, luzes no arco e uma arvorezinha.</p>
           <code class="theme-cmd">maggy theme xmas</code>
         </button>
 
@@ -397,8 +397,8 @@
       </div>
       <dl class="cmd-list">
         <div><dt><code>maggy status</code></dt><dd>Mostra se a Maggy está configurada, seu tema, suas opções e uma prévia ao vivo.</dd></div>
-        <div><dt><code>maggy preview idle</code></dt><dd>Reproduz qualquer <code>agent_state</code> no terminal sem precisar iniciar um turno do agente.</dd></div>
-        <div><dt><code>maggy statusline off</code></dt><dd>Oculta a barra de status sem removê-la. <code>statusline on</code> a traz de volta.</dd></div>
+        <div><dt><code>maggy preview idle</code></dt><dd>Reproduz qualquer <code>agent_state</code> no terminal sem precisar iniciar uma execução do agente.</dd></div>
+        <div><dt><code>maggy statusline off</code></dt><dd>Oculta a barra de status sem removê-la. <code>statusline on</code> a exibe novamente.</dd></div>
         <div><dt><code>maggy pet off</code></dt><dd>Oculta o logotipo mantendo as métricas. <code>motion off</code> mantém uma pose estática e <code>side right</code> a move para a direita. Cada um aceita <code>toggle</code>.</dd></div>
         <div><dt><code>maggy statusline hide git effort</code></dt><dd>Oculta os segmentos que quiser: <code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>. <code>maggy statusline show</code> restaura.</dd></div>
         <div><dt><code>maggy doctor</code></dt><dd>Verifica Python, suporte a truecolor, o arquivo de configuração e o tempo de renderização de um quadro.</dd></div>
@@ -412,7 +412,7 @@
           <p>Coloque um arquivo JSON em <code>~/.config/maggy/themes/</code> e o nome do arquivo vira o nome do tema (ex.: <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Personalize cores por região ou célula, troque os brilhos, desenhe seu próprio <code>prop</code> ao lado da Maggy (como a árvore ou a lanterna) ou parta de um tema embutido com <code>base</code>. Defina <code>dates</code> para o <code>auto</code> ativar sozinho e rode <code>maggy theme list</code> para ver todos.</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="Esquema JSON para arquivos de tema">schema</a></div>
           <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
@@ -438,7 +438,7 @@
       <div class="faq-list">
         <details>
           <summary>Como mostrar uso, limites de cota e contagem de reset na statusline do agy?</summary>
-          <p>Instale a Maggy com <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> e reinicie o <code>agy</code> ou execute <code>/statusline enable</code>. A Maggy configura <code>statusLine</code> em <code>~/.gemini/antigravity-cli/settings.json</code> e exibe o modelo atual, % de uso de contexto, barras coloridas de limite de cota de 5 horas e semanal com horário e contagem de reset (em cache entre atualizações), workspace, branch do git e esforço de raciocínio.</p>
+          <p>Instale a Maggy com <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> e reinicie o <code>agy</code> ou execute <code>/statusline enable</code>. A Maggy configura <code>statusLine</code> em <code>~/.gemini/antigravity-cli/settings.json</code> e exibe o modelo atual, % de uso de contexto, barras coloridas de limite de cota de 5 horas e semanal com horário e contagem de reset (mantidos em cache entre atualizações), workspace, branch do git e nível de raciocínio.</p>
         </details>
         <details>
           <summary>Por que a barra de status não aparece após o maggy setup?</summary>
@@ -468,7 +468,7 @@
     <ol class="footnotes" aria-label="Notas de rodapé">
       <li id="fn-1">O agy só redesenha a statusline quando algo muda, nunca por temporizador. Em repouso, a Maggy mantém uma pose e só os brilhos piscam (usando o atributo blink do terminal). Clique em <b>idle</b> de novo para simular o próximo redesenho.</li>
       <li id="fn-2"><code>auto</code> escolhe visuais sazonais pela data (veja <a href="#themes">Temas</a>).</li>
-      <li id="fn-3">O brilho em repouso usa o atributo blink do terminal, mantendo os brilhos piscando mesmo quando o agy para de redesenhar.</li>
+      <li id="fn-3">A cintilação em repouso usa o atributo blink do terminal, mantendo as estrelinhas piscando mesmo quando o agy para de redesenhar.</li>
     </ol>
     <p class="foot-note">Feito para a barra de status da <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a>. Projeto independente, sem vínculo com o Google.</p>
     <div class="foot-end">
@@ -478,7 +478,7 @@
         <button type="button" class="foot-btn" data-consent-open hidden>Configurações de cookies</button>
         <a href="https://github.com/agy-pet/maggy/issues/new">Feedback</a>
         <a href="https://github.com/agy-pet/maggy">Código-fonte no GitHub</a>
-        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Total de instalações" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
         <summary>
@@ -505,7 +505,7 @@
     </div>
   </footer>
 
-  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="Consentimento de análise" aria-describedby="consent-desc" hidden>
+  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="Consentimento de cookies de análise" aria-describedby="consent-desc" hidden>
     <p id="consent-desc" class="consent-text">
       <span>Este site usa cookies do Google Analytics para entender o tráfego geral. A ferramenta CLI não envia nenhuma telemetria.</span>
       <a href="../privacy.html">Política de Privacidade</a>

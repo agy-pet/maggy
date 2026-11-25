@@ -110,7 +110,7 @@
             "name": "如何在 agy 狀態列中顯示用量、配額上限與重設倒數？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "執行 brew install agy-pet/tap/maggy && maggy setup 完成安裝與設定，接著重啟 agy 或在工作階段中輸入 /statusline enable。Maggy 會掛載至 ~/.gemini/antigravity-cli/settings.json 的 statusLine，即時顯示目前模型、上下文使用率、彩色 5 小時與每週配額上限條及重設時間倒數（重繪間自動快取）、工作區、Git 分支與推理強度。"
+              "text": "執行 brew install agy-pet/tap/maggy && maggy setup 完成安裝與設定，接著重啟 agy 或在工作階段中輸入 /statusline enable。Maggy 會掛載至 ~/.gemini/antigravity-cli/settings.json 的 statusLine，即時顯示目前模型、上下文使用率、分色顯示的 5 小時與每週配額上限條及重設時間倒數（跨次重繪自動快取）、工作區、Git 分支與推論強度。"
             }
           },
           {
@@ -126,12 +126,12 @@
             "name": "Maggy 會拖慢 agy 或傳送遙測資料嗎？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "不會。maggy CLI 完全在本地執行，僅使用 Python 3 標準函式庫，完全不傳送任何遙測資料。agy 只在狀態變更時呼叫它（無背景計時器），你隨時可用 maggy doctor 檢查單格渲染速度。"
+              "text": "不會。maggy CLI 完全在本機執行，僅使用 Python 3 標準函式庫，完全不傳送任何遙測資料。agy 只在狀態變更時呼叫它（無背景計時器），你隨時可用 maggy doctor 檢查單一影格的繪製速度。"
             }
           },
           {
             "@type": "Question",
-            "name": "可以隱藏吉祥物或自訂要顯示的狀態列區段嗎？",
+            "name": "可以隱藏寵物或自訂要顯示的狀態列區段嗎？",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "可以。執行 maggy pet off 只保留指標，maggy motion off 保持靜態姿勢，maggy side right 將 Maggy 移至右側。可用 maggy statusline hide 隱藏個別區段（model、context、quota、workspace、git、effort），並以 maggy statusline show 恢復。"
@@ -223,7 +223,7 @@
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
           <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">複製</button>
         </div>
-        <p class="hint">需要 macOS 或 Linux、Python 3 及支援真彩色的終端機。<a href="#install">其他安裝方式</a></p>
+        <p class="hint">需要 macOS 或 Linux、Python 3 及支援全彩（Truecolor）的終端機。<a href="#install">其他安裝方式</a></p>
       </div>
 
       <div class="stage">
@@ -238,7 +238,7 @@
           </figcaption>
         </figure>
         <div class="states" role="group" aria-label="agent_state">
-          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1"><span class="sr-only">腳註</span> 1</a></sup></span>
+          <span class="states-label">agent_state<sup class="fn-ref"><a href="#fn-1" id="fnref-1"><span class="sr-only">註腳</span> 1</a></sup></span>
           <button type="button" data-mood="working" aria-pressed="true">working</button>
           <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
           <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
@@ -278,7 +278,7 @@
         </div>
         <div class="control">
           <div class="control-label">
-            <label for="opt-theme">主題</label><sup class="fn-ref"><a href="#fn-2" id="fnref-2"><span class="sr-only">腳註</span> 2</a></sup>
+            <label for="opt-theme">主題</label><sup class="fn-ref"><a href="#fn-2" id="fnref-2"><span class="sr-only">註腳</span> 2</a></sup>
           </div>
           <select id="opt-theme" name="theme" aria-describedby="cmd-theme">
             <option value="auto" selected>auto</option>
@@ -295,7 +295,7 @@
         </div>
         <div class="control">
           <div class="control-label">
-            <label class="switch"><input id="opt-blink" type="checkbox" checked aria-describedby="cmd-blink"><span>閒置閃爍</span></label><sup class="fn-ref"><a href="#fn-3" id="fnref-3"><span class="sr-only">腳註</span> 3</a></sup>
+            <label class="switch"><input id="opt-blink" type="checkbox" checked aria-describedby="cmd-blink"><span>閒置閃爍</span></label><sup class="fn-ref"><a href="#fn-3" id="fnref-3"><span class="sr-only">註腳</span> 3</a></sup>
           </div>
           <code id="cmd-blink">maggy blink on</code>
         </div>
@@ -401,7 +401,7 @@
         <div><dt><code>maggy statusline off</code></dt><dd>暫時隱藏狀態列但不移除設定，用 <code>statusline on</code> 即可恢復。</dd></div>
         <div><dt><code>maggy pet off</code></dt><dd>隱藏寵物、僅保留指標；<code>motion off</code> 可定格為靜態姿勢，<code>side right</code> 可移至右側，皆支援 <code>toggle</code> 切換。</dd></div>
         <div><dt><code>maggy statusline hide git effort</code></dt><dd>選擇要隱藏的狀態列項目：<code>model</code>、<code>context</code>、<code>quota</code>、<code>workspace</code>、<code>git</code>、<code>effort</code>。用 <code>maggy statusline show</code> 恢復。</dd></div>
-        <div><dt><code>maggy doctor</code></dt><dd>檢查 Python 環境、真彩色支援、設定檔以及單一影格的繪製耗時。</dd></div>
+        <div><dt><code>maggy doctor</code></dt><dd>檢查 Python 環境、全彩支援、設定檔以及單一影格的繪製耗時。</dd></div>
         <div><dt><code>maggy config</code></dt><dd>查看 <code>~/.config/maggy/config.json</code>，支援透過 <code>get</code>、<code>set</code> 或 <code>reset</code> 修改。</dd></div>
         <div><dt><code>maggy uninstall --purge</code></dt><dd>移除 statusLine 項目、設定檔與快取，不影響其他 agy 設定。</dd></div>
       </dl>
@@ -412,7 +412,7 @@
           <p>將 JSON 檔案放入 <code>~/.config/maggy/themes/</code>，檔名即為主題名稱（例如 <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。可依區域或像素格自訂配色、替換星光字元，用 <code>prop</code> 在 Maggy 身旁畫出自己的裝飾（就像聖誕樹或燈籠），或用 <code>base</code> 以內建主題為基礎修改。設定 <code>dates</code> 即可讓 <code>auto</code> 在指定日期自動套用，執行 <code>maggy theme list</code> 查看所有已安裝的主題。</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="主題檔案的 JSON Schema">schema</a></div>
           <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
@@ -438,7 +438,7 @@
       <div class="faq-list">
         <details>
           <summary>如何在 agy 狀態列中顯示用量、配額上限與重設倒數？</summary>
-          <p>執行 <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> 完成安裝與設定，接著重啟 <code>agy</code> 或在工作階段中輸入 <code>/statusline enable</code>。Maggy 會掛載至 <code>~/.gemini/antigravity-cli/settings.json</code> 的 <code>statusLine</code>，即時顯示目前模型、上下文使用率、彩色 5 小時與每週配額上限條及重設時間倒數（重繪間自動快取）、工作區、Git 分支與推理強度。</p>
+          <p>執行 <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> 完成安裝與設定，接著重啟 <code>agy</code> 或在工作階段中輸入 <code>/statusline enable</code>。Maggy 會掛載至 <code>~/.gemini/antigravity-cli/settings.json</code> 的 <code>statusLine</code>，即時顯示目前模型、上下文使用率、分色顯示的 5 小時與每週配額上限條及重設時間倒數（跨次重繪自動快取）、工作區、Git 分支與推論強度。</p>
         </details>
         <details>
           <summary>執行 maggy setup 後為什麼沒有出現狀態列？</summary>
@@ -446,10 +446,10 @@
         </details>
         <details>
           <summary>Maggy 會拖慢 agy 或傳送遙測資料嗎？</summary>
-          <p>不會。<code>maggy</code> CLI 完全在本地執行，僅使用 Python 3 標準函式庫，完全不傳送任何遙測資料。<code>agy</code> 只在狀態變更時呼叫它（無背景計時器），你隨時可用 <code>maggy doctor</code> 檢查單格渲染速度。</p>
+          <p>不會。<code>maggy</code> CLI 完全在本機執行，僅使用 Python 3 標準函式庫，完全不傳送任何遙測資料。<code>agy</code> 只在狀態變更時呼叫它（無背景計時器），你隨時可用 <code>maggy doctor</code> 檢查單一影格的繪製速度。</p>
         </details>
         <details>
-          <summary>可以隱藏吉祥物或自訂要顯示的狀態列區段嗎？</summary>
+          <summary>可以隱藏寵物或自訂要顯示的狀態列區段嗎？</summary>
           <p>可以。執行 <code>maggy pet off</code> 只保留指標，<code>maggy motion off</code> 保持靜態姿勢，<code>maggy side right</code> 將 Maggy 移至右側。可用 <code>maggy statusline hide</code> 隱藏個別區段（<code>model</code>、<code>context</code>、<code>quota</code>、<code>workspace</code>、<code>git</code>、<code>effort</code>），並以 <code>maggy statusline show</code> 恢復。</p>
         </details>
         <details>
@@ -478,7 +478,7 @@
         <button type="button" class="foot-btn" data-consent-open hidden>Cookie 設定</button>
         <a href="https://github.com/agy-pet/maggy/issues/new">意見回饋</a>
         <a href="https://github.com/agy-pet/maggy">GitHub 原始碼</a>
-        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="安裝次數" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
         <summary>

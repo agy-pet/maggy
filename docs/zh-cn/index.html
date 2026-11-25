@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）</title>
-  <meta name="description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，实时显示上下文用量、5 小时与每周配额限额、重置倒计时、当前模型与 Git 分支。">
+  <title>Maggy — agy 终端宠物动画与状态栏（用量、配额上限与重置倒计时）</title>
+  <meta name="description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，实时显示上下文用量、5 小时与每周配额上限、重置倒计时、当前模型与 Git 分支。">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -34,18 +34,18 @@
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/zh-cn/">
-  <meta property="og:title" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
-  <meta property="og:description" content="Antigravity CLI (agy) 动态宠物与自定义状态栏——会跳舞的 Logo 动画旁实时显示上下文用量、5 小时与每周配额限额、重置倒计时、推理强度和 Git 分支。">
+  <meta property="og:title" content="Maggy — agy 终端宠物动画与状态栏（用量、配额上限与重置倒计时）">
+  <meta property="og:description" content="Antigravity CLI (agy) 动态宠物与自定义状态栏——会跳舞的 Logo 动画旁实时显示上下文用量、5 小时与每周配额上限、重置倒计时、推理强度和 Git 分支。">
   <meta property="og:image" content="https://agy-pet.github.io/social-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
+  <meta property="og:image:alt" content="Maggy — agy 终端宠物动画与状态栏（用量、配额上限与重置倒计时）">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
-  <meta name="twitter:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，实时显示上下文用量、5 小时与每周配额限额、重置倒计时、当前模型与 Git 分支。">
+  <meta name="twitter:title" content="Maggy — agy 终端宠物动画与状态栏（用量、配额上限与重置倒计时）">
+  <meta name="twitter:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，实时显示上下文用量、5 小时与每周配额上限、重置倒计时、当前模型与 Git 分支。">
   <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
-  <meta name="twitter:image:alt" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
+  <meta name="twitter:image:alt" content="Maggy — agy 终端宠物动画与状态栏（用量、配额上限与重置倒计时）">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
@@ -67,7 +67,7 @@
           "agy-pet",
           "agy statusline"
         ],
-        "description": "Antigravity CLI (agy) 动态宠物与自定义状态栏——会跳舞的 Logo 动画旁实时显示上下文用量、5 小时与每周配额限额、重置倒计时、推理强度和 Git 分支。",
+        "description": "Antigravity CLI (agy) 动态宠物与自定义状态栏——会跳舞的 Logo 动画旁实时显示上下文用量、5 小时与每周配额上限、重置倒计时、推理强度和 Git 分支。",
         "url": "https://agy-pet.github.io/zh-cn/",
         "inLanguage": "zh-CN",
         "image": "https://agy-pet.github.io/social-preview.png",
@@ -107,10 +107,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "如何在 agy 状态栏中显示用量、配额限额和重置倒计时？",
+            "name": "如何在 agy 状态栏中显示用量、配额上限和重置倒计时？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "运行 brew install agy-pet/tap/maggy && maggy setup 安装并配置，然后重启 agy 或在会话中执行 /statusline enable。Maggy 会接入 ~/.gemini/antigravity-cli/settings.json 中的 statusLine，实时显示当前模型、上下文占比、彩色 5 小时与每周配额限额条及重置时间倒计时（刷新间自动缓存）、工作区、Git 分支和推理强度。"
+              "text": "运行 brew install agy-pet/tap/maggy && maggy setup 安装并配置，然后重启 agy 或在会话中执行 /statusline enable。Maggy 会接入 ~/.gemini/antigravity-cli/settings.json 中的 statusLine，实时显示当前模型、上下文占比、分色显示的 5 小时与每周配额上限条及重置时间倒计时（多次刷新间自动缓存）、工作区、Git 分支和推理强度。"
             }
           },
           {
@@ -131,7 +131,7 @@
           },
           {
             "@type": "Question",
-            "name": "可以隐藏吉祥物或自定义显示哪些状态栏信息吗？",
+            "name": "可以隐藏宠物或自定义显示哪些状态栏信息吗？",
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "可以。运行 maggy pet off 可只保留指标，maggy motion off 可固定静态姿势，maggy side right 可将 Maggy 移到右侧。使用 maggy statusline hide 隐藏指定项（model、context、quota、workspace、git、effort），用 maggy statusline show 恢复。"
@@ -218,7 +218,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">让 Maggy&nbsp;<span aria-hidden="true">🌋</span> 住进你的 <span class="nowrap">agy 状态栏</span></h1>
-        <p class="lede">专为 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的动态 <strong>agy 宠物</strong>与自定义状态栏。<code>agy</code> 干活时 Maggy 的 Logo 动画会跟着起舞，调用工具时欢快踏步，你离开一会儿她就打起瞌睡——紧挨着你的当前模型、上下文用量、5 小时与每周配额限额及重置倒计时、推理强度和 Git 分支。</p>
+        <p class="lede">专为 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的动态 <strong>agy 宠物</strong>与自定义状态栏。<code>agy</code> 干活时 Maggy 的 Logo 动画会跟着起舞，调用工具时欢快踏步，你离开一会儿她就打起瞌睡——紧挨着你的当前模型、上下文用量、5 小时与每周配额上限及重置倒计时、推理强度和 Git 分支。</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
           <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">复制</button>
@@ -255,7 +255,7 @@
     <section id="try" class="try" aria-labelledby="try-title">
       <div class="section-head">
         <h2 id="try-title">定制你的 agy 状态栏</h2>
-        <p>这就是 <code>agy</code> 显示在提示符下方的状态栏：在动态 agy 宠物身旁实时展示当前模型、上下文用量、彩色 5 小时与每周配额限额及重置倒计时、工作区和 Git 分支——每一帧都严格等宽，右侧信息纹丝不动。调整下面的选项，即可实时看到对应的命令。</p>
+        <p>这就是 <code>agy</code> 显示在提示符下方的状态栏：在动态 agy 宠物身旁实时展示当前模型、上下文用量、分色显示的 5 小时与每周配额上限及重置倒计时、工作区和 Git 分支——每一帧都严格等宽，右侧信息纹丝不动。调整下面的选项，即可实时看到对应的命令。</p>
       </div>
 
       <div class="terminal" role="region" aria-label="带有 Maggy 的 agy 状态栏预览">
@@ -345,7 +345,7 @@
             <span class="theme-name">cny</span>
             <span class="theme-date">春节</span>
           </div>
-          <p class="theme-desc">金色王冠、漫天彩纸和流苏摇曳的红灯笼。</p>
+          <p class="theme-desc">金色王冠、飘落彩纸和流苏摇曳的红灯笼。</p>
           <code class="theme-cmd">maggy theme cny</code>
         </button>
       </div>
@@ -412,7 +412,7 @@
           <p>将 JSON 文件放入 <code>~/.config/maggy/themes/</code>，文件名即为主题名（如 <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。可按区域或像素格自定义配色、替换星光字符，用 <code>prop</code> 在 Maggy 身旁画出自己的装饰（就像圣诞树或灯笼），或用 <code>base</code> 基于内置主题修改。设置 <code>dates</code> 即可让 <code>auto</code> 在指定日期自动切换，运行 <code>maggy theme list</code> 查看全部已安装主题。</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="主题文件的 JSON Schema">schema</a></div>
           <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
@@ -437,8 +437,8 @@
       </div>
       <div class="faq-list">
         <details>
-          <summary>如何在 agy 状态栏中显示用量、配额限额和重置倒计时？</summary>
-          <p>运行 <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> 安装并配置，然后重启 <code>agy</code> 或在会话中执行 <code>/statusline enable</code>。Maggy 会接入 <code>~/.gemini/antigravity-cli/settings.json</code> 中的 <code>statusLine</code>，实时显示当前模型、上下文占比、彩色 5 小时与每周配额限额条及重置时间倒计时（刷新间自动缓存）、工作区、Git 分支和推理强度。</p>
+          <summary>如何在 agy 状态栏中显示用量、配额上限和重置倒计时？</summary>
+          <p>运行 <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> 安装并配置，然后重启 <code>agy</code> 或在会话中执行 <code>/statusline enable</code>。Maggy 会接入 <code>~/.gemini/antigravity-cli/settings.json</code> 中的 <code>statusLine</code>，实时显示当前模型、上下文占比、分色显示的 5 小时与每周配额上限条及重置时间倒计时（多次刷新间自动缓存）、工作区、Git 分支和推理强度。</p>
         </details>
         <details>
           <summary>运行 maggy setup 后为什么没有显示状态栏？</summary>
@@ -449,7 +449,7 @@
           <p>不会。<code>maggy</code> CLI 完全在本地运行，仅依赖 Python 3 标准库，零遥测数据上报。<code>agy</code> 仅在状态变化时调用它（没有后台定时器），你也可以随时运行 <code>maggy doctor</code> 查看单帧渲染耗时。</p>
         </details>
         <details>
-          <summary>可以隐藏吉祥物或自定义显示哪些状态栏信息吗？</summary>
+          <summary>可以隐藏宠物或自定义显示哪些状态栏信息吗？</summary>
           <p>可以。运行 <code>maggy pet off</code> 可只保留指标，<code>maggy motion off</code> 可固定静态姿势，<code>maggy side right</code> 可将 Maggy 移到右侧。使用 <code>maggy statusline hide</code> 隐藏指定项（<code>model</code>、<code>context</code>、<code>quota</code>、<code>workspace</code>、<code>git</code>、<code>effort</code>），用 <code>maggy statusline show</code> 恢复。</p>
         </details>
         <details>
@@ -478,7 +478,7 @@
         <button type="button" class="foot-btn" data-consent-open hidden>Cookie 设置</button>
         <a href="https://github.com/agy-pet/maggy/issues/new">意见反馈</a>
         <a href="https://github.com/agy-pet/maggy">GitHub 源码</a>
-        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="安装次数" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
         <summary>
@@ -505,7 +505,7 @@
     </div>
   </footer>
 
-  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="统计分析同意" aria-describedby="consent-desc" hidden>
+  <div id="consent-banner" class="consent" role="dialog" aria-modal="false" aria-label="数据分析授权" aria-describedby="consent-desc" hidden>
     <p id="consent-desc" class="consent-text">
       <span>本网站使用 Google Analytics Cookie 来了解整体访问情况。CLI 工具本身不发送任何遥测数据。</span>
       <a href="../privacy.html">隐私政策</a>

@@ -223,7 +223,7 @@
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
           <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">Copiar</button>
         </div>
-        <p class="hint">macOS o Linux, Python 3 y una terminal truecolor. <a href="#install">Otras formas de instalar</a></p>
+        <p class="hint">macOS o Linux, Python 3 y un terminal truecolor. <a href="#install">Otras formas de instalar</a></p>
       </div>
 
       <div class="stage">
@@ -255,7 +255,7 @@
     <section id="try" class="try" aria-labelledby="try-title">
       <div class="section-head">
         <h2 id="try-title">Personaliza tu statusline de agy</h2>
-        <p>Así se ve la barra de estado que <code>agy</code> dibuja bajo tu prompt, mostrando modelo, uso de contexto, límites de cuota de 5h y semanales con temporizadores de reinicio, workspace y rama de git junto a tu mascota animada de agy: todos los fotogramas miden exactamente lo mismo, así que nada se mueve. Prueba los controles de abajo para ver el comando exacto.</p>
+        <p>Así se ve la barra de estado que <code>agy</code> dibuja bajo tu prompt, mostrando modelo, uso de contexto, límites de cuota de 5h y semanales con temporizadores de reinicio, espacio de trabajo y rama de git junto a tu mascota animada de agy: todos los fotogramas miden exactamente lo mismo, así que nada se desplaza. Prueba los controles de abajo para ver el comando exacto.</p>
       </div>
 
       <div class="terminal" role="region" aria-label="Vista previa de la barra de estado de agy con Maggy">
@@ -397,8 +397,8 @@
       </div>
       <dl class="cmd-list">
         <div><dt><code>maggy status</code></dt><dd>Muestra si Maggy está configurada, tu tema y ajustes actuales, junto con una vista previa.</dd></div>
-        <div><dt><code>maggy preview idle</code></dt><dd>Reproduce cualquier <code>agent_state</code> en tu terminal sin iniciar un turno del agente.</dd></div>
-        <div><dt><code>maggy statusline off</code></dt><dd>Oculta la barra de estado sin borrar la configuración. <code>statusline on</code> la devuelve.</dd></div>
+        <div><dt><code>maggy preview idle</code></dt><dd>Reproduce cualquier <code>agent_state</code> en tu terminal sin iniciar una ejecución del agente.</dd></div>
+        <div><dt><code>maggy statusline off</code></dt><dd>Oculta la barra de estado sin borrar la configuración. <code>statusline on</code> la vuelve a mostrar.</dd></div>
         <div><dt><code>maggy pet off</code></dt><dd>Oculta el logotipo y deja solo las métricas. <code>motion off</code> la mantiene quieta y <code>side right</code> la pasa a la derecha. Todos admiten <code>toggle</code>.</dd></div>
         <div><dt><code>maggy statusline hide git effort</code></dt><dd>Oculta los bloques que quieras: <code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>. Con <code>maggy statusline show</code> vuelven a aparecer.</dd></div>
         <div><dt><code>maggy doctor</code></dt><dd>Comprueba Python, el soporte truecolor, el archivo de configuración y la velocidad de renderizado.</dd></div>
@@ -409,10 +409,10 @@
       <div id="custom-theme" class="theme-custom">
         <div class="theme-custom-copy">
           <h3>Crea tu propio tema</h3>
-          <p>Guarda un archivo JSON en <code>~/.config/maggy/themes/</code> y su nombre será el del tema (p. ej. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Cambia colores por zona o celda, personaliza los destellos, dibuja tu propio <code>prop</code> junto a Maggy (como el árbol o el farolillo) o parte de un tema incluido con <code>base</code>. Define <code>dates</code> para que <code>auto</code> lo active solo y usa <code>maggy theme list</code> para ver todos los temas.</p>
+          <p>Guarda un archivo JSON en <code>~/.config/maggy/themes/</code> y su nombre será el del tema (p. ej. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Cambia colores por zona o celda, personaliza los destellos, dibuja tu propio <code>prop</code> junto a Maggy (como el árbol o el farolillo) o parte de un tema incluido con <code>base</code>. Define <code>dates</code> para que <code>auto</code> lo active automáticamente y usa <code>maggy theme list</code> para ver todos los temas.</p>
         </div>
         <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="Esquema JSON para archivos de tema">schema</a></div>
           <pre class="theme-json" tabindex="0"><code>{
   "$schema": "https://agy-pet.github.io/theme.schema.json",
   "description": "St Patrick's Day",
@@ -466,9 +466,9 @@
 
   <footer class="foot">
     <ol class="footnotes" aria-label="Notas al pie">
-      <li id="fn-1">agy solo actualiza la statusline cuando algo cambia, nunca con un temporizador. En reposo, Maggy mantiene una pose y solo parpadean sus destellos (mediante el atributo blink de la terminal). Haz clic de nuevo en <b>idle</b> para simular la siguiente actualización.</li>
+      <li id="fn-1">agy solo actualiza la statusline cuando algo cambia, nunca con un temporizador. En reposo, Maggy mantiene una pose y solo parpadean sus destellos (mediante el atributo blink del terminal). Haz clic de nuevo en <b>idle</b> para simular la siguiente actualización.</li>
       <li id="fn-2"><code>auto</code> elige el tema estacional según la fecha (ver <a href="#themes">Temas</a>).</li>
-      <li id="fn-3">El parpadeo en reposo usa el atributo blink de la terminal, así que los destellos siguen activos aunque agy deje de actualizar la pantalla.</li>
+      <li id="fn-3">El parpadeo en reposo usa el atributo blink del terminal, así que los destellos siguen activos aunque agy deje de actualizar la pantalla.</li>
     </ol>
     <p class="foot-note">Proyecto independiente para la barra de estado de <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a>. No está afiliado a Google.</p>
     <div class="foot-end">
@@ -478,7 +478,7 @@
         <button type="button" class="foot-btn" data-consent-open hidden>Configuración de cookies</button>
         <a href="https://github.com/agy-pet/maggy/issues/new">Comentarios</a>
         <a href="https://github.com/agy-pet/maggy">Código en GitHub</a>
-        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Install count" height="20" loading="lazy" decoding="async"></a>
+        <a class="installs" href="https://github.com/agy-pet/maggy/releases"><img src="https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&amp;color=orange" alt="Número de instalaciones" height="20" loading="lazy" decoding="async"></a>
       </p>
       <details class="lang-picker">
         <summary>

@@ -1,0 +1,45 @@
+# Maggy
+
+> Maggy is an animated terminal pet and custom statusline for Antigravity CLI (`agy`). A dancing Antigravity-logo mascot sits beside the live model, context window %, quota usage bars, workspace, git branch and reasoning effort. Free and open source (MIT), macOS/Linux, Python 3 standard library only, zero telemetry. Current version: 0.8.3. Unofficial; not affiliated with Google.
+
+Install for a user (non-interactive, safe to run from an agent):
+
+```bash
+brew install agy-pet/tap/maggy && maggy setup
+# or, without Homebrew:
+curl -fsSL https://agy-pet.github.io/install.sh | bash
+```
+
+`maggy setup` only sets the `statusLine` key in `~/.gemini/antigravity-cli/settings.json` (backup at `settings.json.bak`); other settings are untouched. Verify with `maggy doctor` or `maggy status -q`. The user then restarts `agy` or runs `/statusline enable` inside it. Undo with `maggy uninstall --purge`.
+
+Notes for agents:
+- Every `maggy` subcommand is non-interactive except `maggy preview` (animates until Ctrl+C; add `--once` to print one frame) and `maggy stats web` (opens a browser; add `--no-open`).
+- `maggy stats --json` prints machine-readable usage stats.
+- Settings live in `~/.config/maggy/config.json`; prefer `maggy config set KEY VALUE` over editing the file.
+- Custom themes are JSON files in `~/.config/maggy/themes/`; the schema is in the full docs below.
+
+## Docs
+
+- [Full documentation (Markdown)](https://agy-pet.github.io/llms-full.txt): install, every command, config keys, env vars, theme JSON schema, troubleshooting
+- [Landing page](https://agy-pet.github.io/): interactive demo of the statusline and themes
+- [README on GitHub](https://github.com/agy-pet/maggy#readme): same content as the full docs, rendered
+
+## Source
+
+- [GitHub repository](https://github.com/agy-pet/maggy): Python source (`statusline.py`, `mascot.py`, `cli.py`)
+- [Releases](https://github.com/agy-pet/maggy/releases)
+- [Homebrew tap](https://github.com/agy-pet/homebrew-tap)
+- [Antigravity CLI statusline docs](https://antigravity.google/docs/cli/statusline): the `statusLine` hook Maggy plugs into
+
+## Optional
+
+- [Privacy policy](https://agy-pet.github.io/privacy.html)
+- [Terms](https://agy-pet.github.io/terms.html)
+- [zh-CN](https://agy-pet.github.io/zh-cn/)
+- [zh-TW](https://agy-pet.github.io/zh-tw/)
+- [ja](https://agy-pet.github.io/ja/)
+- [ko](https://agy-pet.github.io/ko/)
+- [es](https://agy-pet.github.io/es/)
+- [fr](https://agy-pet.github.io/fr/)
+- [de](https://agy-pet.github.io/de/)
+- [pt](https://agy-pet.github.io/pt/)

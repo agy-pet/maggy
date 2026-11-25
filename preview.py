@@ -2,14 +2,15 @@
 """Live terminal preview of the dancing Antigravity statusline.
 
 Usage:
-    maggy preview [working|tool_use|initializing|idle|reviewing|error] [--theme T] [--once]
+    maggy preview [working|tool_use|initializing|idle|reviewing|error|stretch] [--theme T] [--once]
     python3 preview.py [state]
 
 Without --theme every theme plays at once, each under its name, so you can
 pick one with `maggy theme NAME`.
 
 `idle` simulates agy's sparse idle redraws: a "done!" pose, then a random
-fidget every ~1.5 s, then dozing off.
+fidget every ~1.5 s, then dozing off. `stretch` shows the stretch reminder
+(idle after a long run of work).
 """
 
 import os
@@ -22,8 +23,15 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 if SCRIPT_DIR not in sys.path:
     sys.path.insert(0, SCRIPT_DIR)
 
-from mascot import IDLE_FIDGETS, THEMES  # noqa: E402
-from statusline import render_statusline  # noqa: E402
+from mascot import IDLE_FIDGETS, theme_names  # noqa: E402
+from statusline import render_statusline as _render_statusline  # noqa: E402
+
+SAMPLE_STATS = {"tasks": 12, "streak": 5}
+
+
+def render_statusline(data, frame_idx, activity):
+    activity = dict(activity or {}, tasks_today=SAMPLE_STATS["tasks"])
+    return _render_statusline(data, frame_idx=frame_idx, activity=activity, summary=SAMPLE_STATS)
 
 SAMPLE_DATA = {
     "cwd": os.getcwd(),
@@ -61,14 +69,19 @@ def _render(data, frame, activity, themes):
 def main(state="working", once=False, width=120, themes=None):
     # Keep the sample quota data out of the user's real quota cache.
     os.environ["XDG_CACHE_HOME"] = tempfile.mkdtemp(prefix="maggy-preview-")
+    stretch = state == "stretch"
+    if stretch:
+        state = "idle"
     data = dict(SAMPLE_DATA, agent_state=state, terminal_width=width)
-    themes = list(themes or THEMES)
+    themes = list(themes or theme_names())
     frame = 0
     tick_n = 0
     first = True
     last_fidget = -1
     if once:
         activity = {"idle_for": 10, "fidget": 0} if state == "idle" else None
+        if stretch:
+            activity["stretch_due"] = True
         print(_render(data, 0, activity, themes))
         if len(themes) > 1:
             print("\n" + "pick one with: maggy theme NAME")
@@ -77,7 +90,10 @@ def main(state="working", once=False, width=120, themes=None):
         sys.stdout.write("\033[?25l")  # hide cursor
         while True:
             activity = None
-            if state == "idle":
+            if stretch:
+                activity = {"idle_for": 10, "stretch_due": True}
+                frame = tick_n // 5  # lean the other way every ~1.5 s
+            elif state == "idle":
                 # One idle redraw every ~1.5 s: done -> 8 fidgets -> sleep.
                 step = tick_n // 5
                 if step > len(IDLE_FIDGETS):

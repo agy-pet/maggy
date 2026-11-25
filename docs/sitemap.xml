@@ -1,9 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://agy-pet.github.io/maggy/</loc>
+    <loc>https://agy-pet.github.io/</loc>
     <lastmod>2026-11-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/zh-cn/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/zh-tw/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/ja/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/ko/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/es/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/fr/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/de/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/pt/</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://agy-pet.github.io/"/>
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/"/>
+    <xhtml:link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/"/>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/privacy.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://agy-pet.github.io/terms.html</loc>
+    <lastmod>2026-11-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>

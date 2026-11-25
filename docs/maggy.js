@@ -21,6 +21,8 @@
   const TIPTOE = ["    aabb    ", "  ccddeeff  ", "  gghhiijj  ", "  kk    ll  ", "  mn    op  "];
   const KICK_LEFT = ["    aabb    ", "  ccddeeff  ", "  gghhiijj  ", "mnkk    ll  ", "        oopp"];
   const KICK_RIGHT = ["    aabb    ", "  ccddeeff  ", "  gghhiijj  ", "  kk    llop", "mmnn        "];
+  const STRETCH_LEFT = ["  aabb      ", "  ccddeeff  ", "  gghhiijj  ", "  kk    ll  ", "mmnn    oopp"];
+  const STRETCH_RIGHT = ["      aabb  ", "  ccddeeff  ", "  gghhiijj  ", "  kk    ll  ", "mmnn    oopp"];
 
   const SPARKLES_L = [[0, 1, "✦"], [0, 12, "·"]];
   const SPARKLES_R = [[0, 1, "·"], [0, 12, "✦"]];
@@ -48,6 +50,7 @@
       [SQUAT, 1, [[0, 11, "z"]], 0.8, "──"],
       [SQUAT, 1, [[0, 11, "z"], [0, 12, "Z"]], 0.8, "──"],
     ],
+    stretch: [[STRETCH_LEFT, 1, [], 1, "◠◠"], [STRETCH_RIGHT, 1, [], 1, "◠◠"]],
   };
   const IDLE_FIDGETS = [
     [BASE, 1, [], 1, "◕◕"], [BASE, 0, [], 1, "◔◔"], [BASE, 2, [], 1, "◔◔"],
@@ -55,7 +58,7 @@
     [TIPTOE, 1, [], 1, "◠◠"], [KICK_LEFT, 0, [], 1, "◕◕"], [BASE, 1, [[0, 12, "✦"]], 1, "◠◠"],
   ];
   const IDLE_TWINKLES = [[0, 2, "·"], [2, 13, "✦"], [4, 0, "·"]];
-  const IDLE_MOODS = new Set(["idle", "done", "sleep"]);
+  const IDLE_MOODS = new Set(["idle", "done", "sleep", "stretch"]);
 
   const MOODS = {
     working: "{name} is dancing ♪",
@@ -66,10 +69,17 @@
     done: "{name}: done! ✦",
     idle: "{name} is chilling",
     sleep: "{name} is sleepy z",
+    stretch: "{name} thinks you should stretch",
   };
 
+  // Props drawn right of the logo; cell specs as in mascot.py (PROP_GAP).
   const TREE = ["  *  ", "  G  ", " GoG ", "oGGGo", "  T  "];
   const TREE_GREEN = [22, 128, 61], TREE_TRUNK = [120, 72, 36], TREE_STAR = [255, 214, 64];
+  const XMAS_LIGHTS = [[255, 59, 59], [255, 214, 64], [255, 255, 255], [96, 200, 255]];
+  const PUMPKIN = ["     ", "  s  ", " PPP ", "PePeP", " PmP "];
+  const PUMPKIN_ORANGE = [240, 110, 20], CANDLE = [255, 214, 64];
+  const LANTERN = ["  |  ", " RRR ", "RRgRR", " RRR ", "  t  "];
+  const LANTERN_RED = [214, 32, 32], GOLD = [255, 196, 37];
 
   const THEMES = {
     default: {},
@@ -80,10 +90,52 @@
       pompom: "●", pompom_color: [255, 255, 255],
       snowfall: [[0, 0, "*"], [1, 3, "·"], [2, 1, "·"], [11, 4, "·"], [12, 2, "*"], [13, 0, "·"], [10, 3, "*"]],
       lights: [2, 4, 7, 9], light_glyph: "•",
-      light_colors: [[255, 59, 59], [255, 214, 64], [255, 255, 255], [96, 200, 255]],
-      tree: TREE,
+      light_colors: XMAS_LIGHTS,
+      prop: TREE,
+      prop_cells: {
+        G: { bg: TREE_GREEN },
+        o: { bg: TREE_GREEN, chase: XMAS_LIGHTS, glyphs: ["•"], blink: "alt" },
+        T: { bg: TREE_TRUNK },
+        "*": { fg: TREE_STAR, glyphs: ["★", "✦"], blink: "all" },
+      },
+    },
+    halloween: {
+      colors: { a: [88, 44, 130], b: [60, 28, 96] },
+      eye_color: [255, 196, 37],
+      sparkles: { "✦": "✧", "·": "˙" },
+      sparkle_color: [190, 120, 255],
+      prop: PUMPKIN,
+      prop_cells: {
+        s: { bg: [70, 120, 40] },
+        P: { bg: PUMPKIN_ORANGE },
+        e: { bg: PUMPKIN_ORANGE, fg: CANDLE, glyphs: ["▲", "△"], blink: "all" },
+        m: { bg: PUMPKIN_ORANGE, fg: CANDLE, glyphs: ["◡"] },
+      },
+    },
+    cny: {
+      colors: { a: GOLD, b: [235, 165, 20] },
+      sparkles: { "✦": "✺", "·": "·" },
+      sparkle_color: GOLD,
+      snowfall: [[0, 0, "·"], [1, 3, "✧"], [12, 1, "·"], [13, 4, "✧"]],
+      prop: LANTERN,
+      prop_cells: {
+        "|": { fg: GOLD, glyphs: ["│"] },
+        R: { bg: LANTERN_RED },
+        g: { bg: LANTERN_RED, fg: GOLD, glyphs: ["◆", "◇"], blink: "all" },
+        t: { fg: GOLD, glyphs: ["┆", "╎"], blink: "all" },
+      },
     },
   };
+
+  // Theme picked by date, like mascot.py's theme_for_date().
+  const CNY_DATES = ["2026-02-17", "2027-02-06", "2028-01-26", "2029-02-13", "2030-02-03", "2031-01-23",
+    "2032-02-11", "2033-01-31", "2034-02-19", "2035-02-08", "2036-01-28"];
+  function themeForDate(d) {
+    const md = (d.getMonth() + 1) * 100 + d.getDate();
+    const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    if (CNY_DATES.includes(iso)) return "cny";
+    return md === 1225 ? "xmas" : md === 1031 ? "halloween" : "default";
+  }
 
   const rgb = (c) => `rgb(${c[0]},${c[1]},${c[2]})`;
   const adjust = (c, b, tint) => c.map((v, i) => {
@@ -117,8 +169,10 @@
       sparkleAt.set(key(crown, 8 + offset), [th.pompom, th.pompom_color, false]);
     }
     const eyeAt = new Map();
-    const head = pose.findIndex((row) => row[EYE_COLS[0] - 2] !== " ");
-    if (eyes) [...eyes].forEach((g, i) => eyeAt.set(key(head, EYE_COLS[i] + offset), [g, EYE_COLOR, false]));
+    // The head is the first row at least 4 cells wide (a leaning crown isn't).
+    const head = pose.findIndex((row) => row.trim().length >= 8);
+    const eyeColor = th.eye_color || EYE_COLOR;
+    if (eyes) [...eyes].forEach((g, i) => eyeAt.set(key(head, EYE_COLS[i] + offset), [g, eyeColor, false]));
     if (th.light_colors && head + 1 < pose.length) {
       th.lights.forEach((col, i) => {
         const color = th.light_colors[(i + frame) % th.light_colors.length];
@@ -144,18 +198,19 @@
           out.push({ ch: " " });
         }
       }
-      if (th.tree) {
+      if (th.prop) {
         out.push({ ch: " " });
-        const lights = th.light_colors || [TREE_STAR];
-        [...th.tree[r]].forEach((t, col) => {
-          if (t === "G") out.push({ ch: " ", bg: rgb(TREE_GREEN) });
-          else if (t === "o") out.push({
-            ch: "•", bg: rgb(TREE_GREEN), fg: rgb(lights[(r * 2 + (col >> 1) + frame) % lights.length]),
-            blink: blink && (r * 2 + (col >> 1)) % 2 === 0,
-          });
-          else if (t === "T") out.push({ ch: " ", bg: rgb(TREE_TRUNK) });
-          else if (t === "*") out.push({ ch: frame % 2 ? "✦" : "★", fg: rgb(TREE_STAR), blink });
-          else out.push({ ch: " " });
+        [...th.prop[r]].forEach((t, col) => {
+          const spec = th.prop_cells[t];
+          if (!spec) return out.push({ ch: " " });
+          const pos = r * 2 + (col >> 1);
+          const glyphs = spec.glyphs || [" "];
+          const cell = { ch: glyphs[frame % glyphs.length] };
+          if (spec.bg) cell.bg = rgb(spec.bg);
+          if (spec.chase) cell.fg = rgb(spec.chase[(pos + frame) % spec.chase.length]);
+          else if (spec.fg) cell.fg = rgb(spec.fg);
+          cell.blink = blink && (spec.blink === "all" || (spec.blink === "alt" && pos % 2 === 0));
+          out.push(cell);
         });
       }
       rows.push(out);
@@ -204,7 +259,7 @@
     return lines;
   }
 
-  window.Maggy = { renderSprite, cellsHTML, moodText, statuslineRight, IDLE_FIDGETS, IDLE_MOODS };
+  window.Maggy = { renderSprite, cellsHTML, moodText, statuslineRight, themeForDate, IDLE_FIDGETS, IDLE_MOODS };
 })();
 
 // ------------------------------------------------------------------ page
@@ -215,16 +270,34 @@
   const state = { mood: "working", theme: "default", name: "Maggy", mood_line: true, blink: true, frame: 0, fidget: 0 };
 
   const now = new Date();
-  const isXmas = now.getMonth() === 11 && now.getDate() === 25;
+  const dated = M.themeForDate(now);
   const big = document.getElementById("maggy");
   const caption = document.getElementById("mood");
   const term = document.getElementById("term-body");
+  const themeSprites = Array.from(document.querySelectorAll("[data-theme-sprite]"));
+  const themeCards = Array.from(document.querySelectorAll("[data-theme-card]"));
+  const themeSelect = document.getElementById("opt-theme");
+  let galleryFrame = 0;
+
+  function drawThemes() {
+    themeSprites.forEach((el) => {
+      const rows = M.renderSprite("working", galleryFrame, { theme: el.dataset.themeSprite, blink: true });
+      el.innerHTML = rows.map((r) => `<div class="row">${M.cellsHTML(r)}</div>`).join("");
+    });
+  }
+
+  function syncThemeCards() {
+    themeCards.forEach((card) => {
+      card.setAttribute("aria-pressed", String(card.dataset.themeCard === state.theme));
+    });
+  }
 
   function draw() {
     const opts = { theme: state.theme, fidget: state.fidget, blink: state.blink };
     const rows = M.renderSprite(state.mood, state.frame, opts);
     big.innerHTML = rows.map((r) => `<div class="row">${M.cellsHTML(r)}</div>`).join("");
     big.classList.toggle("xmas", state.theme === "xmas");
+    big.classList.toggle("halloween", state.theme === "halloween");
     caption.textContent = M.moodText(state.mood, state.name);
 
     const right = M.statuslineRight(state.mood, { name: state.name, mood: state.mood_line });
@@ -233,9 +306,12 @@
     term.innerHTML = Array.from({ length: Math.max(rows.length, right.length) }, (_, i) =>
       `<div class="row">${rows[i] ? M.cellsHTML(rows[i]) : blank}<span class="rt">  ${right[i] || ""}</span></div>`
     ).join("");
+    syncThemeCards();
   }
 
   function step() {
+    galleryFrame++;
+    drawThemes();
     // agy never redraws on a timer while idle: the pose stays put and only
     // the blink-attribute sparkles (CSS .blink) twinkle, like a real terminal.
     if (M.IDLE_MOODS.has(state.mood)) return;
@@ -263,7 +339,7 @@
   chips.forEach((b) => b.addEventListener("click", () => {
     // Clicking an idle chip again acts as one agy redraw: a new still pose.
     if (b.dataset.mood === "idle" && state.mood === "idle") nextFidget();
-    if (b.dataset.mood === "sleep" && state.mood === "sleep") state.frame++;
+    if (["sleep", "stretch"].includes(b.dataset.mood) && state.mood === b.dataset.mood) state.frame++;
     else state.frame = 0;
     state.mood = b.dataset.mood;
     chips.forEach((c) => c.setAttribute("aria-pressed", String(c === b)));
@@ -281,10 +357,17 @@
     cmd("cmd-name", v && v !== "Maggy" ? `maggy name ${q}` : "maggy name --reset");
     draw();
   });
-  document.querySelectorAll("[name=theme]").forEach((r) => r.addEventListener("change", () => {
-    state.theme = r.value === "xmas" || (r.value === "auto" && isXmas) ? "xmas" : "default";
-    cmd("cmd-theme", `maggy theme ${r.value}`);
+  function applyThemeSelection(val) {
+    state.theme = val === "auto" ? dated : val;
+    if (themeSelect && themeSelect.value !== val) themeSelect.value = val;
+    cmd("cmd-theme", `maggy theme ${val}`);
     draw();
+  }
+  if (themeSelect) {
+    themeSelect.addEventListener("change", () => applyThemeSelection(themeSelect.value));
+  }
+  themeCards.forEach((card) => card.addEventListener("click", () => {
+    applyThemeSelection(card.dataset.themeCard);
   }));
   const toggle = (id, key, cmdId, word) => {
     const el = document.getElementById(id);
@@ -296,6 +379,17 @@
   };
   toggle("opt-mood", "mood_line", "cmd-mood", "mood");
   toggle("opt-blink", "blink", "cmd-blink", "blink");
+
+  // Preview-only: show the statusline on a white terminal profile too.
+  const termEl = document.querySelector(".terminal");
+  const bgBtns = document.querySelectorAll("[data-term-bg]");
+  const setTermBg = (bg) => {
+    termEl.classList.toggle("light", bg === "light");
+    bgBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.termBg === bg)));
+    try { localStorage.setItem("maggy.termBg", bg); } catch (e) { /* storage blocked */ }
+  };
+  bgBtns.forEach((b) => b.addEventListener("click", () => setTermBg(b.dataset.termBg)));
+  try { if (localStorage.getItem("maggy.termBg") === "light") setTermBg("light"); } catch (e) { /* storage blocked */ }
 
   // Install tabs
   const tabs = document.querySelectorAll("[role=tab]");
@@ -319,21 +413,38 @@
   });
 
   // Copy buttons
-  const t = (key, fallback) => (window.MaggyI18n ? window.MaggyI18n.t(key) : fallback);
+  const copyIdle = document.body.dataset.copyIdle || "Copy";
+  const copyCopied = document.body.dataset.copyCopied || "Copied";
+  const copyFallback = document.body.dataset.copyFallback || "Select and copy";
   document.querySelectorAll("[data-copy]").forEach((btn) => btn.addEventListener("click", async () => {
     const text = document.getElementById(btn.dataset.copy).textContent.trim();
     try {
       await navigator.clipboard.writeText(text);
-      btn.textContent = t("copy.copied", "Copied");
+      btn.textContent = copyCopied;
     } catch {
-      btn.textContent = t("copy.fallback", "Select and copy");
+      btn.textContent = copyFallback;
     }
-    setTimeout(() => (btn.textContent = t("copy.idle", "Copy")), 1600);
+    setTimeout(() => (btn.textContent = copyIdle), 1600);
   }));
 
-  // On Christmas Day "auto" dresses up, like the real thing.
-  if (isXmas) state.theme = "xmas";
+  // Language switcher (navigates between static locale directories)
+  const langSelect = document.getElementById("lang-select");
+  if (langSelect) {
+    const currentSlug = document.body.dataset.locale || "";
+    langSelect.value = currentSlug;
+    langSelect.addEventListener("change", () => {
+      const target = langSelect.value;
+      if (target === currentSlug) return;
+      const prefix = currentSlug ? "../" : "./";
+      const dest = target ? `${prefix}${target}/` : prefix;
+      window.location.href = dest + window.location.hash;
+    });
+  }
+
+  // On a themed day (Christmas, Halloween, Chinese New Year) "auto" dresses up, like the real thing.
+  state.theme = dated;
 
   draw();
+  drawThemes();
   play();
 })();

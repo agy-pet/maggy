@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Maggy — Terminal-Maskottchen &amp; Statuszeile für Antigravity CLI (agy)</title>
+  <meta name="description" content="Animiertes Terminal-Maskottchen und eigene Statuszeile für Antigravity CLI (agy). Sieh Maggy neben aktivem Modell, Kontext- und Kontingentbalken sowie Git-Branch tanzen.">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#eeebf3" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#141019" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://agy-pet.github.io/de/">
+  <link rel="alternate" hreflang="x-default" href="https://agy-pet.github.io/">
+  <link rel="alternate" hreflang="en" href="https://agy-pet.github.io/">
+  <link rel="alternate" hreflang="zh-CN" href="https://agy-pet.github.io/zh-cn/">
+  <link rel="alternate" hreflang="zh-TW" href="https://agy-pet.github.io/zh-tw/">
+  <link rel="alternate" hreflang="ja" href="https://agy-pet.github.io/ja/">
+  <link rel="alternate" hreflang="ko" href="https://agy-pet.github.io/ko/">
+  <link rel="alternate" hreflang="es" href="https://agy-pet.github.io/es/">
+  <link rel="alternate" hreflang="fr" href="https://agy-pet.github.io/fr/">
+  <link rel="alternate" hreflang="de" href="https://agy-pet.github.io/de/">
+  <link rel="alternate" hreflang="pt" href="https://agy-pet.github.io/pt/">
+  <link rel="alternate" type="text/markdown" title="Maggy docs (Markdown)" href="https://agy-pet.github.io/index.md">
+  <link rel="alternate" type="text/plain" title="llms.txt" href="https://agy-pet.github.io/llms.txt">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Maggy">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:url" content="https://agy-pet.github.io/de/">
+  <meta property="og:title" content="Maggy — Terminal-Maskottchen &amp; Statuszeile für Antigravity CLI (agy)">
+  <meta property="og:description" content="Animiertes Terminal-Maskottchen und eigene Statuszeile für Antigravity CLI (agy) – ein tanzendes Maskottchen neben aktivem Modell, Kontext- und Kontingentbalken, Reasoning-Stufe und Git-Branch.">
+  <meta property="og:image" content="https://agy-pet.github.io/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline, with brew install agy-pet/tap/maggy">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Maggy — Terminal-Maskottchen &amp; Statuszeile für Antigravity CLI (agy)">
+  <meta name="twitter:description" content="Animiertes Terminal-Maskottchen und eigene Statuszeile für Antigravity CLI (agy). Sieh Maggy neben aktivem Modell, Kontext- und Kontingentbalken sowie Git-Branch tanzen.">
+  <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
+  <meta name="twitter:image:alt" content="Maggy, the dancing Antigravity logo terminal pet for your agy statusline">
+  <link rel="icon" href="../favicon.ico" sizes="48x48">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Maggy",
+    "alternateName": "maggy",
+    "description": "Animiertes Terminal-Maskottchen und eigene Statuszeile für Antigravity CLI (agy) – ein tanzendes Maskottchen neben aktivem Modell, Kontext- und Kontingentbalken, Reasoning-Stufe und Git-Branch.",
+    "url": "https://agy-pet.github.io/de/",
+    "image": "https://agy-pet.github.io/social-preview.png",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Linux",
+    "softwareVersion": "0.8.3",
+    "codeRepository": "https://github.com/agy-pet/maggy",
+    "downloadUrl": "https://github.com/agy-pet/maggy/releases",
+    "installUrl": "https://agy-pet.github.io/#install",
+    "softwareHelp": "https://agy-pet.github.io/llms-full.txt",
+    "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
+    "isAccessibleForFree": true,
+    "license": "https://opensource.org/licenses/MIT",
+    "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "inLanguage": "de"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Martian+Mono:wdth,wght@75..112.5,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <script src="../appearance.js"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    (function(){
+      var EEA_UK_CH = [
+        'AT','BE','BG','CH','CY','CZ','DE','DK','EE','ES','FI','FR',
+        'GB','GR','HR','HU','IE','IS','IT','LI','LT','LU','LV','MT',
+        'NL','NO','PL','PT','RO','SE','SI','SK'
+      ];
+      var gpc = Boolean(navigator.globalPrivacyControl);
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        region: EEA_UK_CH,
+        wait_for_update: 500
+      });
+      gtag('consent', 'default', {
+        analytics_storage: gpc ? 'denied' : 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      try {
+        var saved = localStorage.getItem('maggy.consent');
+        if (saved === 'granted' || saved === 'denied') {
+          gtag('consent', 'update', { analytics_storage: saved });
+        }
+      } catch (e) {}
+    })();
+    gtag('js', new Date());
+  </script>
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X"></script>
+</head>
+<body data-locale="de" data-copy-idle="Kopieren" data-copy-copied="Kopiert" data-copy-fallback="Markieren &amp; kopieren">
+  <a class="skip" href="#main">Zum Inhalt springen</a>
+
+  <header class="top">
+    <a class="wordmark" href="#" aria-label="Maggy Startseite"><img class="wordmark-logo" src="../favicon.svg" alt="" width="28" height="28"><span>maggy</span></a>
+    <div class="top-right">
+      <nav aria-label="Hauptnavigation">
+        <a href="#try">Ausprobieren</a>
+        <a href="#themes">Themes</a>
+        <a href="#install">Installieren</a>
+        <a href="#commands">Befehle</a>
+        <a href="https://github.com/agy-pet/maggy">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title">Maggy zieht in deine agy-Statuszeile ein.</h1>
+        <p class="lede">Ein animiertes Terminal-Maskottchen und eine eigene Statuszeile für <strong>Antigravity CLI (<code>agy</code>)</strong>. Maggy tanzt, während <code>agy</code> arbeitet, stampft bei Tool-Aufrufen und nickt ein, wenn du kurz weg bist – direkt neben aktivem Modell, Kontextfenster, Kontingentbalken, Reasoning-Stufe und Git-Branch.</p>
+        <div class="cmd-box">
+          <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
+          <button type="button" class="copy" data-copy="hero-cmd">Kopieren</button>
+        </div>
+        <p class="hint">macOS oder Linux, Python 3, ein Truecolor-Terminal. <a href="#install">Weitere Installationswege</a></p>
+      </div>
+
+      <figure class="stage">
+        <div id="maggy" class="sprite" role="img" aria-label="Maggy, das tanzende Antigravity-Logo mit Augen"></div>
+        <figcaption id="mood" aria-live="polite">Maggy is dancing ♪</figcaption>
+        <div class="states" role="group" aria-label="agent_state">
+          <span class="states-label">agent_state</span>
+          <button type="button" data-mood="working" aria-pressed="true">working</button>
+          <button type="button" data-mood="tool_use" aria-pressed="false">tool_use</button>
+          <button type="button" data-mood="initializing" aria-pressed="false">initializing</button>
+          <button type="button" data-mood="reviewing" aria-pressed="false">reviewing</button>
+          <button type="button" data-mood="error" aria-pressed="false">error</button>
+          <button type="button" data-mood="done" aria-pressed="false">idle · gerade fertig</button>
+          <button type="button" data-mood="idle" aria-pressed="false">idle</button>
+          <button type="button" data-mood="sleep" aria-pressed="false">idle · 2 Min.</button>
+          <button type="button" data-mood="stretch" aria-pressed="false">idle · nach 45 Min. Arbeit</button>
+        </div>
+        <p class="note states-note">agy zeichnet die Statuszeile nur neu, wenn sich etwas ändert – nie per Timer. Im Leerlauf bleibt Maggy in einer Pose und nur ihre Sternchen blinken (über das Blink-Attribut des Terminals). Klicke erneut auf <b>idle</b>, um das nächste Neuzeichnen zu simulieren.</p>
+      </figure>
+    </section>
+
+    <section id="try" class="try" aria-labelledby="try-title">
+      <div class="section-head">
+        <h2 id="try-title">Passe deine agy-Statuszeile an</h2>
+        <p>So sieht die Statuszeile aus, die <code>agy</code> unter deinem Prompt anzeigt. Maggy sitzt links neben Modell, Kontextverbrauch, farbigen Kontingentbalken, Workspace und Git-Branch – jedes Frame ist exakt gleich breit, sodass nichts daneben verrutscht. Probier unten eine Einstellung aus, um direkt den passenden Befehl zu sehen.</p>
+      </div>
+
+      <div class="terminal" aria-label="Vorschau der agy-Statuszeile mit Maggy">
+        <div class="term-bar"><span>agy</span><span class="dim-text">~/code/my-app</span>
+          <span class="term-bg" role="group" aria-label="Terminal-Hintergrund">
+            <button type="button" data-term-bg="dark" aria-pressed="true">Dunkel</button>
+            <button type="button" data-term-bg="light" aria-pressed="false">Hell</button>
+          </span>
+        </div>
+        <div class="term-prompt"><span class="caret">&gt;</span> refactor the auth middleware and add tests<span class="cursor" aria-hidden="true"></span></div>
+        <div id="term-body" class="term-body"></div>
+      </div>
+
+      <div class="controls">
+        <div class="control">
+          <label for="pet-name">Name des Maskottchens</label>
+          <input id="pet-name" type="text" maxlength="16" placeholder="Maggy" autocomplete="off" spellcheck="false">
+          <code id="cmd-name">maggy name --reset</code>
+        </div>
+        <div class="control">
+          <label for="opt-theme">Theme</label>
+          <select id="opt-theme" name="theme">
+            <option value="auto">auto</option>
+            <option value="default">default</option>
+            <option value="xmas">xmas</option>
+            <option value="halloween">halloween</option>
+            <option value="cny">cny</option>
+          </select>
+          <code id="cmd-theme">maggy theme auto</code>
+        </div>
+        <div class="control">
+          <label class="switch"><input id="opt-mood" type="checkbox" checked><span>Stimmungszeile</span></label>
+          <code id="cmd-mood">maggy mood on</code>
+        </div>
+        <div class="control">
+          <label class="switch"><input id="opt-blink" type="checkbox" checked><span>Blinken im Leerlauf</span></label>
+          <code id="cmd-blink">maggy blink on</code>
+        </div>
+      </div>
+      <p class="note"><code>auto</code> wählt saisonale Looks automatisch nach Datum (siehe <a href="#themes">Themes</a> unten). Das Blinken im Leerlauf nutzt das Blink-Attribut des Terminals – so leuchten die Sternchen weiter, auch wenn agy nichts neu zeichnet.</p>
+    </section>
+
+    <section id="themes" class="themes" aria-labelledby="themes-title">
+      <div class="section-head">
+        <h2 id="themes-title">Saisonale &amp; eigene Themes</h2>
+        <p>Standardmäßig kleidet <code>auto</code> Maggy an Feiertagen passend ein und wechselt am nächsten Tag zurück. Klicke auf eine Karte für die Live-Vorschau, fixiere ein Theme mit <code>maggy theme &lt;name&gt;</code> oder füge dein eigenes JSON-Theme hinzu.</p>
+      </div>
+
+      <div class="theme-grid" role="group" aria-label="Integrierte Themes">
+        <button type="button" class="theme-card" data-theme-card="default" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="default" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">default</span>
+            <span class="theme-date">Ganzjährig</span>
+          </div>
+          <p class="theme-desc">Die klassischen Antigravity-Logofarben mit warmen goldenen Sternchen.</p>
+          <code class="theme-cmd">maggy theme default</code>
+        </button>
+
+        <button type="button" class="theme-card" data-theme-card="xmas" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="xmas" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">xmas</span>
+            <span class="theme-date">25. Dez.</span>
+          </div>
+          <p class="theme-desc">Weihnachtsmütze mit Bommel, Schneefall, Lichterkette und kleiner Baum.</p>
+          <code class="theme-cmd">maggy theme xmas</code>
+        </button>
+
+        <button type="button" class="theme-card" data-theme-card="halloween" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="halloween" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">halloween</span>
+            <span class="theme-date">31. Okt.</span>
+          </div>
+          <p class="theme-desc">Violetter Hexenhut, leuchtende Augen und flackernde Kürbislaterne.</p>
+          <code class="theme-cmd">maggy theme halloween</code>
+        </button>
+
+        <button type="button" class="theme-card" data-theme-card="cny" aria-pressed="false">
+          <div class="theme-preview"><div class="theme-sprite" data-theme-sprite="cny" aria-hidden="true"></div></div>
+          <div class="theme-meta">
+            <span class="theme-name">cny</span>
+            <span class="theme-date">Chinesisches Neujahr</span>
+          </div>
+          <p class="theme-desc">Goldene Krone, fallendes Konfetti und rote Laterne mit schwingender Quaste.</p>
+          <code class="theme-cmd">maggy theme cny</code>
+        </button>
+      </div>
+
+      <div class="theme-custom">
+        <div class="theme-custom-copy">
+          <h3>Eigenes Theme erstellen</h3>
+          <p>Lege eine JSON-Datei in <code>~/.config/maggy/themes/</code> ab – der Dateiname wird zum Theme-Namen (z. B. <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>). Färbe Bereiche oder Zellen um, tausche die Symbole, zeichne mit <code>prop</code> deine eigene Deko neben Maggy (wie den Baum oder die Laterne) oder starte mit <code>base</code> von einem eingebauten Theme. Setze <code>dates</code> für <code>auto</code>; mit <code>maggy theme list</code> siehst du alle Themes.</p>
+        </div>
+        <div class="theme-json-wrap">
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span></div>
+          <pre class="theme-json"><code>{
+  "description": "St Patrick's Day",
+  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
+  "sparkles": { "✦": "☘", "·": "·" },
+  "sparkle_color": "#a3e635",
+  "prop": ["c c", "ccc", " s "],
+  "prop_cells": {
+    "c": { "bg": "#1f9d55" },
+    "s": { "fg": "#3f6212", "glyphs": ["│"] }
+  },
+  "dates": ["03-17"]
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="install" aria-labelledby="install-title">
+      <div class="section-head">
+        <h2 id="install-title">Maggy für Antigravity CLI installieren</h2>
+        <p><code>maggy setup</code> trägt Maggy als <code>statusLine</code> in <code>~/.gemini/antigravity-cli/settings.json</code> ein. Alle anderen Einstellungen bleiben unverändert, und die alte Datei wird als <code>settings.json.bak</code> gesichert.</p>
+      </div>
+
+      <div class="tabs" role="tablist" aria-label="Installationsmethode">
+        <button type="button" role="tab" id="tab-brew" aria-controls="pane-brew" aria-selected="true">Homebrew</button>
+        <button type="button" role="tab" id="tab-curl" aria-controls="pane-curl" aria-selected="false" tabindex="-1">curl</button>
+        <button type="button" role="tab" id="tab-git" aria-controls="pane-git" aria-selected="false" tabindex="-1">git</button>
+      </div>
+
+      <div id="pane-brew" class="pane" role="tabpanel" aria-labelledby="tab-brew">
+        <ol class="steps">
+          <li><span>Mit Homebrew installieren</span><div class="cmd-box"><code id="c1">brew install agy-pet/tap/maggy</code><button type="button" class="copy" data-copy="c1">Kopieren</button></div></li>
+          <li><span>Maggy mit agy verbinden</span><div class="cmd-box"><code id="c2">maggy setup</code><button type="button" class="copy" data-copy="c2">Kopieren</button></div></li>
+          <li><span>Starte agy neu oder führe darin <code>/statusline enable</code> aus.</span></li>
+        </ol>
+        <p class="note">Aktualisieren mit <code>brew upgrade maggy</code>. Shell-Vervollständigungen für bash, zsh und fish sind enthalten.</p>
+      </div>
+
+      <div id="pane-curl" class="pane" role="tabpanel" aria-labelledby="tab-curl" hidden>
+        <ol class="steps">
+          <li><span>Starte das Installationsskript: Es klont nach <code>~/.maggy</code>, verlinkt <code>maggy</code> nach <code>~/.local/bin</code> und führt <code>maggy setup</code> aus.</span><div class="cmd-box"><code id="c3">curl -fsSL https://agy-pet.github.io/install.sh | bash</code><button type="button" class="copy" data-copy="c3">Kopieren</button></div></li>
+          <li><span>Starte agy neu oder führe darin <code>/statusline enable</code> aus.</span></li>
+        </ol>
+        <p class="note">Optionen übergibst du per <code>| bash -s -- --theme xmas --no-mood</code>; spätere Updates laufen über <code>maggy update</code>.</p>
+      </div>
+
+      <div id="pane-git" class="pane" role="tabpanel" aria-labelledby="tab-git" hidden>
+        <ol class="steps">
+          <li><span>Repository klonen</span><div class="cmd-box"><code id="c4">git clone https://github.com/agy-pet/maggy.git ~/.maggy</code><button type="button" class="copy" data-copy="c4">Kopieren</button></div></li>
+          <li><span>Maggy mit agy verbinden</span><div class="cmd-box"><code id="c5">~/.maggy/bin/maggy setup</code><button type="button" class="copy" data-copy="c5">Kopieren</button></div></li>
+          <li><span>Starte agy neu oder führe darin <code>/statusline enable</code> aus.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="commands" class="commands" aria-labelledby="commands-title">
+      <div class="section-head">
+        <h2 id="commands-title">CLI-Befehle</h2>
+        <p>Alles läuft über einen einzigen Befehl. Führe <code>maggy help</code> für die vollständige Liste aus.</p>
+      </div>
+      <dl class="cmd-list">
+        <div><dt><code>maggy status</code></dt><dd>Zeigt, ob Maggy eingebunden ist, dein Theme, deine Einstellungen und eine Vorschau.</dd></div>
+        <div><dt><code>maggy preview idle</code></dt><dd>Spielt beliebige <code>agent_state</code>-Zustände direkt im Terminal ab, ohne den Agenten zu starten.</dd></div>
+        <div><dt><code>maggy statusline off</code></dt><dd>Blendet die Statuszeile aus, ohne sie zu entfernen. <code>statusline on</code> holt sie zurück.</dd></div>
+        <div><dt><code>maggy pet off</code></dt><dd>Blendet das Logo aus und behält die Metriken. <code>motion off</code> hält stattdessen eine feste Pose und <code>side right</code> setzt sie nach rechts. Alles unterstützt <code>toggle</code>.</dd></div>
+        <div><dt><code>maggy statusline hide git effort</code></dt><dd>Blendet einzelne Segmente aus: <code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>. <code>maggy statusline show</code> blendet sie wieder ein.</dd></div>
+        <div><dt><code>maggy doctor</code></dt><dd>Prüft Python, Truecolor-Unterstützung, die Einstellungsdatei und die Renderzeit pro Frame.</dd></div>
+        <div><dt><code>maggy config</code></dt><dd>Zeigt <code>~/.config/maggy/config.json</code>. Mit <code>get</code>, <code>set</code> oder <code>reset</code> anpassen.</dd></div>
+        <div><dt><code>maggy uninstall --purge</code></dt><dd>Entfernt den statusLine-Eintrag samt Konfiguration und Cache. Alle anderen agy-Einstellungen bleiben unberührt.</dd></div>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>Entwickelt für die <a href="https://antigravity.google/docs/cli/statusline">Antigravity CLI</a>-Statuszeile. Inoffizielles Projekt, nicht mit Google verbunden.</p>
+    <div class="foot-end">
+      <p class="foot-links">
+        <a href="../privacy.html">Datenschutz</a>
+        <a href="../terms.html">Nutzungsbedingungen</a>
+        <button type="button" class="foot-btn" data-consent-open hidden>Cookie-Einstellungen</button>
+        <a href="https://github.com/agy-pet/maggy">Quellcode auf GitHub</a>
+        <a href="https://agy-pet.github.io/llms.txt" title="Docs for AI agents">llms.txt</a>
+      </p>
+      <label class="lang-picker">
+        <span class="sr-only">Sprache</span>
+        <svg class="lang-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <select id="lang-select" aria-label="Sprache">
+          <option value="">English</option>
+          <option value="zh-cn">简体中文</option>
+          <option value="zh-tw">繁體中文</option>
+          <option value="ja">日本語</option>
+          <option value="ko">한국어</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="de" selected>Deutsch</option>
+          <option value="pt">Português</option>
+        </select>
+      </label>
+      <div class="appearance" role="group" aria-label="Darstellung">
+        <button type="button" data-appearance="light" aria-pressed="false" aria-label="Hell" title="Hell"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></button>
+        <button type="button" data-appearance="system" aria-pressed="true" aria-label="System" title="System"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></button>
+        <button type="button" data-appearance="dark" aria-pressed="false" aria-label="Dunkel" title="Dunkel"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+      </div>
+    </div>
+  </footer>
+
+  <aside id="consent-banner" class="consent" role="dialog" aria-live="polite" aria-label="Analyse-Einwilligung" hidden>
+    <p class="consent-text">
+      <span>Diese Website verwendet Google-Analytics-Cookies zur Analyse des allgemeinen Datenverkehrs. Das CLI-Tool sendet keinerlei Telemetrie.</span>
+      <a href="../privacy.html">Datenschutzerklärung</a>
+    </p>
+    <div class="consent-actions">
+      <button type="button" class="consent-btn" data-consent="denied">Ablehnen</button>
+      <button type="button" class="consent-btn consent-accept" data-consent="granted">Akzeptieren</button>
+    </div>
+  </aside>
+
+  <script src="../consent.js" defer></script>
+  <script src="../maggy.js" defer></script>
+</body>
+</html>

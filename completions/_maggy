@@ -1,4 +1,9 @@
 #compdef maggy
+_maggy_themes() {
+    local -a themes
+    themes=(default xmas halloween cny ${XDG_CONFIG_HOME:-$HOME/.config}/maggy/themes/*.json(N:t:r))
+    print -r -- $themes
+}
 _maggy() {
     local -a cmds pet_cmds sl_cmds
     pet_cmds=(
@@ -9,6 +14,7 @@ _maggy() {
         'blink:idle twinkling on/off'
         'mood:mood caption on/off'
         'motion:animation on/off'
+        'stretch:stretch reminder on/off/minutes'
         'side:logo left or right'
         'name:show or rename your pet'
         'preview:watch Maggy dance'
@@ -29,6 +35,7 @@ _maggy() {
         'pet:pet commands (prefix optional)'
         'statusline:statusline commands'
         'config:show, get or set config'
+        'stats:tasks, busy time and streaks'
         'doctor:check the setup'
         'update:upgrade to the latest version'
         'version:print the version'
@@ -40,7 +47,7 @@ _maggy() {
     if [[ $words[2] == statusline ]]; then
         if (( CURRENT == 3 )); then _describe 'command' sl_cmds; return; fi
         case $words[3] in
-            show|hide) _values -w 'segment' model context quota workspace git effort all ;;
+            show|hide) _values -w 'segment' model context quota workspace git effort stats all ;;
             on|off|toggle|enable|disable) _arguments '--settings[settings.json]:file:_files' ;;
         esac
         return
@@ -51,21 +58,23 @@ _maggy() {
         shift words; (( CURRENT-- ))
     fi
     case $words[2] in
-        theme) _values 'theme' auto default xmas ;;
+        theme) _values 'theme' auto list ${=$(_maggy_themes)} ;;
+        stretch) _values 'value' on off toggle 30 45 60 ;;
         blink|mood|motion) _values 'value' on off toggle ;;
         side) _values 'side' left right toggle ;;
         config)
             if (( CURRENT == 3 )); then _values 'action' show get set reset path
-            elif (( CURRENT == 4 )); then _values 'key' name theme blink mood pet motion side hide; fi ;;
-        preview) _arguments '1:state:(working tool_use initializing idle reviewing error)' \
-            '--theme[theme]:theme:(default xmas)' '--name[pet name]:name:' '--once[single frame]' '--width[width]:width:' ;;
+            elif (( CURRENT == 4 )); then _values 'key' name theme blink mood pet motion side hide stretch stretch_after stats; fi ;;
+        preview) _arguments '1:state:(working tool_use initializing idle reviewing error stretch)' \
+            "--theme[theme]:theme:(${=\$(_maggy_themes)})" '--name[pet name]:name:' '--once[single frame]' '--width[width]:width:' ;;
         setup|install) _arguments '--settings[settings.json]:file:_files' '--force[replace other statusLine]' \
             '--padding[blank lines]:n:' '--stack[below built-in]' '--no-stack[replace built-in]' \
-            '--theme[theme]:theme:(auto default xmas)' '--name[pet name]:name:' '--no-blink' '--no-mood' '--no-pet' '--no-motion' \
-            '--side[logo side]:side:(left right)' ;;
+            "--theme[theme]:theme:(auto \$(_maggy_themes))" '--name[pet name]:name:' '--no-blink' '--no-mood' '--no-pet' '--no-motion' \
+            '--side[logo side]:side:(left right)' '--no-stretch' ;;
         uninstall) _arguments '--settings[settings.json]:file:_files' '--purge[delete config and cache]' ;;
         status) _arguments '--settings[settings.json]:file:_files' '(-q --quiet)'{-q,--quiet}'[no sample]' ;;
         name) _arguments '--reset[back to Maggy]' ;;
+        stats) _arguments '1:range:(today week month year all web on off toggle reset path)' '--days[last N days]:n:' '--json[print JSON]' '--yes[confirm reset]' '--out[dashboard path]:file:_files' '--no-open[do not open a browser]' ;;
     esac
 }
 _maggy "$@"

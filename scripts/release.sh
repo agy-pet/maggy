@@ -20,7 +20,9 @@ cd "$ROOT"
 [ -z "$(git status --porcelain)" ] || { echo "working tree not clean" >&2; exit 1; }
 
 echo "$VERSION" > VERSION
-git commit -qm "chore(release): v$VERSION" VERSION || true
+python3 scripts/build_docs.py   # JSON-LD softwareVersion, llms.txt, llms-full.txt
+git add VERSION docs
+git commit -qm "chore(release): v$VERSION" || true
 git tag -a "v$VERSION" -m "v$VERSION"
 git push origin HEAD "v$VERSION"
 

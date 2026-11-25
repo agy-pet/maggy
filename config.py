@@ -2,7 +2,8 @@
 
 Location: $XDG_CONFIG_HOME/maggy/config.json (default
 ~/.config/maggy/config.json). Env vars still win over it:
-MAGGY_THEME, MAGGY_BLINK, MAGGY_MOOD, MAGGY_PET, MAGGY_MOTION.
+MAGGY_THEME, MAGGY_BLINK, MAGGY_MOOD, MAGGY_PET, MAGGY_MOTION, MAGGY_STRETCH,
+MAGGY_STATS.
 """
 
 import json
@@ -11,19 +12,23 @@ import tempfile
 
 DEFAULTS = {
     "name": "Maggy",   # pet name shown in the mood line
-    "theme": "auto",   # auto | default | xmas
+    "theme": "auto",   # auto | a theme name (`maggy theme list`)
     "blink": True,     # twinkle idle decorations with the terminal blink attribute
     "mood": True,      # show "Maggy is dancing ♪" under the metrics when there is room
     "pet": True,       # show the logo; off leaves just the metrics
     "motion": True,    # animate; off holds one still pose per state
     "side": "left",    # which side of the metrics the logo sits on: left | right
     "hide": [],        # metric segments to hide, see SEGMENTS
+    "stretch": True,   # remind you to stretch after a long run of work
+    "stretch_after": 45,  # minutes of continuous work before the reminder
+    "stats": True,     # count turns and busy time for `maggy stats` (stays on this machine)
 }
 
-BOOL_KEYS = ("blink", "mood", "pet", "motion")
+BOOL_KEYS = ("blink", "mood", "pet", "motion", "stretch", "stats")
+STRETCH_RANGE = (5, 600)  # allowed stretch_after minutes
 SIDES = ("left", "right")
 # Statusline segments that `maggy show/hide` can toggle, in display order.
-SEGMENTS = ("model", "context", "quota", "workspace", "git", "effort")
+SEGMENTS = ("model", "context", "quota", "workspace", "git", "effort", "stats")
 NAME_MAX = 16
 
 
@@ -36,8 +41,18 @@ def config_path():
     return os.path.join(config_dir(), "config.json")
 
 
+_CACHE = None  # one statusline render calls load() several times
+
+
 def load():
     """Return the merged config (defaults + file). Never raises."""
+    global _CACHE
+    if _CACHE is None:
+        _CACHE = _read()
+    return dict(_CACHE, hide=list(_CACHE["hide"]))
+
+
+def _read():
     cfg = dict(DEFAULTS)
     try:
         with open(config_path(), encoding="utf-8") as f:
@@ -52,6 +67,10 @@ def load():
             cfg[k] = DEFAULTS[k]
     if cfg["side"] not in SIDES:
         cfg["side"] = DEFAULTS["side"]
+    try:
+        cfg["stretch_after"] = parse_minutes(cfg["stretch_after"])
+    except ValueError:
+        cfg["stretch_after"] = DEFAULTS["stretch_after"]
     hide = cfg["hide"] if isinstance(cfg["hide"], list) else []
     cfg["hide"] = [s for s in SEGMENTS if s in hide]
     return cfg
@@ -83,6 +102,8 @@ def parse_segments(values):
 
 def save(cfg):
     """Write only non-default keys, atomically."""
+    global _CACHE
+    _CACHE = None
     os.makedirs(config_dir(), mode=0o700, exist_ok=True)
     data = {k: v for k, v in cfg.items() if k in DEFAULTS and v != DEFAULTS[k]}
     fd, tmp = tempfile.mkstemp(prefix=".tmp-", dir=config_dir())
@@ -106,6 +127,20 @@ def parse_bool(value):
     if v in ("0", "false", "no", "off"):
         return False
     raise ValueError(f"expected on/off, got {value!r}")
+
+
+def parse_minutes(value):
+    """stretch_after minutes: a whole number within STRETCH_RANGE."""
+    lo, hi = STRETCH_RANGE
+    if isinstance(value, bool):
+        raise ValueError("expected minutes")
+    try:
+        n = int(str(value).strip().rstrip("m"))
+    except ValueError:
+        raise ValueError(f"expected minutes, got {value!r}") from None
+    if not lo <= n <= hi:
+        raise ValueError(f"minutes must be {lo}-{hi}")
+    return n
 
 
 def parse_name(value):

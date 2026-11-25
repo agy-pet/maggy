@@ -223,6 +223,8 @@ def cmd_uninstall(args):
         print(dim("    to remove the program too: brew uninstall maggy"))
     elif kind == "git":
         print(dim(f"    to remove the program too: rm -rf {ROOT} ~/.local/bin/maggy"))
+        print(dim("    and its completion links: rm -f ~/.config/fish/completions/maggy.fish"
+                  " ~/.local/share/bash-completion/completions/maggy"))
 
 
 def _set_enabled(value):

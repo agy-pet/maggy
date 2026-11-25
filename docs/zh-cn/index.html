@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏</title>
-  <meta name="description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏。看 Maggy 在当前模型、上下文与配额进度条以及 Git 分支旁起舞。">
+  <title>Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）</title>
+  <meta name="description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，实时显示上下文用量、5 小时与每周配额限额、重置倒计时、当前模型与 Git 分支。">
   <meta name="robots" content="index, follow">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -34,18 +34,18 @@
   <meta property="og:locale:alternate" content="de_DE">
   <meta property="og:locale:alternate" content="pt_BR">
   <meta property="og:url" content="https://agy-pet.github.io/zh-cn/">
-  <meta property="og:title" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
-  <meta property="og:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，在当前模型、上下文与配额进度条、推理强度和 Git 分支旁起舞。">
+  <meta property="og:title" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
+  <meta property="og:description" content="Antigravity CLI (agy) 动态宠物与自定义状态栏——会跳舞的 Logo 动画旁实时显示上下文用量、5 小时与每周配额限额、重置倒计时、推理强度和 Git 分支。">
   <meta property="og:image" content="https://agy-pet.github.io/social-preview.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1280">
   <meta property="og:image:height" content="640">
-  <meta property="og:image:alt" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
+  <meta property="og:image:alt" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
-  <meta name="twitter:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏。看 Maggy 在当前模型、上下文与配额进度条以及 Git 分支旁起舞。">
+  <meta name="twitter:title" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
+  <meta name="twitter:description" content="专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，实时显示上下文用量、5 小时与每周配额限额、重置倒计时、当前模型与 Git 分支。">
   <meta name="twitter:image" content="https://agy-pet.github.io/social-preview.png">
-  <meta name="twitter:image:alt" content="Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏">
+  <meta name="twitter:image:alt" content="Maggy — agy 终端宠物动画与状态栏（用量、配额限额与重置倒计时）">
   <link rel="icon" href="../favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="apple-touch-icon" sizes="512x512" href="../apple-touch-icon.png">
@@ -62,8 +62,12 @@
       {
         "@type": "SoftwareApplication",
         "name": "Maggy",
-        "alternateName": "maggy",
-        "description": "专为 Antigravity CLI (agy) 打造的动态终端宠物与自定义状态栏，在当前模型、上下文与配额进度条、推理强度和 Git 分支旁起舞。",
+        "alternateName": [
+          "maggy",
+          "agy-pet",
+          "agy statusline"
+        ],
+        "description": "Antigravity CLI (agy) 动态宠物与自定义状态栏——会跳舞的 Logo 动画旁实时显示上下文用量、5 小时与每周配额限额、重置倒计时、推理强度和 Git 分支。",
         "url": "https://agy-pet.github.io/zh-cn/",
         "inLanguage": "zh-CN",
         "image": "https://agy-pet.github.io/social-preview.png",
@@ -83,7 +87,14 @@
         "softwareRequirements": "Antigravity CLI (agy), Python 3, truecolor terminal",
         "isAccessibleForFree": true,
         "license": "https://opensource.org/licenses/MIT",
-        "keywords": "Antigravity CLI, agy, agy statusline, terminal pet, CLI mascot, quota usage, context window, Homebrew",
+        "keywords": "Antigravity CLI, agy, agy statusline, agy pet, agy animation, terminal pet, CLI mascot, quota usage, rate limit, quota limit, reset countdown, reset timer, context window, Homebrew",
+        "featureList": [
+          "Live agy statusline showing context window usage %, 5-hour and weekly quota limits, and reset countdowns",
+          "State-aware agy pet animations for working, tool_use, initializing, reviewing, idle, sleep, stretch, and error",
+          "Color-coded quota usage bars with cached reset timers across statusline refreshes",
+          "Seasonal auto themes (Christmas, Halloween, Lunar New Year) and custom JSON themes",
+          "Zero telemetry, Python 3 standard library only, macOS and Linux support"
+        ],
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -96,10 +107,10 @@
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "如何在 Antigravity CLI (agy) 中显示上下文窗口和配额使用条？",
+            "name": "如何在 agy 状态栏中显示用量、配额限额和重置倒计时？",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "运行 brew install agy-pet/tap/maggy && maggy setup 安装并配置，然后重启 agy 或在会话中执行 /statusline enable。Maggy 会接入 ~/.gemini/antigravity-cli/settings.json 中的 statusLine，在吉祥物旁实时显示当前模型、上下文占比、彩色配额条、工作区、Git 分支和推理强度。"
+              "text": "运行 brew install agy-pet/tap/maggy && maggy setup 安装并配置，然后重启 agy 或在会话中执行 /statusline enable。Maggy 会接入 ~/.gemini/antigravity-cli/settings.json 中的 statusLine，实时显示当前模型、上下文占比、彩色 5 小时与每周配额限额条及重置时间倒计时（刷新间自动缓存）、工作区、Git 分支和推理强度。"
             }
           },
           {
@@ -132,6 +143,14 @@
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Maggy 支持 macOS 和 Linux（含 WSL），需安装 Python 3，并适配所有支持 24 位真彩色的终端，如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 及 VS Code 内置终端。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "agy 状态栏里的宠物动画是如何工作的？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Maggy 直接在终端里绘制带表情眼睛的 Antigravity Logo，并根据 agent_state 播放不同状态的动画——working 时起舞、tool_use 时踏步、reviewing 时探头、idle 时星光闪烁、空闲 2 分钟后打瞌睡。随时可用 maggy preview working 预览动画，或用 maggy motion off 固定为静态姿势。"
             }
           }
         ]
@@ -199,7 +218,7 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <h1 id="hero-title">让 Maggy&nbsp;<span aria-hidden="true">🌋</span> 住进你的 <span class="nowrap">agy 状态栏</span></h1>
-        <p class="lede">专为 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的动态终端宠物与自定义状态栏。<code>agy</code> 干活时 Maggy 会跟着起舞，调用工具时欢快踏步，你离开一会儿她就打起瞌睡——紧挨着你的当前模型、上下文窗口、配额进度条、推理强度和 Git 分支。</p>
+        <p class="lede">专为 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的动态 <strong>agy 宠物</strong>与自定义状态栏。<code>agy</code> 干活时 Maggy 的 Logo 动画会跟着起舞，调用工具时欢快踏步，你离开一会儿她就打起瞌睡——紧挨着你的当前模型、上下文用量、5 小时与每周配额限额及重置倒计时、推理强度和 Git 分支。</p>
         <div class="cmd-box">
           <code id="hero-cmd">brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code>
           <button type="button" class="copy" data-copy="hero-cmd" aria-describedby="hero-cmd">复制</button>
@@ -236,7 +255,7 @@
     <section id="try" class="try" aria-labelledby="try-title">
       <div class="section-head">
         <h2 id="try-title">定制你的 agy 状态栏</h2>
-        <p>这就是 <code>agy</code> 显示在提示符下方的状态栏。Maggy 待在模型、上下文用量、彩色配额条、工作区和 Git 分支左侧——每一帧都严格等宽，右侧信息纹丝不动。调整下面的选项，即可实时看到对应的命令。</p>
+        <p>这就是 <code>agy</code> 显示在提示符下方的状态栏：在动态 agy 宠物身旁实时展示当前模型、上下文用量、彩色 5 小时与每周配额限额及重置倒计时、工作区和 Git 分支——每一帧都严格等宽，右侧信息纹丝不动。调整下面的选项，即可实时看到对应的命令。</p>
       </div>
 
       <div class="terminal" role="region" aria-label="带有 Maggy 的 agy 状态栏预览">
@@ -418,8 +437,8 @@
       </div>
       <div class="faq-list">
         <details>
-          <summary>如何在 Antigravity CLI (agy) 中显示上下文窗口和配额使用条？</summary>
-          <p>运行 <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> 安装并配置，然后重启 <code>agy</code> 或在会话中执行 <code>/statusline enable</code>。Maggy 会接入 <code>~/.gemini/antigravity-cli/settings.json</code> 中的 <code>statusLine</code>，在吉祥物旁实时显示当前模型、上下文占比、彩色配额条、工作区、Git 分支和推理强度。</p>
+          <summary>如何在 agy 状态栏中显示用量、配额限额和重置倒计时？</summary>
+          <p>运行 <code>brew install agy-pet/tap/maggy &amp;&amp; maggy setup</code> 安装并配置，然后重启 <code>agy</code> 或在会话中执行 <code>/statusline enable</code>。Maggy 会接入 <code>~/.gemini/antigravity-cli/settings.json</code> 中的 <code>statusLine</code>，实时显示当前模型、上下文占比、彩色 5 小时与每周配额限额条及重置时间倒计时（刷新间自动缓存）、工作区、Git 分支和推理强度。</p>
         </details>
         <details>
           <summary>运行 maggy setup 后为什么没有显示状态栏？</summary>
@@ -436,6 +455,10 @@
         <details>
           <summary>支持哪些系统和终端？</summary>
           <p>Maggy 支持 macOS 和 Linux（含 WSL），需安装 Python 3，并适配所有支持 24 位真彩色的终端，如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 及 VS Code 内置终端。</p>
+        </details>
+        <details>
+          <summary>agy 状态栏里的宠物动画是如何工作的？</summary>
+          <p>Maggy 直接在终端里绘制带表情眼睛的 Antigravity Logo，并根据 <code>agent_state</code> 播放不同状态的动画——<code>working</code> 时起舞、<code>tool_use</code> 时踏步、<code>reviewing</code> 时探头、<code>idle</code> 时星光闪烁、空闲 2 分钟后打瞌睡。随时可用 <code>maggy preview working</code> 预览动画，或用 <code>maggy motion off</code> 固定为静态姿势。</p>
         </details>
       </div>
     </section>

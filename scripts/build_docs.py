@@ -350,7 +350,7 @@ def build_llms_txt(base_url: str, version: str, locales: list[dict]) -> str:
     )
     return f"""# Maggy
 
-> Maggy is an animated terminal pet and custom statusline for Antigravity CLI (`agy`). A dancing Antigravity-logo mascot sits beside the live model, context window %, quota usage bars, workspace, git branch and reasoning effort. Free and open source (MIT), macOS/Linux, Python 3 standard library only, zero telemetry. Current version: {version}. Unofficial; not affiliated with Google.
+> Maggy is an animated agy pet and custom statusline for Antigravity CLI (`agy`). A dancing Antigravity-logo animation sits beside the live model, context window usage %, 5-hour and weekly quota limit bars with reset countdowns, workspace, git branch, and reasoning effort. Free and open source (MIT), macOS/Linux, Python 3 standard library only, zero telemetry. Current version: {version}. Unofficial; not affiliated with Google.
 
 Install for a user (non-interactive, safe to run from an agent):
 

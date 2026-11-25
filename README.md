@@ -2,13 +2,13 @@
 
 [![installs](https://img.shields.io/github/downloads/agy-pet/maggy/total?label=installs&color=orange)](https://github.com/agy-pet/maggy/releases)
 
-Meet **Maggy** 🌋, a little magma pet who lives in your agy statusline.
+Meet **Maggy** 🌋, an animated **agy pet** who lives in your Antigravity CLI statusline.
 
 **[See her dance →](https://agy-pet.github.io/)**
 
 > 🤖 Using an AI coding agent? Point it at [`llms.txt`](https://agy-pet.github.io/llms.txt) (or the full docs in [`llms-full.txt`](https://agy-pet.github.io/llms-full.txt)) and ask it to install Maggy.
 
-A custom [Antigravity CLI (`agy`)](https://antigravity.google/docs/cli/statusline) statusline featuring a dancing Antigravity logo — the same gradient arch `agy` prints in its own startup banner, with a pair of expressive eyes added — displayed alongside your model, context usage, quota bars, workspace, git branch, and reasoning effort.
+A custom [Antigravity CLI (`agy`)](https://antigravity.google/docs/cli/statusline) statusline and terminal pet animation — featuring a dancing Antigravity logo with expressive eyes alongside your live model, context window usage %, color-coded 5-hour & weekly quota limits with reset countdowns, workspace, git branch, and reasoning effort.
 
 ![maggy statusline dancing while agy works](assets/dance.gif)
 
@@ -110,7 +110,25 @@ maggy update                     brew upgrade, or git pull for curl installs
 maggy version | help
 ```
 
-Commands that touch agy's settings take `--settings PATH`. Shell completions for bash, zsh and fish are in `completions/` (Homebrew installs them for you).
+Commands that touch agy's settings take `--settings PATH`.
+
+### Shell completions
+
+Tab completion for commands, themes, states and config keys is available for bash, zsh and fish. Homebrew installs it for you. The one-line installer links the fish and bash files too (bash needs the `bash-completion` package, v2). For zsh, or to set it up by hand from `~/.maggy` (the clone the one-line installer makes):
+
+```bash
+# zsh: add to ~/.zshrc, before compinit runs
+fpath=(~/.maggy/completions $fpath)
+
+# bash
+mkdir -p ~/.local/share/bash-completion/completions
+ln -sf ~/.maggy/completions/maggy.bash ~/.local/share/bash-completion/completions/maggy
+
+# fish
+ln -sf ~/.maggy/completions/maggy.fish ~/.config/fish/completions/maggy.fish
+```
+
+Open a new shell afterwards. With Homebrew on zsh, make sure `$(brew --prefix)/share/zsh/site-functions` is on your `fpath` (Homebrew's shell setup normally does this).
 
 ### Config
 

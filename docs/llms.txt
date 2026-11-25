@@ -1,6 +1,6 @@
 # Maggy
 
-> Maggy is an animated agy pet and custom statusline for Antigravity CLI (`agy`). A dancing Antigravity-logo animation sits beside the live model, context window usage %, 5-hour and weekly quota limit bars with reset countdowns, workspace, git branch, and reasoning effort. Free and open source (MIT), macOS/Linux, Python 3 standard library only, zero telemetry. Current version: 0.8.5. Unofficial; not affiliated with Google.
+> Maggy is an animated agy pet and custom statusline for Antigravity CLI (`agy`). A dancing Antigravity-logo animation sits beside the live model, context window usage %, 5-hour and weekly quota limit bars with reset countdowns, workspace, git branch, and reasoning effort. Free and open source (MIT), macOS/Linux, Python 3 standard library only, zero telemetry. Current version: 0.8.6. Unofficial; not affiliated with Google.
 
 Install for a user (non-interactive, safe to run from an agent):
 

@@ -75,7 +75,7 @@
       "nav.install": "Install",
       "nav.commands": "Commands",
       "nav.github": "GitHub",
-      "hero.title": "Maggy&nbsp;🌋 lives in your agy statusline.",
+      "hero.title": "Maggy&nbsp;<span aria-hidden=\"true\">🌋</span> lives in your agy statusline.",
       "hero.lede": "An animated terminal pet and custom <strong>Antigravity CLI (<code>agy</code>)</strong> statusline. Maggy dances while <code>agy</code> works, stomps through tool calls, and dozes off when you step away — right beside your live model, context window, quota usage bars, reasoning effort, and git branch.",
       "hero.hint": "macOS or Linux, Python 3, a truecolor terminal. <a href=\"#install\">Other ways to install</a>",
       "hero.spriteAria": "Maggy, the Antigravity logo with eyes, dancing",
@@ -154,7 +154,10 @@
       "faq.q4": "Can I hide the mascot or customize which statusline segments appear?",
       "faq.a4": "Yes. Run <code>maggy pet off</code> to keep only the metrics, <code>maggy motion off</code> for a still pose, or <code>maggy side right</code> to move Maggy to the right. Hide individual segments with <code>maggy statusline hide</code> (<code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>) and restore them with <code>maggy statusline show</code>.",
       "faq.q5": "What platforms and terminals are supported?",
-      "faq.a5": "Maggy works on macOS and Linux (including WSL) in any truecolor (24-bit) terminal such as Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, or VS Code's integrated terminal, and requires Python 3."
+      "faq.a5": "Maggy works on macOS and Linux (including WSL) in any truecolor (24-bit) terminal such as Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, or VS Code's integrated terminal, and requires Python 3.",
+      "a11y.pause": "Pause animation",
+      "a11y.play": "Play animation",
+      "a11y.footnote": "Footnote"
     },
     "zh-CN": {
       "meta.title": "Maggy — Antigravity CLI (agy) 终端宠物与自定义状态栏",
@@ -174,7 +177,7 @@
       "nav.install": "安装",
       "nav.commands": "命令",
       "nav.github": "GitHub",
-      "hero.title": "让 Maggy&nbsp;🌋 住进你的 <span class=\"nowrap\">agy 状态栏</span>",
+      "hero.title": "让 Maggy&nbsp;<span aria-hidden=\"true\">🌋</span> 住进你的 <span class=\"nowrap\">agy 状态栏</span>",
       "hero.lede": "专为 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的动态终端宠物与自定义状态栏。<code>agy</code> 干活时 Maggy 会跟着起舞，调用工具时欢快踏步，你离开一会儿她就打起瞌睡——紧挨着你的当前模型、上下文窗口、配额进度条、推理强度和 Git 分支。",
       "hero.hint": "需要 macOS 或 Linux、Python 3 和支持真彩色的终端。<a href=\"#install\">其他安装方式</a>",
       "hero.spriteAria": "正在跳舞的 Maggy（带眼睛的 Antigravity 标志宠物）",
@@ -253,7 +256,10 @@
       "faq.q4": "可以隐藏吉祥物或自定义显示哪些状态栏信息吗？",
       "faq.a4": "可以。运行 <code>maggy pet off</code> 可只保留指标，<code>maggy motion off</code> 可固定静态姿势，<code>maggy side right</code> 可将 Maggy 移到右侧。使用 <code>maggy statusline hide</code> 隐藏指定项（<code>model</code>、<code>context</code>、<code>quota</code>、<code>workspace</code>、<code>git</code>、<code>effort</code>），用 <code>maggy statusline show</code> 恢复。",
       "faq.q5": "支持哪些系统和终端？",
-      "faq.a5": "Maggy 支持 macOS 和 Linux（含 WSL），需安装 Python 3，并适配所有支持 24 位真彩色的终端，如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 及 VS Code 内置终端。"
+      "faq.a5": "Maggy 支持 macOS 和 Linux（含 WSL），需安装 Python 3，并适配所有支持 24 位真彩色的终端，如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 及 VS Code 内置终端。",
+      "a11y.pause": "暂停动画",
+      "a11y.play": "播放动画",
+      "a11y.footnote": "脚注"
     },
     "zh-TW": {
       "meta.title": "Maggy — Antigravity CLI (agy) 終端機寵物與自訂狀態列",
@@ -273,7 +279,7 @@
       "nav.install": "安裝",
       "nav.commands": "指令",
       "nav.github": "GitHub",
-      "hero.title": "讓 Maggy&nbsp;🌋 住進你的 <span class=\"nowrap\">agy 狀態列</span>",
+      "hero.title": "讓 Maggy&nbsp;<span aria-hidden=\"true\">🌋</span> 住進你的 <span class=\"nowrap\">agy 狀態列</span>",
       "hero.lede": "專為 <strong>Antigravity CLI（<code>agy</code>）</strong>打造的動態終端機寵物與自訂狀態列。<code>agy</code> 運作時 Maggy 會跟著起舞，呼叫工具時輕快踏步，你離開一下她就會打瞌睡——緊鄰你的目前模型、上下文視窗、配額進度條、推論強度與 Git 分支。",
       "hero.hint": "需要 macOS 或 Linux、Python 3 及支援真彩色的終端機。<a href=\"#install\">其他安裝方式</a>",
       "hero.spriteAria": "正在跳舞的 Maggy（長了眼睛的 Antigravity Logo 寵物）",
@@ -352,7 +358,10 @@
       "faq.q4": "可以隱藏吉祥物或自訂要顯示的狀態列區段嗎？",
       "faq.a4": "可以。執行 <code>maggy pet off</code> 只保留指標，<code>maggy motion off</code> 保持靜態姿勢，<code>maggy side right</code> 將 Maggy 移至右側。可用 <code>maggy statusline hide</code> 隱藏個別區段（<code>model</code>、<code>context</code>、<code>quota</code>、<code>workspace</code>、<code>git</code>、<code>effort</code>），並以 <code>maggy statusline show</code> 恢復。",
       "faq.q5": "支援哪些平台與終端機？",
-      "faq.a5": "Maggy 支援 macOS 與 Linux（包含 WSL），需要 Python 3，適用於所有 24-bit 全彩終端機，例如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 與 VS Code 內建終端機。"
+      "faq.a5": "Maggy 支援 macOS 與 Linux（包含 WSL），需要 Python 3，適用於所有 24-bit 全彩終端機，例如 Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp 與 VS Code 內建終端機。",
+      "a11y.pause": "暫停動畫",
+      "a11y.play": "播放動畫",
+      "a11y.footnote": "腳註"
     },
     "ja": {
       "meta.title": "Maggy — Antigravity CLI (agy) 向けターミナルペット＆ステータスライン",
@@ -372,7 +381,7 @@
       "nav.install": "インストール",
       "nav.commands": "コマンド",
       "nav.github": "GitHub",
-      "hero.title": "agy <span class=\"nowrap\">ステータスライン</span>に住む Maggy&nbsp;🌋",
+      "hero.title": "agy <span class=\"nowrap\">ステータスライン</span>に住む Maggy&nbsp;<span aria-hidden=\"true\">🌋</span>",
       "hero.lede": "<strong>Antigravity CLI（<code>agy</code>）</strong>向けのアニメーション付きターミナルペット＆カスタムステータスライン。<code>agy</code> が動いている間は楽しそうに踊り、ツール実行中は元気よく足踏みし、席を外すとうとうと居眠りします。使用中のモデル、コンテキスト使用率、クォータ残量バー、推論レベル、Git ブランチのすぐ隣でいつも一緒です。",
       "hero.hint": "macOS / Linux・Python 3・Truecolor 対応ターミナルが必要です。<a href=\"#install\">その他のインストール方法</a>",
       "hero.spriteAria": "目がついて踊る Antigravity ロゴのペット、Maggy",
@@ -451,7 +460,10 @@
       "faq.q4": "マスコットを非表示にしたり、表示する項目をカスタマイズできますか？",
       "faq.a4": "はい。<code>maggy pet off</code> でメトリクスのみ表示、<code>maggy motion off</code> で静止表示、<code>maggy side right</code> で右側配置に変更できます。<code>maggy statusline hide</code> で個別項目（<code>model</code>・<code>context</code>・<code>quota</code>・<code>workspace</code>・<code>git</code>・<code>effort</code>）を隠し、<code>maggy statusline show</code> で戻せます。",
       "faq.q5": "対応している OS とターミナルは？",
-      "faq.a5": "Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit トゥルーカラー対応のターミナルで利用できます。"
+      "faq.a5": "Python 3 が動作する macOS および Linux（WSL を含む）に対応しています。Ghostty、Kitty、iTerm2、WezTerm、Alacritty、Warp、VS Code 統合ターミナルなど、24-bit トゥルーカラー対応のターミナルで利用できます。",
+      "a11y.pause": "アニメーションを一時停止",
+      "a11y.play": "アニメーションを再生",
+      "a11y.footnote": "脚注"
     },
     "ko": {
       "meta.title": "Maggy — Antigravity CLI (agy)용 터미널 펫 & 상태바",
@@ -471,7 +483,7 @@
       "nav.install": "설치",
       "nav.commands": "명령어",
       "nav.github": "GitHub",
-      "hero.title": "내 <span class=\"nowrap\">agy 상태바</span>에 사는 Maggy&nbsp;🌋",
+      "hero.title": "내 <span class=\"nowrap\">agy 상태바</span>에 사는 Maggy&nbsp;<span aria-hidden=\"true\">🌋</span>",
       "hero.lede": "<strong>Antigravity CLI(<code>agy</code>)</strong>용 애니메이션 터미널 펫이자 커스텀 상태바입니다. <code>agy</code>가 일할 땐 신나게 춤추고, 도구를 호출할 땐 발을 동동 구르며, 자리를 비우면 꾸벅꾸벅 좁니다. 현재 모델, 컨텍스트 창, 할당량 바, 추론 강도, Git 브랜치 바로 옆에서 함께합니다.",
       "hero.hint": "macOS 또는 Linux, Python 3, 트루컬러 터미널이 필요합니다. <a href=\"#install\">다른 설치 방법</a>",
       "hero.spriteAria": "눈이 달린 Antigravity 로고 펫 Maggy가 춤추는 모습",
@@ -550,7 +562,10 @@
       "faq.q4": "마스코트를 숨기거나 표시할 상태 표시줄 항목을 선택할 수 있나요?",
       "faq.a4": "네. <code>maggy pet off</code>로 지표만 남기거나, <code>maggy motion off</code>로 정지 포즈를 유지하고, <code>maggy side right</code>로 오른쪽으로 옮길 수 있습니다. <code>maggy statusline hide</code>로 항목(<code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>)을 숨기고 <code>maggy statusline show</code>로 복원하세요.",
       "faq.q5": "어떤 플랫폼과 터미널을 지원하나요?",
-      "faq.a5": "Python 3가 설치된 macOS 및 Linux(WSL 포함)에서 동작하며 Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, VS Code 통합 터미널 등 모든 24비트 트루컬러 터미널을 지원합니다."
+      "faq.a5": "Python 3가 설치된 macOS 및 Linux(WSL 포함)에서 동작하며 Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp, VS Code 통합 터미널 등 모든 24비트 트루컬러 터미널을 지원합니다.",
+      "a11y.pause": "애니메이션 일시정지",
+      "a11y.play": "애니메이션 재생",
+      "a11y.footnote": "각주"
     },
     "es": {
       "meta.title": "Maggy — Mascota y barra de estado de Antigravity CLI (agy)",
@@ -570,7 +585,7 @@
       "nav.install": "Instalar",
       "nav.commands": "Comandos",
       "nav.github": "GitHub",
-      "hero.title": "Maggy&nbsp;🌋 vive en tu statusline de agy.",
+      "hero.title": "Maggy&nbsp;<span aria-hidden=\"true\">🌋</span> vive en tu statusline de agy.",
       "hero.lede": "Una mascota animada para tu terminal y barra de estado a medida para <strong>Antigravity CLI (<code>agy</code>)</strong>. Maggy baila mientras <code>agy</code> trabaja, zapatea con cada llamada a herramientas y se echa una siesta cuando te alejas, justo al lado de tu modelo activo, ventana de contexto, barras de cuota, nivel de razonamiento y rama de git.",
       "hero.hint": "macOS o Linux, Python 3 y una terminal truecolor. <a href=\"#install\">Otras formas de instalar</a>",
       "hero.spriteAria": "Maggy, el logotipo de Antigravity con ojos, bailando",
@@ -649,7 +664,10 @@
       "faq.q4": "¿Puedo ocultar la mascota o elegir qué segmentos mostrar?",
       "faq.a4": "Sí. Ejecuta <code>maggy pet off</code> para ver solo las métricas, <code>maggy motion off</code> para una pose fija o <code>maggy side right</code> para mover a Maggy a la derecha. Oculta segmentos con <code>maggy statusline hide</code> (<code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>) y restáuralos con <code>maggy statusline show</code>.",
       "faq.q5": "¿Qué plataformas y terminales son compatibles?",
-      "faq.a5": "Maggy funciona en macOS y Linux (incluido WSL) en cualquier terminal truecolor (24 bits) como Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp o el terminal integrado de VS Code, y requiere Python 3."
+      "faq.a5": "Maggy funciona en macOS y Linux (incluido WSL) en cualquier terminal truecolor (24 bits) como Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp o el terminal integrado de VS Code, y requiere Python 3.",
+      "a11y.pause": "Pausar animación",
+      "a11y.play": "Reproducir animación",
+      "a11y.footnote": "Nota al pie"
     },
     "fr": {
       "meta.title": "Maggy — Mascotte & barre d'état pour Antigravity CLI (agy)",
@@ -669,7 +687,7 @@
       "nav.install": "Installer",
       "nav.commands": "Commandes",
       "nav.github": "GitHub",
-      "hero.title": "Maggy&nbsp;🌋 s'installe dans votre statusline agy.",
+      "hero.title": "Maggy&nbsp;<span aria-hidden=\"true\">🌋</span> s'installe dans votre statusline agy.",
       "hero.lede": "Une mascotte animée de terminal et barre d'état sur mesure pour <strong>Antigravity CLI (<code>agy</code>)</strong>. Maggy danse pendant qu'<code>agy</code> réfléchit, trépigne lors des appels d'outils et pique du nez quand vous vous absentez — juste à côté du modèle actif, de la fenêtre de contexte, des barres de quota, du niveau de raisonnement et de votre branche git.",
       "hero.hint": "macOS ou Linux, Python 3, un terminal truecolor. <a href=\"#install\">Autres méthodes d'installation</a>",
       "hero.spriteAria": "Maggy, le logo Antigravity doté d'yeux, en train de danser",
@@ -748,7 +766,10 @@
       "faq.q4": "Puis-je masquer la mascotte ou choisir les segments affichés ?",
       "faq.a4": "Oui. Lancez <code>maggy pet off</code> pour ne garder que les métriques, <code>maggy motion off</code> pour une pose fixe ou <code>maggy side right</code> pour placer Maggy à droite. Masquez des segments avec <code>maggy statusline hide</code> (<code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>) et restaurez-les avec <code>maggy statusline show</code>.",
       "faq.q5": "Quels systèmes et terminaux sont pris en charge ?",
-      "faq.a5": "Maggy fonctionne sur macOS et Linux (y compris WSL) dans tout terminal truecolor (24 bits) comme Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp ou le terminal intégré de VS Code, avec Python 3."
+      "faq.a5": "Maggy fonctionne sur macOS et Linux (y compris WSL) dans tout terminal truecolor (24 bits) comme Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp ou le terminal intégré de VS Code, avec Python 3.",
+      "a11y.pause": "Mettre en pause l’animation",
+      "a11y.play": "Lancer l’animation",
+      "a11y.footnote": "Note de bas de page"
     },
     "de": {
       "meta.title": "Maggy — Pet & Statuszeile für Antigravity CLI (agy)",
@@ -768,7 +789,7 @@
       "nav.install": "Installieren",
       "nav.commands": "Befehle",
       "nav.github": "GitHub",
-      "hero.title": "Maggy&nbsp;🌋 zieht in deine agy-Statuszeile ein.",
+      "hero.title": "Maggy&nbsp;<span aria-hidden=\"true\">🌋</span> zieht in deine agy-Statuszeile ein.",
       "hero.lede": "Ein animiertes Terminal-Maskottchen und eine eigene Statuszeile für <strong>Antigravity CLI (<code>agy</code>)</strong>. Maggy tanzt, während <code>agy</code> arbeitet, stampft bei Tool-Aufrufen und nickt ein, wenn du kurz weg bist – direkt neben aktivem Modell, Kontextfenster, Kontingentbalken, Reasoning-Stufe und Git-Branch.",
       "hero.hint": "macOS oder Linux, Python 3, ein Truecolor-Terminal. <a href=\"#install\">Weitere Installationswege</a>",
       "hero.spriteAria": "Maggy, das tanzende Antigravity-Logo mit Augen",
@@ -847,7 +868,10 @@
       "faq.q4": "Kann ich das Maskottchen ausblenden oder Segmente anpassen?",
       "faq.a4": "Ja. Mit <code>maggy pet off</code> bleiben nur die Metriken, <code>maggy motion off</code> hält eine feste Pose und <code>maggy side right</code> verschiebt Maggy nach rechts. Einzelne Segmente blendest du mit <code>maggy statusline hide</code> (<code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>) aus und mit <code>maggy statusline show</code> wieder ein.",
       "faq.q5": "Welche Plattformen und Terminals werden unterstützt?",
-      "faq.a5": "Maggy läuft unter macOS und Linux (inkl. WSL) in jedem 24-Bit-Truecolor-Terminal wie Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp oder dem integrierten VS-Code-Terminal und benötigt Python 3."
+      "faq.a5": "Maggy läuft unter macOS und Linux (inkl. WSL) in jedem 24-Bit-Truecolor-Terminal wie Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp oder dem integrierten VS-Code-Terminal und benötigt Python 3.",
+      "a11y.pause": "Animation pausieren",
+      "a11y.play": "Animation abspielen",
+      "a11y.footnote": "Fußnote"
     },
     "pt": {
       "meta.title": "Maggy — Mascote e barra de status de Antigravity CLI (agy)",
@@ -867,7 +891,7 @@
       "nav.install": "Instalar",
       "nav.commands": "Comandos",
       "nav.github": "GitHub",
-      "hero.title": "A Maggy&nbsp;🌋 mora na sua statusline do agy.",
+      "hero.title": "A Maggy&nbsp;<span aria-hidden=\"true\">🌋</span> mora na sua statusline do agy.",
       "hero.lede": "Uma mascote animada de terminal e barra de status sob medida para a <strong>Antigravity CLI (<code>agy</code>)</strong>. A Maggy dança enquanto o <code>agy</code> trabalha, sapateia nas chamadas de ferramentas e tira um cochilo quando você se afasta — bem ao lado do modelo atual, janela de contexto, barras de cota, nível de raciocínio e branch do git.",
       "hero.hint": "macOS ou Linux, Python 3 e um terminal truecolor. <a href=\"#install\">Outras formas de instalar</a>",
       "hero.spriteAria": "Maggy, o logotipo da Antigravity com olhos, dançando",
@@ -946,7 +970,10 @@
       "faq.q4": "Posso ocultar a mascote ou escolher quais segmentos exibir?",
       "faq.a4": "Sim. Execute <code>maggy pet off</code> para manter apenas as métricas, <code>maggy motion off</code> para pose fixa ou <code>maggy side right</code> para mover a Maggy para a direita. Oculte segmentos com <code>maggy statusline hide</code> (<code>model</code>, <code>context</code>, <code>quota</code>, <code>workspace</code>, <code>git</code>, <code>effort</code>) e restaure com <code>maggy statusline show</code>.",
       "faq.q5": "Quais plataformas e terminais são suportados?",
-      "faq.a5": "A Maggy funciona no macOS e Linux (incluindo WSL) em qualquer terminal truecolor (24 bits) como Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp ou o terminal integrado do VS Code, e requer Python 3."
+      "faq.a5": "A Maggy funciona no macOS e Linux (incluindo WSL) em qualquer terminal truecolor (24 bits) como Ghostty, Kitty, iTerm2, WezTerm, Alacritty, Warp ou o terminal integrado do VS Code, e requer Python 3.",
+      "a11y.pause": "Pausar animação",
+      "a11y.play": "Reproduzir animação",
+      "a11y.footnote": "Nota de rodapé"
     }
   }
 }

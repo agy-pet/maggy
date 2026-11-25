@@ -233,10 +233,11 @@
     return (MOODS[mood] || MOODS.idle).replace("{name}", name);
   }
 
-  // Statusline mock, colors from statusline.py.
+  // Statusline mock, colors from statusline.py (CSS tokens adapt for light terminal contrast).
   const T = {
-    blue: "rgb(0,153,255)", orange: "rgb(255,176,85)", green: "rgb(0,175,80)", cyan: "rgb(86,182,194)",
-    white: "rgb(220,220,220)", magenta: "rgb(180,140,255)",
+    blue: "var(--t-blue, rgb(0,153,255))", orange: "var(--t-orange, rgb(255,176,85))",
+    green: "var(--t-green, rgb(0,175,80))", cyan: "var(--t-cyan, rgb(86,182,194))",
+    white: "var(--term-text, rgb(220,220,220))", magenta: "var(--t-magenta, rgb(180,140,255))",
   };
   const span = (color, text, cls = "") => `<span class="${cls}" style="color:${color}">${esc(text)}</span>`;
   const dim = (text) => `<span class="dim">${esc(text)}</span>`;
@@ -274,10 +275,14 @@
   const big = document.getElementById("maggy");
   const caption = document.getElementById("mood");
   const term = document.getElementById("term-body");
+  const termSr = document.getElementById("term-sr");
+  const motionBtn = document.getElementById("motion-toggle");
+  const statusRegion = document.getElementById("a11y-status");
   const themeSprites = Array.from(document.querySelectorAll("[data-theme-sprite]"));
   const themeCards = Array.from(document.querySelectorAll("[data-theme-card]"));
   const themeSelect = document.getElementById("opt-theme");
   let galleryFrame = 0;
+  let paused = reduced.matches;
 
   function drawThemes() {
     themeSprites.forEach((el) => {
@@ -292,13 +297,28 @@
     });
   }
 
+  function updateTermSr() {
+    if (!termSr) return;
+    const parts = [
+      "Model: Gemini 3 Pro",
+      "Context: 18%",
+      "Quota: gemini 5h 16% (resets 2:56pm, 4h), gemini wk 8% (resets nov 30, 10:56am, 5d), 3p 5h 0% (resets 3:56pm, 5h)",
+      "Workspace: my-app (main)",
+      "Effort: medium",
+    ];
+    if (state.mood_line) parts.push(M.moodText(state.mood, state.name));
+    const summary = parts.join(". ") + ".";
+    if (termSr.textContent !== summary) termSr.textContent = summary;
+  }
+
   function draw() {
     const opts = { theme: state.theme, fidget: state.fidget, blink: state.blink };
     const rows = M.renderSprite(state.mood, state.frame, opts);
-    big.innerHTML = rows.map((r) => `<div class="row">${M.cellsHTML(r)}</div>`).join("");
+    big.innerHTML = rows.map((r) => `<div class="row" aria-hidden="true">${M.cellsHTML(r)}</div>`).join("");
     big.classList.toggle("xmas", state.theme === "xmas");
     big.classList.toggle("halloween", state.theme === "halloween");
-    caption.textContent = M.moodText(state.mood, state.name);
+    const nextMood = M.moodText(state.mood, state.name);
+    if (caption.textContent !== nextMood) caption.textContent = nextMood;
 
     const right = M.statuslineRight(state.mood, { name: state.name, mood: state.mood_line });
     const width = rows[0].length;
@@ -306,6 +326,7 @@
     term.innerHTML = Array.from({ length: Math.max(rows.length, right.length) }, (_, i) =>
       `<div class="row">${rows[i] ? M.cellsHTML(rows[i]) : blank}<span class="rt">  ${right[i] || ""}</span></div>`
     ).join("");
+    updateTermSr();
     syncThemeCards();
   }
 
@@ -326,12 +347,31 @@
     state.fidget = next;
   }
 
+  function syncMotionUI() {
+    document.documentElement.classList.toggle("motion-paused", paused);
+    if (!motionBtn) return;
+    const label = paused ? (motionBtn.dataset.labelPlay || "Play animation") : (motionBtn.dataset.labelPause || "Pause animation");
+    motionBtn.setAttribute("aria-pressed", String(paused));
+    motionBtn.setAttribute("aria-label", label);
+    motionBtn.title = label;
+  }
+
   let timer = null;
   function play() {
     clearInterval(timer);
-    timer = reduced.matches ? null : setInterval(step, 280);
+    syncMotionUI();
+    timer = paused ? null : setInterval(step, 280);
   }
-  reduced.addEventListener?.("change", play);
+  if (motionBtn) {
+    motionBtn.addEventListener("click", () => {
+      paused = !paused;
+      play();
+    });
+  }
+  reduced.addEventListener?.("change", () => {
+    paused = reduced.matches;
+    play();
+  });
   document.addEventListener("visibilitychange", () => (document.hidden ? clearInterval(timer) : play()));
 
   // agent_state chips
@@ -404,9 +444,14 @@
     };
     t.addEventListener("click", select);
     t.addEventListener("keydown", (e) => {
-      const dir = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-      if (!dir) return;
-      const next = tabs[(i + dir + tabs.length) % tabs.length];
+      let nextIdx = -1;
+      if (e.key === "ArrowRight") nextIdx = (i + 1) % tabs.length;
+      else if (e.key === "ArrowLeft") nextIdx = (i - 1 + tabs.length) % tabs.length;
+      else if (e.key === "Home") nextIdx = 0;
+      else if (e.key === "End") nextIdx = tabs.length - 1;
+      if (nextIdx < 0) return;
+      e.preventDefault();
+      const next = tabs[nextIdx];
       next.focus();
       next.click();
     });
@@ -416,13 +461,20 @@
   const copyIdle = document.body.dataset.copyIdle || "Copy";
   const copyCopied = document.body.dataset.copyCopied || "Copied";
   const copyFallback = document.body.dataset.copyFallback || "Select and copy";
+  const announce = (msg) => {
+    if (!statusRegion) return;
+    statusRegion.textContent = "";
+    requestAnimationFrame(() => { statusRegion.textContent = msg; });
+  };
   document.querySelectorAll("[data-copy]").forEach((btn) => btn.addEventListener("click", async () => {
     const text = document.getElementById(btn.dataset.copy).textContent.trim();
     try {
       await navigator.clipboard.writeText(text);
       btn.textContent = copyCopied;
+      announce(copyCopied);
     } catch {
       btn.textContent = copyFallback;
+      announce(copyFallback);
     }
     setTimeout(() => (btn.textContent = copyIdle), 1600);
   }));
@@ -430,11 +482,22 @@
   // Language switcher menu (dismiss on outside click or Escape)
   const langPicker = document.querySelector("details.lang-picker");
   if (langPicker) {
+    // The menu hangs off the picker's right edge; when the footer wraps on
+    // narrow screens the picker sits at the row start, so open it rightward.
+    const langMenu = langPicker.querySelector(".lang-menu");
+    langPicker.addEventListener("toggle", () => {
+      if (!langPicker.open || !langMenu) return;
+      langPicker.classList.remove("lang-picker--start");
+      if (langMenu.getBoundingClientRect().left < 8) langPicker.classList.add("lang-picker--start");
+    });
     document.addEventListener("click", (e) => {
       if (langPicker.open && !langPicker.contains(e.target)) langPicker.open = false;
     });
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape" && langPicker.open) langPicker.open = false;
+      if (e.key === "Escape" && langPicker.open) {
+        langPicker.open = false;
+        langPicker.querySelector("summary")?.focus();
+      }
     });
   }
 

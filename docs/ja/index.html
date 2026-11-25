@@ -331,28 +331,6 @@
         </button>
       </div>
 
-      <div class="theme-custom">
-        <div class="theme-custom-copy">
-          <h3>オリジナルテーマを作る</h3>
-          <p><code>~/.config/maggy/themes/</code> に JSON ファイルを置くだけで、ファイル名がそのままテーマ名になります（例：<code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。パーツやセル単位で配色を変えたり、きらめき記号を差し替えたり、<code>prop</code> で Maggy の横にツリーや提灯のような飾りを描いたり、<code>base</code> で組み込みテーマをベースにしたりできます。<code>dates</code> を設定すれば <code>auto</code> で自動表示。<code>maggy theme list</code> で一覧を確認できます。</p>
-        </div>
-        <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
-          <pre class="theme-json" tabindex="0"><code>{
-  "$schema": "https://agy-pet.github.io/theme.schema.json",
-  "description": "St Patrick's Day",
-  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
-  "sparkles": { "✦": "☘", "·": "·" },
-  "sparkle_color": "#a3e635",
-  "prop": ["c c", "ccc", " s "],
-  "prop_cells": {
-    "c": { "bg": "#1f9d55" },
-    "s": { "fg": "#3f6212", "glyphs": ["│"] }
-  },
-  "dates": ["03-17"]
-}</code></pre>
-        </div>
-      </div>
     </section>
 
     <section id="install" class="install" aria-labelledby="install-title">
@@ -408,6 +386,29 @@
         <div><dt><code>maggy config</code></dt><dd><code>~/.config/maggy/config.json</code> を表示します。<code>get</code>・<code>set</code>・<code>reset</code> で編集できます。</dd></div>
         <div><dt><code>maggy uninstall --purge</code></dt><dd>statusLine の設定・設定ファイル・キャッシュを削除します。他の agy 設定には触れません。</dd></div>
       </dl>
+
+      <div class="theme-custom">
+        <div class="theme-custom-copy">
+          <h3>オリジナルテーマを作る</h3>
+          <p><code>~/.config/maggy/themes/</code> に JSON ファイルを置くだけで、ファイル名がそのままテーマ名になります（例：<code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。パーツやセル単位で配色を変えたり、きらめき記号を差し替えたり、<code>prop</code> で Maggy の横にツリーや提灯のような飾りを描いたり、<code>base</code> で組み込みテーマをベースにしたりできます。<code>dates</code> を設定すれば <code>auto</code> で自動表示。<code>maggy theme list</code> で一覧を確認できます。</p>
+        </div>
+        <div class="theme-json-wrap">
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <pre class="theme-json" tabindex="0"><code>{
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
+  "description": "St Patrick's Day",
+  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
+  "sparkles": { "✦": "☘", "·": "·" },
+  "sparkle_color": "#a3e635",
+  "prop": ["c c", "ccc", " s "],
+  "prop_cells": {
+    "c": { "bg": "#1f9d55" },
+    "s": { "fg": "#3f6212", "glyphs": ["│"] }
+  },
+  "dates": ["03-17"]
+}</code></pre>
+        </div>
+      </div>
     </section>
 
     <section id="faq" class="faq" aria-labelledby="faq-title">

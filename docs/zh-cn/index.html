@@ -331,28 +331,6 @@
         </button>
       </div>
 
-      <div class="theme-custom">
-        <div class="theme-custom-copy">
-          <h3>打造你的专属主题</h3>
-          <p>将 JSON 文件放入 <code>~/.config/maggy/themes/</code>，文件名即为主题名（如 <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。可按区域或像素格自定义配色、替换星光字符，用 <code>prop</code> 在 Maggy 身旁画出自己的装饰（就像圣诞树或灯笼），或用 <code>base</code> 基于内置主题修改。设置 <code>dates</code> 即可让 <code>auto</code> 在指定日期自动切换，运行 <code>maggy theme list</code> 查看全部已安装主题。</p>
-        </div>
-        <div class="theme-json-wrap">
-          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
-          <pre class="theme-json" tabindex="0"><code>{
-  "$schema": "https://agy-pet.github.io/theme.schema.json",
-  "description": "St Patrick's Day",
-  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
-  "sparkles": { "✦": "☘", "·": "·" },
-  "sparkle_color": "#a3e635",
-  "prop": ["c c", "ccc", " s "],
-  "prop_cells": {
-    "c": { "bg": "#1f9d55" },
-    "s": { "fg": "#3f6212", "glyphs": ["│"] }
-  },
-  "dates": ["03-17"]
-}</code></pre>
-        </div>
-      </div>
     </section>
 
     <section id="install" class="install" aria-labelledby="install-title">
@@ -408,6 +386,29 @@
         <div><dt><code>maggy config</code></dt><dd>查看 <code>~/.config/maggy/config.json</code>，支持通过 <code>get</code>、<code>set</code> 或 <code>reset</code> 修改。</dd></div>
         <div><dt><code>maggy uninstall --purge</code></dt><dd>移除 statusLine 配置项、配置文件与缓存，其余 agy 设置保持原样。</dd></div>
       </dl>
+
+      <div class="theme-custom">
+        <div class="theme-custom-copy">
+          <h3>打造你的专属主题</h3>
+          <p>将 JSON 文件放入 <code>~/.config/maggy/themes/</code>，文件名即为主题名（如 <code>paddy.json</code> &rarr; <code>maggy theme paddy</code>）。可按区域或像素格自定义配色、替换星光字符，用 <code>prop</code> 在 Maggy 身旁画出自己的装饰（就像圣诞树或灯笼），或用 <code>base</code> 基于内置主题修改。设置 <code>dates</code> 即可让 <code>auto</code> 在指定日期自动切换，运行 <code>maggy theme list</code> 查看全部已安装主题。</p>
+        </div>
+        <div class="theme-json-wrap">
+          <div class="term-bar"><span>~/.config/maggy/themes/paddy.json</span><a class="schema-link" href="https://agy-pet.github.io/theme.schema.json" title="JSON Schema for theme files">schema</a></div>
+          <pre class="theme-json" tabindex="0"><code>{
+  "$schema": "https://agy-pet.github.io/theme.schema.json",
+  "description": "St Patrick's Day",
+  "colors": { "crown": "#1f9d55", "feet": [20, 120, 60] },
+  "sparkles": { "✦": "☘", "·": "·" },
+  "sparkle_color": "#a3e635",
+  "prop": ["c c", "ccc", " s "],
+  "prop_cells": {
+    "c": { "bg": "#1f9d55" },
+    "s": { "fg": "#3f6212", "glyphs": ["│"] }
+  },
+  "dates": ["03-17"]
+}</code></pre>
+        </div>
+      </div>
     </section>
 
     <section id="faq" class="faq" aria-labelledby="faq-title">

@@ -210,6 +210,7 @@ def build_locale_html(template: str, loc: dict, locales: list[dict], msgs: dict[
         out = out.replace('href="favicon.svg"', 'href="../favicon.svg"')
         out = out.replace('src="favicon.svg"', 'src="../favicon.svg"')
         out = out.replace('href="style.css"', 'href="../style.css"')
+        out = out.replace('href="fonts/', 'href="../fonts/')
         out = out.replace('src="consent.js"', 'src="../consent.js"')
         out = out.replace('src="maggy.js"', 'src="../maggy.js"')
         out = out.replace('src="appearance.js"', 'src="../appearance.js"')

@@ -4,8 +4,8 @@
 class Maggy < Formula
   desc "Dancing Antigravity logo for the agy statusline"
   homepage "https://agy-pet.github.io/"
-  url "https://github.com/agy-pet/maggy/releases/download/v0.8.3/maggy-0.8.3.tar.gz"
-  sha256 "de699f9ba21fbb342f7c75f32421e41cb79f1f7f448814947982d03d56294a96"
+  url "https://github.com/agy-pet/maggy/releases/download/v0.8.4/maggy-0.8.4.tar.gz"
+  sha256 "82297d7c0b373b763021e5e3e235879b27c0395f15a6bfac6b572be9d01593ba"
   license "MIT"
   head "https://github.com/agy-pet/maggy.git", branch: "master"
 

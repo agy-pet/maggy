@@ -220,11 +220,25 @@ p code, li code, dd code {
 .appearance button:focus-visible { outline-offset: 1px; }
 @media (prefers-reduced-motion: reduce) { .appearance button { transition: none; } }
 
-/* CJK typography adjustments */
-:root:lang(zh-CN) { --body: "Instrument Sans", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC", system-ui, sans-serif; }
-:root:lang(zh-TW) { --body: "Instrument Sans", "Noto Sans TC", "PingFang TC", "Hiragino Sans CNS", "Microsoft JhengHei", "Source Han Sans TC", system-ui, sans-serif; }
-:root:lang(ja) { --body: "Instrument Sans", "Noto Sans JP", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Yu Gothic", "Meiryo", system-ui, sans-serif; }
-:root:lang(ko) { --body: "Instrument Sans", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif; }
+/* CJK typography adjustments. OS-bundled fonts only: naming a user-installed Noto Sans SC/TC/JP/KR
+   variable font (~18 MB) stalls rendering ~10 s in Chrome on macOS, and
+   Linux/Android reach their bundled Noto CJK through system fallback. */
+:root:lang(zh-CN) {
+  --cjk: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans SC";
+  --body: "Instrument Sans", var(--cjk), system-ui, sans-serif;
+}
+:root:lang(zh-TW) {
+  --cjk: "PingFang TC", "Hiragino Sans CNS", "Microsoft JhengHei", "Source Han Sans TC";
+  --body: "Instrument Sans", var(--cjk), system-ui, sans-serif;
+}
+:root:lang(ja) {
+  --cjk: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Yu Gothic", "Meiryo";
+  --body: "Instrument Sans", var(--cjk), system-ui, sans-serif;
+}
+:root:lang(ko) {
+  --cjk: "Apple SD Gothic Neo", "Malgun Gothic";
+  --body: "Instrument Sans", var(--cjk), system-ui, sans-serif;
+}
 :is(:lang(zh-CN), :lang(zh-TW), :lang(ja), :lang(ko)) body {
   line-height: 1.75;
 }

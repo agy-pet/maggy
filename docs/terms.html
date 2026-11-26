@@ -51,7 +51,23 @@
     })();
     gtag('js', new Date());
   </script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X"></script>
+  <script>
+    // Load GTM off the critical path: on first interaction, or once the page
+    // has settled after load, so it never competes with first render.
+    (function(){
+      var done = false, ev = ['pointerdown','keydown','touchstart','scroll'];
+      function load(){
+        if (done) return; done = true;
+        ev.forEach(function(e){ removeEventListener(e, load, true); });
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-N3ZC3P7X';
+        document.head.appendChild(s);
+      }
+      ev.forEach(function(e){ addEventListener(e, load, { capture: true, passive: true, once: true }); });
+      addEventListener('load', function(){ setTimeout(load, 6000); });
+    })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>

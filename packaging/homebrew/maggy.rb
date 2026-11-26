@@ -9,14 +9,18 @@ class Maggy < Formula
   license "MIT"
   head "https://github.com/agy-pet/maggy.git", branch: "master"
 
-  depends_on "python@3.13"
+  # Stdlib-only and runs on Python 3.9+. On macOS, bin/maggy falls back to
+  # /usr/bin/python3 (Command Line Tools, which Homebrew already requires),
+  # so we don't pull in a brewed Python and its dependency chain there.
+  on_linux do
+    depends_on "python@3.13"
+  end
 
   def install
     libexec.install Dir["*.py"], "VERSION", "bin"
-    (bin/"maggy").write_env_script libexec/"bin/maggy",
-      MAGGY_PYTHON: formula_opt_bin("python@3.13")/"python3.13",
-      MAGGY_BIN:    opt_bin/"maggy",
-      MAGGY_BREW:   "1"
+    env = { MAGGY_BIN: opt_bin/"maggy", MAGGY_BREW: "1" }
+    env[:MAGGY_PYTHON] = formula_opt_bin("python@3.13")/"python3.13" if OS.linux?
+    (bin/"maggy").write_env_script libexec/"bin/maggy", env
     bash_completion.install "completions/maggy.bash" => "maggy"
     zsh_completion.install "completions/_maggy"
     fish_completion.install "completions/maggy.fish"

@@ -167,13 +167,26 @@ def cmd_setup(args):
     data = read_settings(path)
     status = data.get("statusLine") if isinstance(data.get("statusLine"), dict) else {}
     if status and not is_ours(status) and not args.force:
-        executable = "maggy" if shutil.which("maggy") else maggy_bin()
-        retry = [executable, "setup", "--force", *args.argv[1:]]
-        if os.environ.get("AGY_SETTINGS") and not args.settings:
-            retry.extend(["--settings", path])
-        die(f"{path} already has a custom status line:\n  {status.get('command')}\n\n"
-            f"To use Maggy instead, run this command:\n  {shlex.join(retry)}\n\n"
-            f"Maggy will back up your current settings to {path}.bak before switching.")
+        found = f"{path} already has a custom status line:\n  {status.get('command')}\n"
+        if sys.stdin.isatty():
+            print(f"{yellow('note:')} {found}")
+            try:
+                answer = input(f"Replace it with Maggy? Your settings will be backed up to "
+                               f"{path}.bak first. [y/N] ")
+            except (EOFError, KeyboardInterrupt):
+                answer = ""
+                print()
+            if answer.strip().lower() not in ("y", "yes"):
+                say("Left your status line as it is.")
+                sys.exit(1)
+        else:
+            executable = "maggy" if shutil.which("maggy") else maggy_bin()
+            retry = [executable, "setup", "--force", *args.argv[1:]]
+            if os.environ.get("AGY_SETTINGS") and not args.settings:
+                retry.extend(["--settings", path])
+            die(f"{found}\n"
+                f"To use Maggy instead, run this command:\n  {shlex.join(retry)}\n\n"
+                f"Maggy will back up your current settings to {path}.bak before switching.")
     status.update({"type": "command", "command": statusline_command(), "enabled": True})
     if args.padding is not None:
         status["padding"] = max(0, args.padding)

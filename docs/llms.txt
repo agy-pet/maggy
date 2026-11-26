@@ -23,7 +23,7 @@ Notes for agents:
 - [Full documentation (Markdown)](https://agy-pet.github.io/llms-full.txt): install, every command, config keys, env vars, theme JSON schema, troubleshooting
 - [Landing page](https://agy-pet.github.io/): interactive demo of the statusline and themes
 - [Theme JSON Schema](https://agy-pet.github.io/theme.schema.json): every key a custom theme file can use, with descriptions
-- [README on GitHub](https://github.com/agy-pet/maggy#readme): same content as the full docs, rendered
+- [Full guide on GitHub](https://github.com/agy-pet/maggy/blob/master/GUIDE.md): same content as the full docs, rendered
 
 ## Source
 

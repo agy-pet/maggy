@@ -4,7 +4,7 @@
 Reads docs/index.html (English source) and scripts/locales.json, then writes:
   - docs/<slug>/index.html for each non-English locale
   - docs/sitemap.xml with hreflang alternates for all locales
-  - docs/llms.txt, docs/llms-full.txt and docs/index.md for AI agents (from README.md)
+  - docs/llms.txt, docs/llms-full.txt and docs/index.md for AI agents (from GUIDE.md)
   - docs/install.sh, a stub served at the site root that runs install.sh from the
     latest GitHub release
   - docs/.well-known/agent-skills/ (index.json + SKILL.md files) from scripts/agent-skills/
@@ -337,9 +337,9 @@ def sync_version(template: str, version: str) -> str:
 
 
 def readme_for_web(readme: str) -> str:
-    """README with repo-relative links made absolute so it reads correctly off GitHub."""
+    """GUIDE.md with repo-relative links made absolute so it reads correctly off GitHub."""
     readme = re.sub(r"\]\((assets/[^)\s]+)\)", rf"]({RAW_URL}\1)", readme)
-    readme = re.sub(r"\]\(#([^)\s]+)\)", rf"]({REPO_URL}#\1)", readme)
+    readme = re.sub(r"\]\(#([^)\s]+)\)", rf"]({REPO_URL}/blob/master/GUIDE.md#\1)", readme)
     return readme
 
 
@@ -373,7 +373,7 @@ Notes for agents:
 - [Full documentation (Markdown)]({base_url}llms-full.txt): install, every command, config keys, env vars, theme JSON schema, troubleshooting
 - [Landing page]({base_url}): interactive demo of the statusline and themes
 - [Theme JSON Schema](https://agy-pet.github.io/theme.schema.json): every key a custom theme file can use, with descriptions
-- [README on GitHub]({REPO_URL}#readme): same content as the full docs, rendered
+- [Full guide on GitHub]({REPO_URL}/blob/master/GUIDE.md): same content as the full docs, rendered
 
 ## Source
 
@@ -439,7 +439,7 @@ def main() -> None:
     if template != SOURCE_HTML.read_text(encoding="utf-8"):
         SOURCE_HTML.write_text(template, encoding="utf-8")
 
-    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    readme = (ROOT / "GUIDE.md").read_text(encoding="utf-8")
     full = build_llms_full(readme, base_url, version)
     (DOCS / "llms.txt").write_text(build_llms_txt(base_url, version, locales), encoding="utf-8")
     (DOCS / "llms-full.txt").write_text(full, encoding="utf-8")

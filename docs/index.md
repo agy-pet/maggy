@@ -1,4 +1,4 @@
-<!-- Maggy 0.8.6 — full docs for AI agents and LLMs. Index: https://agy-pet.github.io/llms.txt · Source: https://github.com/agy-pet/maggy -->
+<!-- Maggy 0.8.7 — full docs for AI agents and LLMs. Index: https://agy-pet.github.io/llms.txt · Source: https://github.com/agy-pet/maggy -->
 
 # maggy
 
